@@ -13,7 +13,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 
-namespace _2DRacingGame
+namespace ProjectGameInteraction2DRacingGame
 {
     /// <summary>
     /// Interaction logic for MainWindow.xaml

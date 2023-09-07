@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.7.34003.232
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2DRacingGame", "2DRacingGame\2DRacingGame.csproj", "{4BEABA8F-F332-4727-BDE0-FDEC281BF612}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProjectGameInteraction2DRacingGame", "ProjectGameInteraction2DRacingGame.csproj", "{522CDAA6-F429-4266-A9DB-DB8FCBA7BCA5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,15 +11,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{4BEABA8F-F332-4727-BDE0-FDEC281BF612}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{4BEABA8F-F332-4727-BDE0-FDEC281BF612}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{4BEABA8F-F332-4727-BDE0-FDEC281BF612}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{4BEABA8F-F332-4727-BDE0-FDEC281BF612}.Release|Any CPU.Build.0 = Release|Any CPU
+		{522CDAA6-F429-4266-A9DB-DB8FCBA7BCA5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{522CDAA6-F429-4266-A9DB-DB8FCBA7BCA5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{522CDAA6-F429-4266-A9DB-DB8FCBA7BCA5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{522CDAA6-F429-4266-A9DB-DB8FCBA7BCA5}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
-		SolutionGuid = {8EBC6F9B-559C-44D9-9FD9-C6FF0B563834}
+		SolutionGuid = {E9F4E9E3-5A65-4D8D-BEF7-2E8A8EDEEC83}
 	EndGlobalSection
 EndGlobal

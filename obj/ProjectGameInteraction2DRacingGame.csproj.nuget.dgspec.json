@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "G:\\Projects\\SchoolStuff\\2DRacingGame\\2DRacingGame\\2DRacingGame.csproj": {}
+    "G:\\Projects\\SchoolStuff\\2DRacingGameProject\\ProjectGameInteraction2DRacingGame\\ProjectGameInteraction2DRacingGame.csproj": {}
   },
   "projects": {
-    "G:\\Projects\\SchoolStuff\\2DRacingGame\\2DRacingGame\\2DRacingGame.csproj": {
+    "G:\\Projects\\SchoolStuff\\2DRacingGameProject\\ProjectGameInteraction2DRacingGame\\ProjectGameInteraction2DRacingGame.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "G:\\Projects\\SchoolStuff\\2DRacingGame\\2DRacingGame\\2DRacingGame.csproj",
-        "projectName": "2DRacingGame",
-        "projectPath": "G:\\Projects\\SchoolStuff\\2DRacingGame\\2DRacingGame\\2DRacingGame.csproj",
+        "projectUniqueName": "G:\\Projects\\SchoolStuff\\2DRacingGameProject\\ProjectGameInteraction2DRacingGame\\ProjectGameInteraction2DRacingGame.csproj",
+        "projectName": "ProjectGameInteraction2DRacingGame",
+        "projectPath": "G:\\Projects\\SchoolStuff\\2DRacingGameProject\\ProjectGameInteraction2DRacingGame\\ProjectGameInteraction2DRacingGame.csproj",
         "packagesPath": "C:\\Users\\FPC\\.nuget\\packages\\",
-        "outputPath": "G:\\Projects\\SchoolStuff\\2DRacingGame\\2DRacingGame\\obj\\",
+        "outputPath": "G:\\Projects\\SchoolStuff\\2DRacingGameProject\\ProjectGameInteraction2DRacingGame\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "F:\\Programs\\Microsoft\\Shared\\NuGetPackages"
