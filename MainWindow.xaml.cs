@@ -24,5 +24,10 @@ namespace ProjectGameInteraction2DRacingGame
         {
             InitializeComponent();
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            Environment.Exit(0);
+        }
     }
 }
