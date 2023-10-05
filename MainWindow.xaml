@@ -5,60 +5,18 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectGameInteraction2DRacingGame"
         mc:Ignorable="d"
-        Title="MainWindow" Height="1080" Width="1920"
+        Title="Main Menu" Height="1080" Width="1920"
         WindowStyle="None"   
         WindowState="Maximized">
     <Grid Background="#596275">
-        <Button Content="VERLAAT HET SPEL" Margin="0,0,40,20" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FFD20000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Click" FontSize="24">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button Content="SPEEL" Margin="0,0,40,629" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FF1AD200" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Click" FontSize="24">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button Content="INSTELLINGEN" Margin="0,0,40,555" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FF909090" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Click" FontSize="24">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button Content="LEADERBORD" Margin="0,0,40,481" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FF909090" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Click" FontSize="24">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button Content="SPEL INSTRUCTIES" Margin="0,0,40,407" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FF909090" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Click" FontSize="24">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+        <Frame x:Name="MainFrameWindow" Height="1080" Navigating="Frame_Navigating" x:FieldModifier="public" NavigationUIVisibility="Hidden" Source="Pages/MainMenuPage.xaml" Foreground="{x:Null}">
+            <Frame.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="Black"/>
+                    <GradientStop Color="White" Offset="1"/>
+                </LinearGradientBrush>
+            </Frame.Background>
+        </Frame>
 
     </Grid>
 </Window>

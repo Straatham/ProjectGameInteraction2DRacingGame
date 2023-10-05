@@ -7,7 +7,39 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
+    <Compile Update="Pages\CircuitSelectiePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\InstellingenPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\LeaderbordPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\MainMenuPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\SpelInstructiesPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
     <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\CircuitSelectiePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\InstellingenPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\LeaderbordPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\MainMenuPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\SpelInstructiesPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

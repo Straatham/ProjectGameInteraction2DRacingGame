@@ -10,11 +10,11 @@ none
 false
 TRACE;DEBUG;NET;NET6_0;NETCOREAPP
 G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\App.xaml
-11407045341
+6-2077960485
 
-3-1233169557
+8-262935369
 194726069201
-MainWindow.xaml;
+MainWindow.xaml;Pages\CircuitSelectiePage.xaml;Pages\InstellingenPage.xaml;Pages\LeaderbordPage.xaml;Pages\MainMenuPage.xaml;Pages\SpelInstructiesPage.xaml;
 
 False
 

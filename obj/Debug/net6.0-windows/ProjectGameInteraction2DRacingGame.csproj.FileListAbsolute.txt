@@ -18,3 +18,13 @@ G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\o
 G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\ProjectGameInteraction2DRacingGame.pdb
 G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\ProjectGameInteraction2DRacingGame.genruntimeconfig.cache
 G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\ref\ProjectGameInteraction2DRacingGame.dll
+G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\MainMenuPage.g.cs
+G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\MainMenuPage.baml
+G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\InstellingenPage.g.cs
+G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\InstellingenPage.baml
+G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\LeaderbordPage.g.cs
+G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\LeaderbordPage.baml
+G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\SpelInstructiesPage.g.cs
+G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\SpelInstructiesPage.baml
+G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\CircuitSelectiePage.g.cs
+G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\CircuitSelectiePage.baml
