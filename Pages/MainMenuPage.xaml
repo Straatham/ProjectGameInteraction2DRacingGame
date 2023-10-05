@@ -9,7 +9,8 @@
       Title="MainMenuPage">
 
     <Grid>
-        <Button x:Name="Button_VerlaatHetSpel" Content="VERLAAT HET SPEL" Margin="0,0,40,20" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FFD20000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_VerlaatHetSpel_Click" FontSize="24">
+        <Image Source="/Main Screen.jpg" Stretch="Fill"/>
+        <Button x:Name="Button_VerlaatHetSpel" Content="VERLAAT HET SPEL" Margin="0,0,40,20" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_VerlaatHetSpel_Click" FontSize="24">
             <Button.Effect>
                 <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
             </Button.Effect>
@@ -28,6 +29,22 @@
                     <Setter Property="CornerRadius" Value="5"/>
                 </Style>
             </Button.Resources>
+            <Button.Triggers>
+                <EventTrigger RoutedEvent="MouseEnter">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="#FF108000"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+                <EventTrigger RoutedEvent="MouseLeave">
+                    <BeginStoryboard>
+                        <Storyboard>
+                            <ColorAnimation Storyboard.TargetProperty="(Button.Background).(SolidColorBrush.Color)" To="#FF1AD200"/>
+                        </Storyboard>
+                    </BeginStoryboard>
+                </EventTrigger>
+            </Button.Triggers>
         </Button>
         <Button x:Name="Button_Instellingen" Content="INSTELLINGEN" Margin="0,0,40,555" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FF909090" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Instellingen_Click" FontSize="24">
             <Button.Effect>

@@ -8,12 +8,18 @@
         Title="Main Menu" Height="1080" Width="1920"
         WindowStyle="None"   
         WindowState="Maximized">
-    <Grid Background="#596275">
+    <Grid>
+        <Grid.Background>
+            <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                <GradientStop Color="#FFFFB34F"/>
+                <GradientStop Color="#FF1F1F1F" Offset="1"/>
+            </LinearGradientBrush>
+        </Grid.Background>
         <Frame x:Name="MainFrameWindow" Height="1080" Navigating="Frame_Navigating" x:FieldModifier="public" NavigationUIVisibility="Hidden" Source="Pages/MainMenuPage.xaml" Foreground="{x:Null}">
             <Frame.Background>
                 <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="Black"/>
-                    <GradientStop Color="White" Offset="1"/>
+                    <GradientStop Color="#FFFFB34F"/>
+                    <GradientStop Color="#FC1F1F1F" Offset="1"/>
                 </LinearGradientBrush>
             </Frame.Background>
         </Frame>
