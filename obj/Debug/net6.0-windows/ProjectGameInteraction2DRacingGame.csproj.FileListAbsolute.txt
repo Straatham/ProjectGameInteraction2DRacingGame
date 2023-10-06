@@ -28,3 +28,5 @@ G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\o
 G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\SpelInstructiesPage.baml
 G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\CircuitSelectiePage.g.cs
 G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\CircuitSelectiePage.baml
+G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\CategorySelectionPage.g.cs
+G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Pages\CategorySelectionPage.baml

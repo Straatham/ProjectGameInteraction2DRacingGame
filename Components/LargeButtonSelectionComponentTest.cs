@@ -11,14 +11,14 @@ using System.Windows.Media.Imaging;
 
 namespace ProjectGameInteraction2DRacingGame.Components
 {
-    public class CircuitSelectionComponentTest
+    public class LargeButtonSelectionComponentTest
     {
         int ID;
         TextBlock TrackNameText = new TextBlock();
         Image TrackImage = new Image();
         Button TrackSelectButton = new Button();
 
-        public CircuitSelectionComponentTest(string name, int id, string source)
+        public LargeButtonSelectionComponentTest(string name, int id, string source)
         {
             CreateButton();
             SetTrackName(name);
@@ -89,6 +89,7 @@ namespace ProjectGameInteraction2DRacingGame.Components
                 VerticalAlignment = VerticalAlignment.Bottom,
                 HorizontalAlignment = HorizontalAlignment.Center,
                 //FontFamily = new FontFamily("file:///Font"),
+
             };
             dock.Children.Add(TrackNameText);
             TrackSelectButton.Content = dock;

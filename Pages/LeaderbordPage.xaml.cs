@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectGameInteraction2DRacingGame.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         public LeaderbordPage()
         {
             InitializeComponent();
+            InitLeaderbord();
         }
         private void Button_Terug_Click(object sender, RoutedEventArgs e)
         {
@@ -36,6 +38,18 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             {
                 MessageBox.Show($"{ex} Exiting....");
                 Environment.Exit(0);
+            }
+        }
+        void InitLeaderbord()
+        {
+            for (int i = 0; i < 15; i++)
+            {
+                LeaderbordEntryComponent component = new LeaderbordEntryComponent(
+                    0, 0, (i + 1), $"player {i}", 
+                    $"1:12.{100 + i}",
+                    "1:12.100");
+                //MessageBox.Show(component.GetGrid().Width.ToString());
+                KlasseListBox.Items.Add(component.GetGrid());
             }
         }
     }

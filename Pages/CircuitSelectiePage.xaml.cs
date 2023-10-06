@@ -51,14 +51,37 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             for (int i = 0; i < 4; i++)
             {
-                CircuitSelectionComponentTest page = new CircuitSelectionComponentTest($"Test Track {i}", i, @"MainScreen.jpg");
-                page.GetButton().Width = CircuitListBox.Width / listviewWidthDivider;
-                page.GetButton().Click += (object sender2, RoutedEventArgs e2) =>
+                try
                 {
-                    MessageBox.Show($"CLICKED TRACK {page.GetID()}");
-                };
-                CircuitListBox.Items.Add(page.GetButton());
+                    LargeButtonSelectionComponentTest track = new LargeButtonSelectionComponentTest($"Test Track {i}", i, @"MainScreen.jpg");
+                    track.GetButton().Width = CircuitListBox.Width / listviewWidthDivider;
+                    track.GetButton().Click += (object sender2, RoutedEventArgs e2) =>
+                    {
+                        MessageBox.Show($"CLICKED TRACK {track.GetID()}");
+
+                        CategorySelectionPage setPage = new CategorySelectionPage();
+                        NavigationService.Navigate(setPage);
+
+
+                    };
+                    CircuitListBox.Items.Add(track.GetButton());
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"{ex} Exiting....");
+                    Environment.Exit(0);
+                }
             }
+        }
+        private void IncreaseLaps(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("INCREASED LAP COUNTER");
+            //Input_LapCount.Text = GameInfo.RaceLaps++;
+        }
+        private void DecreaseLaps(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("DECREASED LAP COUNTER");
+            //Input_LapCount.Text = GameInfo.RaceLaps--;
         }
     }
 }

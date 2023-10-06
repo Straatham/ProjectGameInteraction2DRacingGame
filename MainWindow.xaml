@@ -15,14 +15,7 @@
                 <GradientStop Color="#FF1F1F1F" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Frame x:Name="MainFrameWindow" Height="1080" Navigating="Frame_Navigating" x:FieldModifier="public" NavigationUIVisibility="Hidden" Source="Pages/MainMenuPage.xaml" Foreground="{x:Null}">
-            <Frame.Background>
-                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
-                    <GradientStop Color="#FFFFB34F"/>
-                    <GradientStop Color="#FC1F1F1F" Offset="1"/>
-                </LinearGradientBrush>
-            </Frame.Background>
-        </Frame>
+        <Frame x:Name="MainFrameWindow" Height="1080" Navigating="Frame_Navigating" x:FieldModifier="public" NavigationUIVisibility="Hidden" Source="Pages/MainMenuPage.xaml" Foreground="{x:Null}"/>
 
     </Grid>
 </Window>

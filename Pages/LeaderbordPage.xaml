@@ -9,7 +9,10 @@
       Title="LeaderbordPage">
 
     <Grid>
-        <Label Content="LEADERBORD" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
+        <Image Source="/Scorebord.jpg" Stretch="Fill"/>
+        <Label Content="LEADERBORD" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
+        <Label Content="CIRCUIT NAAM (CATEGORY)" FontSize="36" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
+
 
         <Button x:Name="Button_Terug" Content="TERUG" Margin="40,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Terug_Click" FontSize="24" HorizontalAlignment="Left" Width="218">
             <Button.Effect>
@@ -21,6 +24,107 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <ListView x:Name="KlasseListBox" 
+          d:ItemsSource="{d:SampleData ItemCount=8}" 
+          ScrollViewer.HorizontalScrollBarVisibility="Disabled" 
+          ScrollViewer.VerticalScrollBarVisibility="Auto" 
+          ScrollViewer.CanContentScroll="False"
+          Margin="350,200,350,150"
+          BorderThickness="2" 
+          BorderBrush="#FF1F1F1F" 
+          Background="#31FFFFFF"
+          VerticalContentAlignment="Stretch">
 
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel IsItemsHost="True" Orientation="Vertical"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="Margin" Value="5,0,5,10"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <Button x:Name="Button_DecreaseCircuit" Content="-" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,-28.5,0,0"  Margin="465,0,1374,20" BorderThickness="2" BorderBrush="#FF1F1F1F" Background="#FFB1B1B1" Foreground="White" Height="54" VerticalAlignment="Bottom">
+            <Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5,0,0,5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="Button_IncreaseCircuit" Content="+" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="-25"  Margin="854,0,985,20" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FFB1B1B1" Foreground="White" Height="54" VerticalAlignment="Bottom">
+            <Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="0,5,5,0"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Bottom" Margin="544,0,1064,20">
+            <StackPanel.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+            </StackPanel.Effect>
+            <Label HorizontalContentAlignment="Center" BorderBrush="#FF1F1F1F" BorderThickness="2" VerticalContentAlignment="Center" FontFamily="Raleway" Foreground="White" FontSize="34" Content="CIRCUIT" Background="#FFB1B1B1"/>
+        </StackPanel>
+
+        <Button x:Name="Button_DecreaseCategory" Content="-" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,-28.5,0,0"  Margin="985,0,854,20" BorderThickness="2" BorderBrush="#FF1F1F1F" Background="#FFB1B1B1" Foreground="White" Height="54" VerticalAlignment="Bottom">
+            <Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5,0,0,5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="Button_IncreaseCategory" Content="+" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="-25"  Margin="1374,0,466,20" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FFB1B1B1" Foreground="White" Height="54" VerticalAlignment="Bottom">
+            <Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="0,5,5,0"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Bottom" Margin="1064,0,544,20">
+            <StackPanel.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+            </StackPanel.Effect>
+            <Label HorizontalContentAlignment="Center" BorderBrush="#FF1F1F1F" BorderThickness="2" VerticalContentAlignment="Center" FontFamily="Raleway" Foreground="White" FontSize="34" Content="CATEGORY" Background="#FFB1B1B1"/>
+        </StackPanel>
+
+
+        <Grid x:Name="EntryPrefab" Visibility="Hidden" Height="54" Margin="364,216,405,810">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="0.065*" />
+                <ColumnDefinition Width="0.8*" />
+            </Grid.ColumnDefinitions>
+            <Image Width="54" Margin="10,0,0,0" HorizontalAlignment="Left" Grid.Column="0" Height="54" VerticalAlignment="Center" Grid.ColumnSpan="2"/>
+            <Border BorderBrush="#FF1F1F1F" Grid.Column="1" BorderThickness="1" Margin="0,0,0,0" Height="54">
+                <Grid Height="54" Margin="0,-1,0,0" >
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="80" />
+                        <ColumnDefinition Width="1.7*" />
+                        <ColumnDefinition Width="0.7*" />
+                        <ColumnDefinition Width="0.5*" />
+                    </Grid.ColumnDefinitions>
+                    <TextBlock x:Name="Label_Position" HorizontalAlignment="Center" Grid.Column="0" FontSize="42" Width="40" Foreground="White" FontFamily="Raleway">1</TextBlock>
+                    <TextBlock x:Name="Label_PlayerName" Grid.Column="1" Margin="10,10,0,0" FontSize="40" TextWrapping="NoWrap" Padding="0,0,0,10" Foreground="White" FontFamily="Raleway" VerticalAlignment="Center" HorizontalAlignment="Left">JEFF BALLZACK</TextBlock>
+
+                    <TextBlock x:Name="Label_LapTime" Grid.Column="2" FontSize="42" Margin="20,0,0,0" HorizontalAlignment="Center" TextWrapping="NoWrap" Padding="0,0,0,10" Foreground="White" FontFamily="Raleway">00:00.000</TextBlock>
+                    <TextBlock x:Name="Label_GapToLeader" Grid.Column="3" Margin="20,0,30,0" FontSize="42" HorizontalAlignment="Center" TextWrapping="NoWrap" Padding="0,0,0,10" Foreground="White" FontFamily="Raleway">+00.000</TextBlock>
+
+                </Grid>
+            </Border>
+        </Grid>
     </Grid>
 </Page>
