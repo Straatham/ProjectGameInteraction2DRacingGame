@@ -30,11 +30,16 @@ namespace ProjectGameInteraction2DRacingGame
     public partial class MainWindow : Window
     {
         MediaPlayer player = new MediaPlayer();
+        public GameInfo gameInfo = new GameInfo();
+        public List<Color> GameColors = new List<Color>();
+        public Public.Colors Colors = new Public.Colors();
+
         public MainWindow()
         {
             InitializeComponent();
             GameSettings.OnMusicVariableChange += UpdateMusicVolume;
             PlayMusic();
+            GameColors = new List<Color>(Colors.GetAllColors());
         }
         private bool _allowDirectNavigation = false;
         private NavigatingCancelEventArgs _navArgs = null;

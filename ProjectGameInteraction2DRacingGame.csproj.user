@@ -13,6 +13,9 @@
     <Compile Update="Components\LanguageSelecterComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\PlayerSetupComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\CategorySelectionPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -28,6 +31,9 @@
     <Compile Update="Pages\MainMenuPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\PlayerSetupPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\SpelInstructiesPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -37,6 +43,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\LanguageSelecterComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\PlayerSetupComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="MainWindow.xaml">
@@ -55,6 +64,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\MainMenuPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\PlayerSetupPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\SpelInstructiesPage.xaml">

@@ -12,7 +12,7 @@
         <Image Margin="0,0,0,0" Source="/Spel Instructies Scherm.jpg" Stretch="Fill"/>
 
         <Border Margin="50,200,920,170" BorderBrush="#1f1f1f" BorderThickness="2">
-            <TextBlock FontFamily="Raleway" FontSize="26" Foreground="White" TextWrapping="Wrap" Background="#32C1C1C1">
+            <TextBlock x:Name="GameInfoText" FontFamily="Raleway" FontSize="26" Foreground="White" TextWrapping="Wrap" Background="#32C1C1C1">
                 Placeholder Text
             </TextBlock>
         </Border>

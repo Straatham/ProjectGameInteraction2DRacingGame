@@ -1,0 +1,90 @@
+﻿<Page x:Class="ProjectGameInteraction2DRacingGame.Pages.PlayerSetupPage"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectGameInteraction2DRacingGame.Pages"
+      mc:Ignorable="d" 
+      d:DesignHeight="1080" d:DesignWidth="1920"
+      Title="PlayerSetupPage">
+
+    <Grid>
+        <Image Margin="0,0,0,0" Source="/Speler Opzet.jpg" Stretch="Fill"/>
+        <Button x:Name="Button_Terug" Content="TERUG" Margin="40,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Terug_Click" FontSize="24" HorizontalAlignment="Center" Width="218">
+            <Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="Button_StartGame" Content="START" Margin="40,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FF68BC40" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Visibility="Hidden" Click="StartGameButtonClick" FontSize="24" HorizontalAlignment="Center" Width="218">
+            <Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+
+        <Label Content="PLAYER SETUP" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
+
+        <ListView x:Name="PlayerListBox" 
+          d:ItemsSource="{d:SampleData ItemCount=8}" 
+          ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+          ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+          ScrollViewer.CanContentScroll="False"
+          Margin="40,80,40,120"
+          Width="1840"
+          BorderThickness="2"
+          VerticalContentAlignment="Stretch" Background="{x:Null}" BorderBrush="{x:Null}">
+
+            <ListView.ItemsPanel>
+                <ItemsPanelTemplate>
+                    <StackPanel IsItemsHost="True" Orientation="Horizontal"/>
+                </ItemsPanelTemplate>
+            </ListView.ItemsPanel>
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Padding" Value="0" />
+                    <Setter Property="Margin" Value="5,0,5,10"/>
+                    <Setter Property="Focusable" Value="false"/>
+                    <Setter Property="Template">
+                        <Setter.Value>
+                            <ControlTemplate TargetType="{x:Type ListViewItem}">
+                                <ContentPresenter />
+                            </ControlTemplate>
+                        </Setter.Value>
+                    </Setter>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+
+        <Button x:Name="AddNewPlayerButton" Click="AddPlayerSetupButtonClick" HorizontalAlignment="Right" Height="50" Foreground="White" FontFamily="Raleway" FontSize="30" Content="ADD NEW PLAYER"  Margin="0,350, 0, 350" Background="#331F1F1F" BorderBrush="#FFC1C1C1" >
+            <Button.LayoutTransform>
+                <RotateTransform Angle="90" />
+            </Button.LayoutTransform>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="0,0,10,10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="RemovePlayerButton" Click="RemovePlayerButtonClick" HorizontalAlignment="Left" Height="50" Foreground="White" FontFamily="Raleway" FontSize="30" Content="REMOVE PLAYER"  Margin="0,350, 0, 350" Background="#331F1F1F" BorderBrush="#FFC1C1C1" >
+            <Button.LayoutTransform>
+                <RotateTransform Angle="-90" />
+            </Button.LayoutTransform>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="0,0,10,10"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
+    </Grid>
+</Page>

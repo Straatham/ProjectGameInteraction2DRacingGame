@@ -29,6 +29,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             InitializeComponent();
             InitTracks();
+            Input_LapCount.Text = mainWindow.gameInfo.GetRaceLaps().ToString();
         }
         private void Button_Terug_Click(object sender, RoutedEventArgs e)
         {
@@ -75,13 +76,17 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         }
         private void IncreaseLaps(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("INCREASED LAP COUNTER");
-            //Input_LapCount.Text = GameInfo.RaceLaps++;
+            if (mainWindow.gameInfo.GetRaceLaps() >= 99)
+                return;
+            mainWindow.gameInfo.IncreaseLaps();
+            Input_LapCount.Text = mainWindow.gameInfo.GetRaceLaps().ToString();
         }
         private void DecreaseLaps(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("DECREASED LAP COUNTER");
-            //Input_LapCount.Text = GameInfo.RaceLaps--;
+            if (mainWindow.gameInfo.GetRaceLaps() <= 1)
+                return;
+            mainWindow.gameInfo.DecreaseLaps();
+            Input_LapCount.Text = mainWindow.gameInfo.GetRaceLaps().ToString();
         }
     }
 }

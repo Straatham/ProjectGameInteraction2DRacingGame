@@ -24,6 +24,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         public SpelInstructiesPage()
         {
             InitializeComponent();
+            Loaded += OnLoaded;
         }
         private void Button_Terug_Click(object sender, RoutedEventArgs e)
         {
@@ -37,6 +38,12 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 MessageBox.Show($"{ex} Exiting....");
                 Environment.Exit(0);
             }
+        }
+
+        void OnLoaded(object sender, EventArgs e)
+        {
+            //Change to full info string later.
+            GameInfoText.Text = "Placeholder text";
         }
     }
 }
