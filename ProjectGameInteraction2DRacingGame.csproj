@@ -9,10 +9,14 @@
 
   <ItemGroup>
     <None Remove="Images\circle-leaf.png" />
+    <None Remove="Images\FirstPlaceTrophy.png" />
     <None Remove="Images\MainScreen.jpg" />
+    <None Remove="Images\SecondPlaceTrophy.png" />
+    <None Remove="Images\ThirdPlaceTrophy.png" />
   </ItemGroup>
 
   <ItemGroup>
+    <Folder Include="Classes\" />
     <Folder Include="Extensions\" />
   </ItemGroup>
 
@@ -20,12 +24,24 @@
     <Resource Include="Images\circle-leaf.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
+    <Resource Include="Images\FirstPlaceTrophy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
     <Resource Include="Images\MainScreen.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SecondPlaceTrophy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ThirdPlaceTrophy.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
 
   <ItemGroup>
+    <None Update="Audio\Music\Track_043.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
     <None Update="Selecteer Circuit.jpg">
       <CopyToOutputDirectory>Never</CopyToOutputDirectory>
     </None>

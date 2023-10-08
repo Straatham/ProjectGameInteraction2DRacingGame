@@ -140,15 +140,15 @@ namespace ProjectGameInteraction2DRacingGame.Components
             {
                 Width = 54,
                 Height = 54,
-                Margin = new Thickness(10,0,0,0),
+                Margin = new Thickness(0,0,0,0),
                 HorizontalAlignment = HorizontalAlignment.Left,
                 VerticalAlignment = VerticalAlignment.Top,
                 
                 Source = Position switch
                 {
-                    1 => new BitmapImage(new Uri(Path.Combine("/Images", @"MainScreen.jpg"), UriKind.Relative)),
-                    2 => new BitmapImage(new Uri(Path.Combine(""), UriKind.Relative)),
-                    3 => new BitmapImage(new Uri(Path.Combine(""), UriKind.Relative)),
+                    1 => new BitmapImage(new Uri(Path.Combine("/Images", @"FirstPlaceTrophy.png"), UriKind.Relative)),
+                    2 => new BitmapImage(new Uri(Path.Combine("/Images", @"SecondPlaceTrophy.png"), UriKind.Relative)),
+                    3 => new BitmapImage(new Uri(Path.Combine("/Images", @"ThirdPlaceTrophy.png"), UriKind.Relative)),
                     _ => new BitmapImage(new Uri(Path.Combine(""), UriKind.Relative)),
                 },
             };

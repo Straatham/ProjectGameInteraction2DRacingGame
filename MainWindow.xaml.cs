@@ -1,6 +1,11 @@
-﻿using System;
+﻿using ProjectGameInteraction2DRacingGame.Public;
+using System;
 using System.Collections.Generic;
+using System.Diagnostics.Eventing.Reader;
+using System.IO;
 using System.Linq;
+using System.Media;
+using System.Reflection;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,6 +20,7 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
+using System.Windows.Xps.Packaging;
 
 namespace ProjectGameInteraction2DRacingGame
 {
@@ -23,9 +29,12 @@ namespace ProjectGameInteraction2DRacingGame
     /// </summary>
     public partial class MainWindow : Window
     {
+        MediaPlayer player = new MediaPlayer();
         public MainWindow()
         {
             InitializeComponent();
+            GameSettings.OnMusicVariableChange += UpdateMusicVolume;
+            PlayMusic();
         }
         private bool _allowDirectNavigation = false;
         private NavigatingCancelEventArgs _navArgs = null;
@@ -87,6 +96,50 @@ namespace ProjectGameInteraction2DRacingGame
                     animation0.Duration = _duration;
                     MainFrameWindow.BeginAnimation(OpacityProperty, animation0);
                 });
+        }
+
+        /// <summary>
+        /// Play backgroundmusic
+        /// </summary>
+        void PlayMusic()
+        {
+            string audioFilePath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"/Audio/Music/", "Track_043.wav");
+
+            player.Open(new Uri(audioFilePath, UriKind.RelativeOrAbsolute));
+            player.Volume = GameSettings.GetMusicVolume() / 10;
+            player.MediaEnded += LoopMusic;            
+            player.Play();
+        }
+        /// <summary>
+        /// Event for mediaplayer so it can start again once the music has ended
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void LoopMusic(object sender, EventArgs e)
+        {
+            player.Position = TimeSpan.Zero;
+            player.Play();
+        }
+        /// <summary>
+        /// Update the volume event
+        /// </summary>
+        /// <param name="volume"></param>
+        void UpdateMusicVolume(float volume)
+        {
+            //Stops player if volume is 0
+            if (volume <= 0)
+            {
+                player.Volume = 0;
+                player.Stop();
+            }
+            //Starts player again at the beginning
+            else if (player.Volume == 0 && volume > 0)
+            {
+                LoopMusic(null, new EventArgs());
+                player.Volume = volume;
+            }
+            else
+                player.Volume = volume;
         }
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectGameInteraction2DRacingGame.Public;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -56,10 +57,9 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         /// </summary>
         void SetAudioLevels()
         {
-            //Set these values to loaded values later
-            audioSliders[0].Value = 5f;
-            audioSliders[1].Value = 4f;
-            audioSliders[2].Value = 6f;
+            audioSliders[0].Value = GameSettings.GetCarVolume();
+            audioSliders[1].Value = GameSettings.GetMusicVolume();
+            audioSliders[2].Value = GameSettings.GetEffectsVolume();
         }
         void SetTranslationRadioButton(int value = 0)
         {
@@ -88,9 +88,9 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         private void Button_Opslaan_Click(object sender, RoutedEventArgs e)
         {
             int translation = CheckRadioButtons();
-            float motor = (float)audioSliders[0].Value;
-            float music = (float)audioSliders[1].Value;
-            float effecten = (float)audioSliders[2].Value;
+            GameSettings.SetCarVolume((float)audioSliders[0].Value);
+            GameSettings.SetMusicVolume((float)audioSliders[1].Value);
+            GameSettings.SetEffectsVolume((float)audioSliders[2].Value);
         }
 
         /// <summary>

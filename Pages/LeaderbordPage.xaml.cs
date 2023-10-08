@@ -42,6 +42,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         }
         void InitLeaderbord()
         {
+            //Temporary data, replace 15 with a list count
             for (int i = 0; i < 15; i++)
             {
                 LeaderbordEntryComponent component = new LeaderbordEntryComponent(

@@ -35,3 +35,4 @@ G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\o
 G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\App.baml
 G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Components\AudioOptionsComponent.g.cs
 G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\obj\Debug\net6.0-windows\Components\AudioOptionsComponent.baml
+G:\Projects\SchoolStuff\2DRacingGameProject\ProjectGameInteraction2DRacingGame\bin\Debug\net6.0-windows\Audio\Music\Track_043.wav
