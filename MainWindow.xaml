@@ -8,7 +8,111 @@
         Title="Main Menu" Height="1080" Width="1920"
         WindowStyle="None"   
         WindowState="Maximized">
+
+    <Window.Resources>
+        <Style x:Key="{x:Type RadioButton}" TargetType="{x:Type RadioButton}">
+            <Setter Property="SnapsToDevicePixels" Value="true"/>
+            <Setter Property="OverridesDefaultStyle" Value="true"/>
+            <Setter Property="FocusVisualStyle"    Value="{StaticResource RadioButtonFocusVisual}"/>
+            <Setter Property="Template">
+                <Setter.Value>
+                    <ControlTemplate TargetType="{x:Type RadioButton}">
+                        <BulletDecorator Background="Transparent">
+                            <BulletDecorator.Bullet>
+                                <Grid Width="50" 
+                                    Height="50" >
+                                    <Ellipse x:Name="Border"  
+                Fill="{StaticResource NormalBrush}"
+                StrokeThickness="1"
+                Stroke="{StaticResource NormalBorderBrush}" />
+                                    <Ellipse x:Name="CheckMark"
+                Margin="4"
+                Fill="{StaticResource GlyphBrush}" />
+                                </Grid>
+                            </BulletDecorator.Bullet>
+                            <ContentPresenter 
+            Margin="4,0,0,0"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            RecognizesAccessKey="True"/>
+                        </BulletDecorator>
+                        <ControlTemplate.Triggers>
+                            <Trigger Property="IsChecked" Value="false">
+                                <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed"/>
+                            </Trigger>
+                            <Trigger Property="IsMouseOver" Value="true">
+                                <Setter TargetName="Border" Property="Fill" Value="{StaticResource DarkBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsPressed" Value="true">
+                                <Setter TargetName="Border" Property="Fill" Value="{StaticResource PressedBrush}" />
+                                <Setter TargetName="Border" Property="Stroke" Value="{StaticResource GlyphBrush}" />
+                            </Trigger>
+                            <Trigger Property="IsEnabled" Value="false">
+                                <Setter TargetName="Border" Property="Fill" Value="{StaticResource DisabledBackgroundBrush}" />
+                                <Setter TargetName="Border" Property="Stroke" Value="#40000000" />
+                                <Setter Property="Foreground" Value="#80000000"/>
+                            </Trigger>
+                        </ControlTemplate.Triggers>
+                    </ControlTemplate>
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </Window.Resources>
+    
+
     <Grid>
+        <Grid.Resources>
+            <Style x:Key="{x:Type RadioButton}" TargetType="{x:Type RadioButton}">
+                <Setter Property="SnapsToDevicePixels" Value="true"/>
+                <Setter Property="OverridesDefaultStyle" Value="true"/>
+                <Setter Property="FocusVisualStyle"    Value="{StaticResource RadioButtonFocusVisual}"/>
+                <Setter Property="Template">
+                    <Setter.Value>
+                        <ControlTemplate TargetType="{x:Type RadioButton}">
+                            <BulletDecorator Background="Transparent">
+                                <BulletDecorator.Bullet>
+                                    <Grid Width="13" 
+              Height="13" >
+                                        <Ellipse x:Name="Border"  
+                Fill="{StaticResource NormalBrush}"
+                StrokeThickness="1"
+                Stroke="{StaticResource NormalBorderBrush}" />
+                                        <Ellipse x:Name="CheckMark"
+                Margin="4"
+                Fill="{StaticResource GlyphBrush}" />
+                                    </Grid>
+                                </BulletDecorator.Bullet>
+                                <ContentPresenter 
+            Margin="4,0,0,0"
+            VerticalAlignment="Center"
+            HorizontalAlignment="Left"
+            RecognizesAccessKey="True"/>
+                            </BulletDecorator>
+                            <ControlTemplate.Triggers>
+                                <Trigger Property="IsChecked" Value="false">
+                                    <Setter TargetName="CheckMark" Property="Visibility" Value="Collapsed"/>
+                                </Trigger>
+                                <Trigger Property="IsMouseOver" Value="true">
+                                    <Setter TargetName="Border" Property="Fill" Value="{StaticResource DarkBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsPressed" Value="true">
+                                    <Setter TargetName="Border" Property="Fill" Value="{StaticResource PressedBrush}" />
+                                    <Setter TargetName="Border" Property="Stroke" Value="{StaticResource GlyphBrush}" />
+                                </Trigger>
+                                <Trigger Property="IsEnabled" Value="false">
+                                    <Setter TargetName="Border" Property="Fill" Value="{StaticResource DisabledBackgroundBrush}" />
+                                    <Setter TargetName="Border" Property="Stroke" Value="#40000000" />
+                                    <Setter Property="Foreground" Value="#80000000"/>
+                                </Trigger>
+                            </ControlTemplate.Triggers>
+                        </ControlTemplate>
+                    </Setter.Value>
+                </Setter>
+            </Style>
+        </Grid.Resources>
+
+
+
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
                 <GradientStop Color="#FFFFB34F"/>

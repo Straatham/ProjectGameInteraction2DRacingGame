@@ -9,9 +9,25 @@
       Title="InstellingenPage">
 
     <Grid>
+        <Image Margin="0,0,-0,-0" Source="/Instellingen.jpg" Stretch="Fill"/>
         <Label Content="INSTELLINGEN" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
 
+        <Frame x:Name="TranslationFrame" Source="../Components/LanguageSelecterComponent.xaml" Margin="59,344,0,528" HorizontalAlignment="Left" Width="430" Background="#331F1F1F"></Frame>
+
+        <Frame x:Name="AudioFrame" Source="../Components/AudioOptionsComponent.xaml" Margin="0,344,59,400" HorizontalAlignment="Right" Width="430" Background="#331F1F1F"></Frame>
+
+
         <Button x:Name="Button_Terug" Content="TERUG" Margin="40,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Terug_Click" FontSize="24" HorizontalAlignment="Left" Width="218">
+            <Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="Button_Opslaan" Content="OPSLAAN" Margin="0,0,40,20" Height="54" VerticalAlignment="Bottom" Background="#FF68BC40" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" FontSize="24" HorizontalAlignment="Right" Width="218" Click="Button_Opslaan_Click">
             <Button.Effect>
                 <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
             </Button.Effect>
