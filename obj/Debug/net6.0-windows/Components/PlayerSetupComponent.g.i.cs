@@ -101,8 +101,8 @@ namespace ProjectGameInteraction2DRacingGame.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectGameInteraction2DRacingGame;component/components/playersetupcomponent.xam" +
-                    "l", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProjectGameInteraction2DRacingGame;V1.0.0.0;component/components/playersetupcomp" +
+                    "onent.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Components\PlayerSetupComponent.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

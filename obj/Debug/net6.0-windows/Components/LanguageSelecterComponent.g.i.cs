@@ -93,8 +93,8 @@ namespace ProjectGameInteraction2DRacingGame.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectGameInteraction2DRacingGame;component/components/languageselectercomponen" +
-                    "t.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProjectGameInteraction2DRacingGame;V1.0.0.0;component/components/languageselecte" +
+                    "rcomponent.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Components\LanguageSelecterComponent.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

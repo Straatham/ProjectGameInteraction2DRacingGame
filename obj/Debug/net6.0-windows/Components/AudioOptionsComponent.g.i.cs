@@ -117,8 +117,8 @@ namespace ProjectGameInteraction2DRacingGame.Components {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectGameInteraction2DRacingGame;component/components/audiooptionscomponent.xa" +
-                    "ml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProjectGameInteraction2DRacingGame;V1.0.0.0;component/components/audiooptionscom" +
+                    "ponent.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Components\AudioOptionsComponent.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);

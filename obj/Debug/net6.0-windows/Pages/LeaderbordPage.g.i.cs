@@ -141,7 +141,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages {
                 return;
             }
             _contentLoaded = true;
-            System.Uri resourceLocater = new System.Uri("/ProjectGameInteraction2DRacingGame;component/pages/leaderbordpage.xaml", System.UriKind.Relative);
+            System.Uri resourceLocater = new System.Uri("/ProjectGameInteraction2DRacingGame;V1.0.0.0;component/pages/leaderbordpage.xaml", System.UriKind.Relative);
             
             #line 1 "..\..\..\..\Pages\LeaderbordPage.xaml"
             System.Windows.Application.LoadComponent(this, resourceLocater);
