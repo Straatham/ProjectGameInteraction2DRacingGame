@@ -25,6 +25,20 @@ namespace ProjectGameInteraction2DRacingGame.Components
         int SelectedCar;
         bool CanReady = false, isReady = false;
 
+        int CarId = 0;
+
+        int _CarID
+        {
+            set
+            {
+                CarId = value;
+                if (OnCarIDChange != null)
+                    OnCarIDChange();
+            }
+            get { return CarId; }
+        }
+        public event OnVariableChangeDelegate OnCarIDChange;
+
         bool _isReady
         {
             set
@@ -77,6 +91,7 @@ namespace ProjectGameInteraction2DRacingGame.Components
                     Content = "",
                     BorderThickness = new Thickness(0)
                 };
+                btn.Click += delegate { SetCarColor(((SolidColorBrush)btn.Background).Color); };
                 ColorListView.Items.Add(btn);
             }
         }
@@ -99,8 +114,33 @@ namespace ProjectGameInteraction2DRacingGame.Components
         public string GetPlayerName() => PlayerNameInput.Text;
         public bool GetIsReady() => _isReady;
         public Button GetReadyButton() => Button_Ready;
+        public Button GetIncreaseCarButton() => Button_Increase;
+        public Button GetDecreaseCarButton() => Button_Decrease;
+
+        public void SetCarID(int ID)
+        {
+            _CarID = ID;
+        }
+        public int GetCarID() => _CarID;
 
         //TO DO - REGEX CHECK
         public bool GetCanReady() => !string.IsNullOrEmpty(PlayerNameInput.Text) && PlayerNameInput.Text != templateText;
+
+        public void SetCarImage()
+        {
+            //TO DO - Change code to the following example once images are working
+            //Carviewer_Image.Fill = new BitmapImage(new Uri(@"/Images/foo.png", UriKind.Relative));
+
+            //TEMP
+            Carviewer_Image.Content = $"Car {CarId}";
+        }
+        public void SetCarColor(Color col)
+        {
+            //TO DO - Change code to the following example once images are working
+            //Carviewer_Image.Fill = new SolidColorBrush(System.Windows.Media.Colors.AliceBlue); 
+
+            //TEMP
+            Carviewer_Image.Background = new SolidColorBrush(col);
+        }
     }
 }

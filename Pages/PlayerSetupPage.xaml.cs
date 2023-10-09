@@ -44,7 +44,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         }
         void GeneratePlayerSetup()
         {
-            for (int i = 0; i < 3; i++) 
+            for (int i = 0; i < 2; i++) 
             {
                 AddPlayerSetup(i);
             }
@@ -59,6 +59,13 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             PlayerSetupComponent playerSetupComponent = new(i);
             playerSetupComponent.AddColors(mainWindow.GameColors);
             playerSetupComponent.OnPlayerReadyChange += CheckAllPlayersReady;
+
+            //Delegate method to update car picture once CarID has changed
+            playerSetupComponent.OnCarIDChange += delegate { 
+                playerSetupComponent.SetCarImage(); 
+            };
+
+            //Event when player is ready to play
             playerSetupComponent.GetReadyButton().Click += (object sender2, RoutedEventArgs e2) =>
             {
                 if (playerSetupComponent.GetCanReady())
@@ -67,7 +74,28 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                     MessageBox.Show($"{playerSetupComponent.GetPlayerName()} is ready to play!");
                     playerSetupComponent.SetIsReady();
                 }
+            };            
+            
+            //Event when player presses the increase button when selecting car
+            playerSetupComponent.GetIncreaseCarButton().Click += (object sender2, RoutedEventArgs e2) =>
+            {
+                //TO DO : Change int to category total cars
+                if (playerSetupComponent.GetCarID() > 4)
+                    playerSetupComponent.SetCarID(0);
+                else
+                    playerSetupComponent.SetCarID(playerSetupComponent.GetCarID() + 1);
             };
+
+            //Event when player presses the decrease button when selecting car
+            playerSetupComponent.GetDecreaseCarButton().Click += (object sender2, RoutedEventArgs e2) =>
+            {
+                //TO DO : Change int to category total cars
+                if (playerSetupComponent.GetCarID() < 0)
+                    playerSetupComponent.SetCarID(5);
+                else
+                    playerSetupComponent.SetCarID(playerSetupComponent.GetCarID() - 1);
+            };
+
             players.Add(playerSetupComponent);
             Frame frame = new()
             {

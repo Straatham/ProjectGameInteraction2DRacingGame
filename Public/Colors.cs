@@ -13,7 +13,7 @@ namespace ProjectGameInteraction2DRacingGame.Public
         public Color GetColorGray() => Brushes.Gray.Color;
         public Color GetColorWhite() => Brushes.White.Color;
         public Color GetColorRed() => Brushes.Red.Color;
-        public Color GetColorBlue() => Brushes.Black.Color;
+        public Color GetColorBlue() => Brushes.Blue.Color;
         public Color GetColorOrange() => Brushes.Orange.Color;
         public Color GetColorYellow() => Brushes.Yellow.Color;
         public Color GetColorPink() => Brushes.Pink.Color;

@@ -8,7 +8,14 @@ namespace ProjectGameInteraction2DRacingGame.Public
 {
     public class GameInfo
     {
+        int Category;
         int raceLaps = 3;
+
+        public void SetCategory(int cat)
+        {
+            Category = cat;
+        }
+        public int GetCategory() => Category;
 
         public void IncreaseLaps()
         {

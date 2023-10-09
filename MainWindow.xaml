@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectGameInteraction2DRacingGame"
         mc:Ignorable="d"
-        Title="Main Menu" Height="1080" Width="1920"
+        Title="Main Menu"
         WindowStyle="None"   
         WindowState="Maximized">
 

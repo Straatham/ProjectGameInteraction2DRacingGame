@@ -34,6 +34,9 @@
     <Compile Update="Pages\PlayerSetupPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Pages\RaceScreenPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Pages\SpelInstructiesPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -67,6 +70,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\PlayerSetupPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\RaceScreenPage.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Pages\SpelInstructiesPage.xaml">

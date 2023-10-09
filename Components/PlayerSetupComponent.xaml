@@ -29,7 +29,7 @@
                     <ColumnDefinition Width="480" />
                     <ColumnDefinition />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="Button_Decrease" Grid.Column="0" Height="200" Margin="55,0,35,0" Foreground="White" Background="#FFB1B1B1" FontSize="70" Padding="0,-19,2,0"  BorderBrush="#FF1F1F1F">-
+                <Button x:Name="Button_Decrease" Grid.Column="0" Height="200" Margin="55,0,35,0" Foreground="White" Background="#FFB1B1B1" FontSize="70" Padding="0,-19,2,0"  BorderBrush="#FF1F1F1F" >-
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8,0,0,8"/>
@@ -37,9 +37,9 @@
                     </Button.Resources>
                 </Button>
                 <Border  Grid.Column="1" Height="475" Background="#FFB1B1B1" BorderBrush="#FF1F1F1F" BorderThickness="2" >
-                    <Image x:Name="Carviewer_Image">
-
-                    </Image>
+                    <Label x:Name="Carviewer_Image" Background="Black" Content="Car 01" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Raleway" FontSize="30"  Margin="80">
+                        
+                    </Label>
                 </Border>
                 <Button x:Name="Button_Increase" Grid.Column="2" Height="200" Margin="35,0,55,0" Foreground="White" Background="#FFB1B1B1" FontSize="70" Padding="0,-18,0,0" BorderBrush="#FF1F1F1F">+
                     <Button.Resources>
