@@ -30,6 +30,11 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             InitializeComponent();
             InitTracks();
             Input_LapCount.Text = mainWindow.gameInfo.GetRaceLaps().ToString();
+
+            this.Height = mainWindow.Height;
+            this.Width = mainWindow.Width;
+
+            Loaded += delegate { MessageBox.Show(this.Height + " - " + this.Width); };
         }
         private void Button_Terug_Click(object sender, RoutedEventArgs e)
         {

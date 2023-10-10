@@ -30,8 +30,7 @@
                   BorderThickness="2" 
                   BorderBrush="#FF1F1F1F" 
                   Background="#33000000"
-                  VerticalContentAlignment="Stretch"
-                  Width="1840">
+                  VerticalContentAlignment="Stretch">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>

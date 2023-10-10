@@ -6,6 +6,8 @@
         xmlns:local="clr-namespace:ProjectGameInteraction2DRacingGame"
         mc:Ignorable="d"
         Title="Main Menu"
+        Width="Auto"  
+        Height="Auto"  
         WindowStyle="None"   
         WindowState="Maximized">
 
@@ -59,7 +61,7 @@
         </Style>
     </Window.Resources>
 
-    <Grid Height="{Binding SystemParameters.PrimaryScreenHeight}" Width="{Binding SystemParameters.PrimaryScreenWidth}">
+    <Grid>
         <Grid.Resources>
             <Style x:Key="{x:Type RadioButton}" TargetType="{x:Type RadioButton}">
                 <Setter Property="SnapsToDevicePixels" Value="true"/>

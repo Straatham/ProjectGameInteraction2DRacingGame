@@ -37,7 +37,6 @@ namespace ProjectGameInteraction2DRacingGame
         public MainWindow()
         {
             InitializeComponent();
-
             GameSettings.OnMusicVariableChange += UpdateMusicVolume;
             PlayMusic();
             GameColors = new List<Color>(Colors.GetAllColors());

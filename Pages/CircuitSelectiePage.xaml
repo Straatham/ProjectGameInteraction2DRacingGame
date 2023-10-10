@@ -5,11 +5,11 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjectGameInteraction2DRacingGame.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
+      d:Height="Auto" d:Width="Auto"
       Title="CircuitSelectiePage">
 
-    <Grid>
-        <Label Content="SELECTEER CIRCUIT" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
+    <Grid Height="Auto" Width="Auto">
+        <Label Content="SELECTEER CIRCUIT" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
 
         <Button x:Name="Button_Terug" Content="TERUG" Margin="40,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Terug_Click" FontSize="24" HorizontalAlignment="Left" Width="218">
             <Button.Effect>
@@ -21,38 +21,47 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="Button_DecreaseLaps" Click="DecreaseLaps" Content="-" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,-28.5,0,0"  Margin="725,0,1114,20" BorderThickness="2" BorderBrush="#FF1F1F1F" Background="#FFB1B1B1" Foreground="White" Height="54" VerticalAlignment="Bottom">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5,0,0,5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
 
-        <Button x:Name="Button_IncreaseLaps" Click="IncreaseLaps" Content="+" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="-25"  Margin="1114,0,725,20" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FFB1B1B1" Foreground="White" Height="54" VerticalAlignment="Bottom">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="0,5,5,0"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Bottom" Margin="804,0,804,20">
-            <StackPanel.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </StackPanel.Effect>
-            <Border BorderBrush="#FF1F1F1F" BorderThickness="2" Height="54" Width="312">
-                <TextBlock TextAlignment="Center" FontFamily="Raleway" Height="52" Width="310" Foreground="White" Background="#FFB1B1B1">
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="54" Width="450" Margin="0,0,0,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3.7*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Button_DecreaseLaps" Grid.Column="0" Click="DecreaseLaps" Content="-" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,-28.5,0,0"  Margin="0,0,0,0" BorderThickness="2" BorderBrush="#FF1F1F1F" Background="#FFB1B1B1" Foreground="White" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Left" Width="81">
+                <Button.Effect>
+                    <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5,0,0,5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+
+            <Button x:Name="Button_IncreaseLaps" Grid.Column="2" Click="IncreaseLaps" Content="+" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="-25"  Margin="0,0,0,0" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FFB1B1B1" Foreground="White" Height="54" VerticalAlignment="Center" HorizontalAlignment="Right" Width="81">
+                <Button.Effect>
+                    <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="0,5,5,0"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <StackPanel Orientation="Vertical" Grid.Column="1" VerticalAlignment="Center" Margin="0,0,0,0" HorizontalAlignment="Center" >
+                <StackPanel.Effect>
+                    <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+                </StackPanel.Effect>
+                <Border BorderBrush="#FF1F1F1F" BorderThickness="2" HorizontalAlignment="Stretch" Margin="0" Width="293">
+                    <TextBlock TextAlignment="Center" FontFamily="Raleway" Padding="0,4,0,0" Height="50" Margin="0,0,0,0" Foreground="White" Background="#FFB1B1B1">
                 <Run x:Name="Input_LapCount" FontSize="38">0</Run>
                 <Run FontSize="32">LAPS</Run>
-                </TextBlock>
-            </Border>
-        </StackPanel>
+                    </TextBlock>
+                </Border>
+            </StackPanel>
+        </Grid>
+
 
         <ListView x:Name="CircuitListBox" 
                   d:ItemsSource="{d:SampleData ItemCount=8}" 
@@ -64,8 +73,8 @@
                   BorderBrush="#FF1F1F1F" 
                   Background="#33000000"
                   VerticalContentAlignment="Stretch"
-                  Width="1840">
-            
+                  >
+
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
                     <StackPanel IsItemsHost="True" Orientation="Horizontal"/>
@@ -76,7 +85,7 @@
                     <Setter Property="Padding" Value="0" />
                     <Setter Property="Margin" Value="5,0,5,10"/>
                 </Style>
-            </ListView.ItemContainerStyle>            
+            </ListView.ItemContainerStyle>
         </ListView>
     </Grid>
 </Page>
