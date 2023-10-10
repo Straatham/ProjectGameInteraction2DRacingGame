@@ -23,7 +23,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
     {
         MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>()?.FirstOrDefault();
 
-        const float listviewWidthDivider = 3.07f;
+        const float listviewWidthDivider = 3.08f;
         public CategorySelectionPage()
         {
             InitializeComponent();
@@ -51,7 +51,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             for (int i = 0; i < 3; i++)
             {
                 LargeButtonSelectionComponentTest track = new LargeButtonSelectionComponentTest($"Test Klasse {i}", i, @"MainScreen.jpg");
-                track.GetButton().Width = KlasseListBox.Width / listviewWidthDivider;
+                track.GetButton().Width = (mainWindow.Width - ( KlasseListBox.Margin.Left + KlasseListBox.Margin.Right)) / listviewWidthDivider;
                 track.GetButton().Click += (object sender2, RoutedEventArgs e2) =>
                 {
                     MessageBox.Show($"CLICKED CLASS {track.GetID()}");

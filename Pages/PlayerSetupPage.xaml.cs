@@ -99,7 +99,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             players.Add(playerSetupComponent);
             Frame frame = new()
             {
-                Width = PlayerListBox.Width / 2 - 20,
+                Width = (mainWindow.Width - (PlayerListBox.Margin.Left + PlayerListBox.Margin.Right)) / 2 - 20,
                 Content = playerSetupComponent
             };
             PlayerListBox.Items.Add(frame);
