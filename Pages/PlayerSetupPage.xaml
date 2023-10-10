@@ -32,7 +32,7 @@
         </Button>
 
 
-        <Label Content="PLAYER SETUP" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
+        <Label Content="SPELERS AANMAKEN" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
 
         <ListView x:Name="PlayerListBox" 
           d:ItemsSource="{d:SampleData ItemCount=8}" 

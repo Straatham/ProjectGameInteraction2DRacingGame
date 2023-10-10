@@ -29,7 +29,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         public LeaderbordPage()
         {
             InitializeComponent();
-            InitLeaderbord();
+            SetTrackAndCategoryName();
         }
         private void Button_Terug_Click(object sender, RoutedEventArgs e)
         {

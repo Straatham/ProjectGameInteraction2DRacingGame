@@ -50,7 +50,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
 
             for (int i = 0; i < mainWindow.gameInfo.players.Count; i++)
             {
-                PlayerRaceTickerComponent tickerItem = new PlayerRaceTickerComponent(Brushes.White.Color, i, $"{mainWindow.gameInfo.players[i]}");
+                PlayerRaceTickerComponent tickerItem = new PlayerRaceTickerComponent(Brushes.White.Color, (i + 1), $"{mainWindow.gameInfo.players[i]}");
 
                 //Stupid calculation :|
                 tickerItem.Width = mainWindow.Width / mainWindow.gameInfo.players.Count - ( mainWindow.gameInfo.players.Count == 2 ? 46 : (mainWindow.gameInfo.players.Count == 3 ? 34.5f : 23));
@@ -66,7 +66,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         //TEMP METHOD (FOR GOING TO PODIUM
         private void Canvas_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-
+            MessageBox.Show("TRIGGERD TO PODIUM PAGE");
         }
     }
 }

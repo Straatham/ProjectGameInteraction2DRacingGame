@@ -10,10 +10,10 @@
 
     <Grid Height="320" Width="650">
         <StackPanel>
-            <Label  Foreground="White" FontFamily="Raleway" HorizontalAlignment="Center" Margin="0,20,0,20" FontSize="30">PAUSED</Label>
+            <Label  Foreground="White" FontFamily="Raleway" HorizontalAlignment="Center" Margin="0,20,0,20" FontSize="30">GEPAUSEERD</Label>
             <Border Background="#FFD9D9D9" Margin="50,0,50,0" Height="250">
                 <StackPanel>
-                    <Button x:Name="Button_Resume" Margin="100,30,100,0" Height="45" Background="#FF68BD40" Foreground="White" FontFamily="Raleway" FontSize="26" Click="Button_Resume_Click" >RESUME
+                    <Button x:Name="Button_Resume" Margin="100,30,100,0" Height="45" Background="#FF68BD40" Foreground="White" FontFamily="Raleway" FontSize="26" Click="Button_Resume_Click" >HERVATTEN
                         <Button.Effect>
                             <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
                         </Button.Effect>
@@ -23,7 +23,7 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <Button x:Name="Button_Restart" Margin="100,20,100,0" Height="45" Background="#FFB1B1B1" Foreground="White" FontFamily="Raleway" FontSize="26"  >RESTART
+                    <Button x:Name="Button_Restart" Margin="100,20,100,0" Height="45" Background="#FFB1B1B1" Foreground="White" FontFamily="Raleway" FontSize="26"  >HERSTARTEN
                         <Button.Effect>
                             <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
                         </Button.Effect>
@@ -33,7 +33,7 @@
                             </Style>
                         </Button.Resources>
                     </Button>
-                    <Button x:Name="Button_Leave" Margin="100,20,100,0" Height="45" Background="#FFA00000" Foreground="White" FontFamily="Raleway" FontSize="26" Click="Button_Leave_Click" >LEAVE RACE
+                    <Button x:Name="Button_Leave" Margin="100,20,100,0" Height="45" Background="#FFA00000" Foreground="White" FontFamily="Raleway" FontSize="26" Click="Button_Leave_Click" >RACE VERLATEN
                         <Button.Effect>
                             <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
                         </Button.Effect>

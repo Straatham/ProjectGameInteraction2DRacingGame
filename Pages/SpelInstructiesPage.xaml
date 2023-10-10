@@ -11,14 +11,18 @@
     <Grid>
         <Image Margin="0,0,0,0" Source="/Spel Instructies Scherm.jpg" Stretch="Fill"/>
 
-        <Border Margin="50,200,920,170" BorderBrush="#1f1f1f" BorderThickness="2">
-            <TextBlock x:Name="GameInfoText" FontFamily="Raleway" FontSize="26" Foreground="White" TextWrapping="Wrap" Background="#32C1C1C1">
+        <Grid Height="700" Margin="0,20,0,0" HorizontalAlignment="Stretch">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Border Grid.Column="0" Margin="50,0,0,0" HorizontalAlignment="Stretch" BorderBrush="#1f1f1f" BorderThickness="2">
+                <TextBlock x:Name="GameInfoText" FontFamily="Raleway" FontSize="28" Foreground="White" TextWrapping="Wrap" Background="#32C1C1C1">
                 Placeholder Text
-            </TextBlock>
-        </Border>
-        <StackPanel Background="#FF1F1F1F" Margin="1020,200,50,170">
-            
-        </StackPanel>
+                </TextBlock>
+            </Border>
+            <StackPanel Grid.Column="1" Background="#FF1F1F1F" Margin="60,0,70,0"/>
+        </Grid>
 
         <Button x:Name="Button_Terug" Content="TERUG" Margin="40,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Terug_Click" FontSize="24" HorizontalAlignment="Left" Width="218">
             <Button.Effect>

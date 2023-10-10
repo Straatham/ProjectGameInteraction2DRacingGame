@@ -108,7 +108,7 @@ namespace ProjectGameInteraction2DRacingGame
         /// </summary>
         void PlayMusic()
         {
-            string audioFilePath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"/Audio/Music/", "Track_043.wav");
+            string audioFilePath = System.IO.Path.Combine(System.IO.Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location) + @"/Audio/Music/", "MainMenu.wav");
 
             player.Open(new Uri(audioFilePath, UriKind.RelativeOrAbsolute));
             player.Volume = GameSettings.GetMusicVolume() / 10;

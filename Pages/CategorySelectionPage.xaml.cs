@@ -50,7 +50,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             for (int i = 0; i < 3; i++)
             {
-                LargeButtonSelectionComponentTest track = new LargeButtonSelectionComponentTest($"Test Klasse {i}", i, @"MainScreen.jpg");
+                LargeButtonSelectionComponentTest track = new LargeButtonSelectionComponentTest($"Test Klasse {i}", i, @"GroupGT3.jpg");
                 track.GetButton().Width = (mainWindow.Width - ( KlasseListBox.Margin.Left + KlasseListBox.Margin.Right)) / listviewWidthDivider;
                 track.GetButton().Click += (object sender2, RoutedEventArgs e2) =>
                 {

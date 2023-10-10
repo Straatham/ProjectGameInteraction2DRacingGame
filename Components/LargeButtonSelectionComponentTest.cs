@@ -45,7 +45,7 @@ namespace ProjectGameInteraction2DRacingGame.Components
         /// <param name="imageSource"></param>
         public void SetTrackImage(string imageSource)
         {
-            var path = Path.Combine("/Images", imageSource);
+            var path = Path.Combine("/Images/Classes", imageSource);
             TrackImage.Source = new BitmapImage(new Uri(path, UriKind.Relative));
         }
         public Button GetButton() => TrackSelectButton;
@@ -77,8 +77,8 @@ namespace ProjectGameInteraction2DRacingGame.Components
             { 
                 Margin = new Thickness(0, 0, 0, 60), 
                 Stretch = Stretch.UniformToFill,
-                VerticalAlignment = VerticalAlignment.Stretch,
-                HorizontalAlignment = HorizontalAlignment.Stretch,
+                VerticalAlignment = VerticalAlignment.Center,
+                HorizontalAlignment = HorizontalAlignment.Center,
             };
             dock.Children.Add(TrackImage);
             TrackNameText = new TextBlock
