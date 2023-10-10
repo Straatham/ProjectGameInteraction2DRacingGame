@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -25,6 +26,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         public MainMenuPage()
         {
             InitializeComponent();
+            mainWindow.player.Play();
         }
         private void ButtonSpeel_Click(object sender, RoutedEventArgs e)
         {

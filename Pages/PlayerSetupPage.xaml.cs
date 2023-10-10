@@ -33,8 +33,8 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             try
             {
-                CategorySelectionPage setPage = new CategorySelectionPage();
-                NavigationService.Navigate(setPage);
+                mainWindow.gameInfo.players.Clear();
+                mainWindow.MainFrameWindow.Content = new CategorySelectionPage();
             }
             catch (Exception ex)
             {
@@ -72,6 +72,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 {
                     playerSetupComponent.SetAllObjectsToInActive();
                     playerSetupComponent.SetIsReady();
+                    mainWindow.gameInfo.players.Add(playerSetupComponent.GetPlayerName());
                 }
             };            
             
@@ -130,6 +131,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             try
             {
+                mainWindow.player.Stop();
                 RaceScreenPage setPage = new RaceScreenPage();
                 NavigationService.Navigate(setPage);
             }

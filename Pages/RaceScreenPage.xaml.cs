@@ -1,4 +1,5 @@
 ﻿using ProjectGameInteraction2DRacingGame.Components;
+using ProjectGameInteraction2DRacingGame.Public;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -30,41 +31,42 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             InitializeComponent();
 
+            PausedFrame.Content = new PausedDialogComponent(PausedFrame);
+
+            //Add this seperately as FindVisualChildren doesn't work properly
             positionFrames.Add(Position_1);
             positionFrames.Add(Position_2);
             positionFrames.Add(Position_3);
             positionFrames.Add(Position_4);
-            DisplayPlayers();
+            DisplayPlayersInTower();
         }
 
-        void DisplayPlayers()
+        /// <summary>
+        /// Display players in random position order
+        /// </summary>
+        void DisplayPlayersInTower()
         {
-            for (int i = 0; i < 4; i++)
+            mainWindow.gameInfo.players.ShuffleMe();
+
+            for (int i = 0; i < mainWindow.gameInfo.players.Count; i++)
             {
-                PlayerRaceTickerComponent tickerItem = new PlayerRaceTickerComponent(Brushes.White.Color, i, $"Player {i + 1}");
-                tickerItem.Width = mainWindow.Width / 4 - 23;
+                PlayerRaceTickerComponent tickerItem = new PlayerRaceTickerComponent(Brushes.White.Color, i, $"{mainWindow.gameInfo.players[i]}");
+
+                //Stupid calculation :|
+                tickerItem.Width = mainWindow.Width / mainWindow.gameInfo.players.Count - ( mainWindow.gameInfo.players.Count == 2 ? 46 : (mainWindow.gameInfo.players.Count == 3 ? 34.5f : 23));
                 positionFrames[i].Content = tickerItem;
                 players.Add(tickerItem);
             }
         }
-        private static IEnumerable<T> FindVisualChildren<T>(DependencyObject depObj) where T : DependencyObject
+        private void Button_Click(object sender, RoutedEventArgs e)
         {
-            if (depObj != null)
-            {
-                for (int i = 0; i < VisualTreeHelper.GetChildrenCount(depObj); i++)
-                {
-                    DependencyObject child = VisualTreeHelper.GetChild(depObj, i);
-                    if (child != null && child is T)
-                    {
-                        yield return (T)child;
-                    }
+            PausedFrame.Visibility = Visibility.Visible;
+        }
 
-                    foreach (T childOfChild in FindVisualChildren<T>(child))
-                    {
-                        yield return childOfChild;
-                    }
-                }
-            }
+        //TEMP METHOD (FOR GOING TO PODIUM
+        private void Canvas_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+
         }
     }
 }

@@ -29,7 +29,7 @@ namespace ProjectGameInteraction2DRacingGame
     /// </summary>
     public partial class MainWindow : Window
     {
-        MediaPlayer player = new MediaPlayer();
+        public MediaPlayer player = new MediaPlayer();
         public GameInfo gameInfo = new GameInfo();
         public List<Color> GameColors = new List<Color>();
         public Public.Colors Colors = new Public.Colors();
@@ -113,7 +113,6 @@ namespace ProjectGameInteraction2DRacingGame
             player.Open(new Uri(audioFilePath, UriKind.RelativeOrAbsolute));
             player.Volume = GameSettings.GetMusicVolume() / 10;
             player.MediaEnded += LoopMusic;            
-            player.Play();
         }
         /// <summary>
         /// Event for mediaplayer so it can start again once the music has ended
