@@ -61,12 +61,8 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                     track.GetButton().Width = (mainWindow.Width - (CircuitListBox.Margin.Left + CircuitListBox.Margin.Right)) / listviewWidthDivider;
                     track.GetButton().Click += (object sender2, RoutedEventArgs e2) =>
                     {
-                        MessageBox.Show($"CLICKED TRACK {track.GetID()}");
-
                         CategorySelectionPage setPage = new CategorySelectionPage();
                         NavigationService.Navigate(setPage);
-
-
                     };
                     CircuitListBox.Items.Add(track.GetButton());
                 }

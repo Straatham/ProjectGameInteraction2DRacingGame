@@ -9,28 +9,17 @@
       Title="CategorySelectionPage">
 
     <Grid Height="Auto" Width="Auto">
-        <Label Content="SELECTEER KLASSE" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
-
-        <Button x:Name="Button_Terug" Content="TERUG" Margin="40,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Terug_Click" FontSize="24" HorizontalAlignment="Left" Width="218">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
+        <Label Content="SELECTEER KLASSE" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <ListView x:Name="KlasseListBox" 
-                  d:ItemsSource="{d:SampleData ItemCount=8}" 
-                  ScrollViewer.HorizontalScrollBarVisibility="Auto" 
-                  ScrollViewer.VerticalScrollBarVisibility="Disabled" 
-                  ScrollViewer.CanContentScroll="False"
-                  Margin="40,120,40,120"
-                  BorderThickness="2" 
-                  BorderBrush="#FF1F1F1F" 
-                  Background="#33000000"
-                  VerticalContentAlignment="Stretch">
+          d:ItemsSource="{d:SampleData ItemCount=8}" 
+          ScrollViewer.HorizontalScrollBarVisibility="Auto" 
+          ScrollViewer.VerticalScrollBarVisibility="Disabled" 
+          ScrollViewer.CanContentScroll="False"
+          Margin="40,120,40,120"
+          BorderThickness="2" 
+          BorderBrush="#FF1F1F1F" 
+          Background="#33000000"
+          VerticalContentAlignment="Stretch">
 
             <ListView.ItemsPanel>
                 <ItemsPanelTemplate>
@@ -44,5 +33,16 @@
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
+        <Button x:Name="Button_Terug" Content="TERUG" Margin="40,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Terug_Click" FontSize="24" HorizontalAlignment="Left" Width="218">
+            <Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        
     </Grid>
 </Page>

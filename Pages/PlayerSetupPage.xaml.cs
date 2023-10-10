@@ -56,7 +56,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         /// <param name="i"></param>
         void AddPlayerSetup(int i)
         {
-            PlayerSetupComponent playerSetupComponent = new(i);
+            PlayerSetupComponent playerSetupComponent = new(i, (float)mainWindow.Width);
             playerSetupComponent.AddColors(mainWindow.GameColors);
             playerSetupComponent.OnPlayerReadyChange += CheckAllPlayersReady;
 
@@ -71,7 +71,6 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 if (playerSetupComponent.GetCanReady())
                 {
                     playerSetupComponent.SetAllObjectsToInActive();
-                    MessageBox.Show($"{playerSetupComponent.GetPlayerName()} is ready to play!");
                     playerSetupComponent.SetIsReady();
                 }
             };            
@@ -129,7 +128,16 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         }
         void StartGameButtonClick(object sender, RoutedEventArgs e)
         {
-            MessageBox.Show("STARTED GAME!!!!");
+            try
+            {
+                RaceScreenPage setPage = new RaceScreenPage();
+                NavigationService.Navigate(setPage);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex} Exiting....");
+                Environment.Exit(0);
+            }
         }
     }
 }

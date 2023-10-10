@@ -5,11 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjectGameInteraction2DRacingGame.Components"
       mc:Ignorable="d" 
-      d:DesignHeight="450" d:DesignWidth="800"
       Title="PlayerSetupComponent">
 
-    <Grid>
-        <StackPanel Width="800" HorizontalAlignment="Center" Margin="0,0,0,0">
+    <Grid x:Name="Grid" >
+        <StackPanel HorizontalAlignment="Center" Margin="0,0,0,0">
             <TextBox x:Name="PlayerNameInput" Text="Fill In Name" FontFamily="Raleway" VerticalContentAlignment="Center" FontSize="26" Foreground="White" Margin="50,10,50,0" Height="50" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FFB1B1B1">
                 <TextBox.Style>
                     <Style TargetType="{x:Type TextBox}">
@@ -25,11 +24,11 @@
 
             <Grid VerticalAlignment="Center" Margin="0,50,0,0">
                 <Grid.ColumnDefinitions>
-                    <ColumnDefinition />
-                    <ColumnDefinition Width="480" />
-                    <ColumnDefinition />
+                    <ColumnDefinition Width="1*" />
+                    <ColumnDefinition Width="3.5*" />
+                    <ColumnDefinition Width="1*" />
                 </Grid.ColumnDefinitions>
-                <Button x:Name="Button_Decrease" Grid.Column="0" Height="200" Margin="55,0,35,0" Foreground="White" Background="#FFB1B1B1" FontSize="70" Padding="0,-19,2,0"  BorderBrush="#FF1F1F1F" >-
+                <Button x:Name="Button_Decrease" Grid.Column="0" Width="60" Height="200" HorizontalAlignment="Right" Margin="55,0,35,0" Foreground="White" Background="#FFB1B1B1" FontSize="70" Padding="0,-19,2,0"  BorderBrush="#FF1F1F1F" >-
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="8,0,0,8"/>
@@ -41,7 +40,7 @@
                         
                     </Label>
                 </Border>
-                <Button x:Name="Button_Increase" Grid.Column="2" Height="200" Margin="35,0,55,0" Foreground="White" Background="#FFB1B1B1" FontSize="70" Padding="0,-18,0,0" BorderBrush="#FF1F1F1F">+
+                <Button x:Name="Button_Increase" Grid.Column="2" Width="60" Height="200" Margin="35,0,55,0" HorizontalAlignment="Left" Foreground="White" Background="#FFB1B1B1" FontSize="70" Padding="0,-18,0,0" BorderBrush="#FF1F1F1F">+
                     <Button.Resources>
                         <Style TargetType="{x:Type Border}">
                             <Setter Property="CornerRadius" Value="0,8,8,0"/>

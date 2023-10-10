@@ -13,6 +13,9 @@
     <Compile Update="Components\LanguageSelecterComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Update="Components\PlayerRaceTickerComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Update="Components\PlayerSetupComponent.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -46,6 +49,9 @@
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\LanguageSelecterComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\PlayerRaceTickerComponent.xaml">
       <SubType>Designer</SubType>
     </Page>
     <Page Update="Components\PlayerSetupComponent.xaml">

@@ -54,7 +54,6 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 track.GetButton().Width = (mainWindow.Width - ( KlasseListBox.Margin.Left + KlasseListBox.Margin.Right)) / listviewWidthDivider;
                 track.GetButton().Click += (object sender2, RoutedEventArgs e2) =>
                 {
-                    MessageBox.Show($"CLICKED CLASS {track.GetID()}");
                     PlayerSetupPage setPage = new PlayerSetupPage();
                     NavigationService.Navigate(setPage);
                 };
