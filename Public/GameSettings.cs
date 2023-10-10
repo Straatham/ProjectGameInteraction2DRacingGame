@@ -8,7 +8,7 @@ namespace ProjectGameInteraction2DRacingGame.Public
 {
     public class GameSettings
     {
-        static float musicVolume = 0.5f;
+        static float musicVolume = 0.1f;
 
         static float _musicVolume
         {

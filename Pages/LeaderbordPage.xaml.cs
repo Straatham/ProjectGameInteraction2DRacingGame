@@ -51,9 +51,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 CircuitID = 0;
             else CircuitID++;
 
-            KlasseListBox.Items.Clear();
-            entries.Clear();
-            InitLeaderbord();
+            SetTrackAndCategoryName();
         }
 
         private void Button_DecreaseCircuit_Click(object sender, RoutedEventArgs e)
@@ -62,9 +60,33 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 CircuitID = 2; //Set to max in circuit list
             else CircuitID--;
 
+            SetTrackAndCategoryName();
+        }
+
+        public void SetTrackAndCategoryName()
+        {
             KlasseListBox.Items.Clear();
             entries.Clear();
             InitLeaderbord();
+            SelectedCircuitEnCategoryText.Content = $"CIRCUIT {CircuitID} (CATEGORIE {CategorieID})";
+        }
+
+        private void Button_IncreaseCategory_Click(object sender, RoutedEventArgs e)
+        {
+            if (CategorieID >= 2)
+                CategorieID = 0;
+            else CategorieID++;
+
+            SetTrackAndCategoryName();
+        }
+
+        private void Button_DecreaseCategory_Click(object sender, RoutedEventArgs e)
+        {
+            if (CategorieID <= 0)
+                CategorieID = 2; //Set to max in categorie list
+            else CategorieID--;
+
+            SetTrackAndCategoryName();
         }
 
         void InitLeaderbord()
@@ -74,9 +96,10 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             {
                 LeaderbordEntryComponent component = new LeaderbordEntryComponent(
                     0, 0, (i + 1), $"player {i}", 
-                    $"{CircuitID + 1}:12.{100 + i}"
+                    $"{(CircuitID + 1) * (CategorieID + 1)}:12.{100 + i}"                    
                     );
                 component.SetGapToLeader(KlasseListBox.Items.Count == 0 ? component.GetRaceTime() : entries[0].GetRaceTime());
+                component.CreateItems();
                 entries.Add(component);
                 KlasseListBox.Items.Add(component.GetGrid());
             }

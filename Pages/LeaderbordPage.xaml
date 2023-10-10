@@ -94,7 +94,7 @@
                 <ColumnDefinition Width="3.7*"/>
                 <ColumnDefinition Width="1*"/>
             </Grid.ColumnDefinitions>
-            <Button x:Name="Button_DecreaseCategory" Grid.Column="0" Content="-" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,-28.5,0,0" BorderThickness="2" BorderBrush="#FF1F1F1F" Background="#FF8E8E8E" Foreground="White" Height="54" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Button x:Name="Button_DecreaseCategory" Grid.Column="0" Content="-" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,-28.5,0,0" BorderThickness="2" BorderBrush="#FF1F1F1F" Background="#FF8E8E8E" Foreground="White" Height="54" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Button_DecreaseCategory_Click">
                 <Button.Effect>
                     <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
                 </Button.Effect>
@@ -104,7 +104,7 @@
                     </Style>
                 </Button.Resources>
             </Button>
-            <Button x:Name="Button_IncreaseCategory" Content="+" Grid.Column="2" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="-25"  Margin="0,0,0,0" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FF8E8E8E" Foreground="White" Height="54" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+            <Button x:Name="Button_IncreaseCategory" Content="+" Grid.Column="2" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="-25"  Margin="0,0,0,0" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FF8E8E8E" Foreground="White" Height="54" HorizontalAlignment="Stretch" VerticalAlignment="Center" Click="Button_IncreaseCategory_Click">
                 <Button.Effect>
                     <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
                 </Button.Effect>

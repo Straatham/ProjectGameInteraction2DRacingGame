@@ -31,7 +31,6 @@ namespace ProjectGameInteraction2DRacingGame.Components
             SetPosition(positionIndex);
             SetPlayerName(player);
             SetRaceTime(raceTime);
-            CreateItems();
         }
         public void SetPosition(int position)
         {
@@ -69,7 +68,7 @@ namespace ProjectGameInteraction2DRacingGame.Components
         ////
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
 
-        void CreateItems()
+        public void CreateItems()
         {
             Grid = CreateBaseGrid();
             ColumnDefinition c1 = new ColumnDefinition();
@@ -224,10 +223,9 @@ namespace ProjectGameInteraction2DRacingGame.Components
         }
         TextBlock CreateGapToLeaderText()
         {
-            return new TextBlock
+            TextBlock block = new TextBlock
             {
                 FontSize = 42,
-                Text = GapToLeader == TimeSpan.Zero ? "-" : "+" + (GapToLeader.TotalMinutes < 1 ? GapToLeader.ToString(@"ss\.fff") : GapToLeader.ToString(@"m\:ss\.fff")),
                 Foreground = new SolidColorBrush(Colors.White),
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 VerticalAlignment = VerticalAlignment.Center,
@@ -236,6 +234,8 @@ namespace ProjectGameInteraction2DRacingGame.Components
                 TextWrapping = TextWrapping.NoWrap,
                 //FontFamily = new FontFamily("file:///Font"),
             };
+            block.Text = GapToLeader == TimeSpan.Zero ? "-" : "+" + (GapToLeader.TotalMinutes < 1 ? GapToLeader.ToString(@"ss\.fff") : GapToLeader.ToString(@"m\:ss\.fff"));
+            return block;
         }
     }
 }
