@@ -23,7 +23,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
     {
         MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>()?.FirstOrDefault();
 
-        const float listviewWidthDivider = 3.08f;
+        const float listviewWidthDivider = 3.09f;
         public CategorySelectionPage()
         {
             InitializeComponent();

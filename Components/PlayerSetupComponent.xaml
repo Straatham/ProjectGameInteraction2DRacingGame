@@ -37,7 +37,7 @@
                     </Button.Resources>
                 </Button>
                 <Border  Grid.Column="1" Height="475" Background="#FFB1B1B1" BorderBrush="#FF1F1F1F" BorderThickness="2" >
-                    <Label x:Name="Carviewer_Image" Background="Black" Content="Car 01" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Raleway" FontSize="30"  Margin="80">
+                    <Label x:Name="Carviewer_Image" Background="Black" Content="Car 0" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Raleway" FontSize="30"  Margin="80">
                         
                     </Label>
                 </Border>

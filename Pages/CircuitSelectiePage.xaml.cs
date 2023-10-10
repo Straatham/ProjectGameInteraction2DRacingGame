@@ -23,7 +23,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
     {
         MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>()?.FirstOrDefault();
 
-        const float listviewWidthDivider = 3.08f;
+        const float listviewWidthDivider = 3.09f;
 
         public CircuitSelectiePage()
         {
@@ -53,7 +53,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         /// </summary>
         void InitTracks()
         {
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 3; i++)
             {
                 try
                 {

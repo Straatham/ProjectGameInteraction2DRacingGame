@@ -5,10 +5,10 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjectGameInteraction2DRacingGame.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
+      d:Height="Auto" d:Width="Auto"
       Title="CategorySelectionPage">
 
-    <Grid>
+    <Grid Height="Auto" Width="Auto">
         <Label Content="SELECTEER KLASSE" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
 
         <Button x:Name="Button_Terug" Content="TERUG" Margin="40,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Terug_Click" FontSize="24" HorizontalAlignment="Left" Width="218">
