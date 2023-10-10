@@ -12,9 +12,9 @@
         <Image Margin="0,0,-0,-0" Source="/Instellingen.jpg" Stretch="Fill"/>
         <Label Content="INSTELLINGEN" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
 
-        <Frame x:Name="TranslationFrame" Source="../Components/LanguageSelecterComponent.xaml" Margin="59,-200,0,0" HorizontalAlignment="Left" Width="430" Background="#331F1F1F" Height="208" VerticalAlignment="Center"></Frame>
+        <Frame x:Name="TranslationFrame" Source="../Components/LanguageSelecterComponent.xaml" Margin="59,-190,0,0" HorizontalAlignment="Left" Width="430" Background="#331F1F1F" Height="208" VerticalAlignment="Center"></Frame>
 
-        <Frame x:Name="AudioFrame" Source="../Components/AudioOptionsComponent.xaml" Margin="0,0,59,0" HorizontalAlignment="Right" Width="430" Height="360" Background="#331F1F1F"></Frame>
+        <Frame x:Name="AudioFrame" Source="../Components/AudioOptionsComponent.xaml" Margin="0,0,65,40" VerticalAlignment="Center" HorizontalAlignment="Right" Width="430" Height="330" Background="#331F1F1F"></Frame>
 
 
         <Button x:Name="Button_Terug" Content="TERUG" Margin="40,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Terug_Click" FontSize="24" HorizontalAlignment="Left" Width="218">

@@ -5,16 +5,15 @@
       xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
       xmlns:local="clr-namespace:ProjectGameInteraction2DRacingGame.Pages"
       mc:Ignorable="d" 
-      d:DesignHeight="1080" d:DesignWidth="1920"
       Title="LeaderbordPage">
 
-    <Grid>
+    <Grid Height="Auto" Width="Auto">
         <Image Source="/Scorebord.jpg" Stretch="Fill"/>
         <Image Source="/Images/circle-leaf.png" Stretch="Fill" Width="286" Height="211" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
         <Image Source="/Images/circle-leaf.png" Stretch="Fill" Width="286" Height="211" HorizontalAlignment="Right" Margin="0,10,0,0" VerticalAlignment="Top"/>
 
         <Label Content="LEADERBORD" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
-        <Label FontSize="36" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920">
+        <Label x:Name="SelectedCircuitEnCategoryText" Content="CIRCUIT NAAM (CATEGORY 0)" FontSize="36" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
 
         </Label>
 
@@ -53,60 +52,75 @@
             </ListView.ItemContainerStyle>
         </ListView>
 
-        <Button x:Name="Button_DecreaseCircuit" Content="-" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,-28.5,0,0"  Margin="465,0,1374,20" BorderThickness="2" BorderBrush="#FF1F1F1F" Background="#FF8E8E8E" Foreground="White" Height="54" VerticalAlignment="Bottom">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5,0,0,5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="Button_IncreaseCircuit" Content="+" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="-25"  Margin="854,0,985,20" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FF8E8E8E" Foreground="White" Height="54" VerticalAlignment="Bottom">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="0,5,5,0"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Bottom" Margin="544,0,1064,20">
-            <StackPanel.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </StackPanel.Effect>
-            <Label HorizontalContentAlignment="Center" BorderBrush="#FF1F1F1F" BorderThickness="2" VerticalContentAlignment="Center" FontFamily="Raleway" Foreground="White" FontSize="34" Content="CIRCUIT" Background="#FFB1B1B1"/>
-        </StackPanel>
 
-        <Button x:Name="Button_DecreaseCategory" Content="-" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,-28.5,0,0"  Margin="985,0,854,20" BorderThickness="2" BorderBrush="#FF1F1F1F" Background="#FF8E8E8E" Foreground="White" Height="54" VerticalAlignment="Bottom">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5,0,0,5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="Button_IncreaseCategory" Content="+" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="-25"  Margin="1374,0,466,20" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FF8E8E8E" Foreground="White" Height="54" VerticalAlignment="Bottom">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="0,5,5,0"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <StackPanel Grid.Row="0" Orientation="Vertical" VerticalAlignment="Bottom" Margin="1064,0,544,20">
-            <StackPanel.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </StackPanel.Effect>
-            <Label HorizontalContentAlignment="Center" BorderBrush="#FF1F1F1F" BorderThickness="2" VerticalContentAlignment="Center" FontFamily="Raleway" Foreground="White" FontSize="34" Content="CATEGORY" Background="#FFB1B1B1"/>
-        </StackPanel>
 
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="54" Width="470" Margin="0,0,520,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3.7*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Button_DecreaseCircuit" Grid.Column="0" Content="-" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,-28.5,0,0" BorderThickness="2" BorderBrush="#FF1F1F1F" Background="#FF8E8E8E" Foreground="White" Height="54" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Click="Button_DecreaseCircuit_Click">
+                <Button.Effect>
+                    <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5,0,0,5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="Button_IncreaseCircuit" Grid.Column="2" Content="+" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="-25" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FF8E8E8E" Foreground="White" Height="54" HorizontalAlignment="Stretch" VerticalAlignment="Bottom" Click="Button_IncreaseCircuit_Click">
+                <Button.Effect>
+                    <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="0,5,5,0"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <StackPanel Grid.Row="0" Grid.Column="1" Orientation="Vertical" VerticalAlignment="Bottom" Margin="0,0,0,0">
+                <StackPanel.Effect>
+                    <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+                </StackPanel.Effect>
+                <Label HorizontalContentAlignment="Center" BorderBrush="#FF1F1F1F" BorderThickness="2" VerticalContentAlignment="Center" FontFamily="Raleway" Foreground="White" FontSize="34" Content="CIRCUIT" Background="#FFB1B1B1"/>
+            </StackPanel>
+        </Grid>
+
+        <Grid HorizontalAlignment="Center" VerticalAlignment="Bottom" Height="54" Width="470" Margin="0,0,-520,20">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="1*"/>
+                <ColumnDefinition Width="3.7*"/>
+                <ColumnDefinition Width="1*"/>
+            </Grid.ColumnDefinitions>
+            <Button x:Name="Button_DecreaseCategory" Grid.Column="0" Content="-" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="0,-28.5,0,0" BorderThickness="2" BorderBrush="#FF1F1F1F" Background="#FF8E8E8E" Foreground="White" Height="54" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <Button.Effect>
+                    <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="5,0,0,5"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <Button x:Name="Button_IncreaseCategory" Content="+" Grid.Column="2" FontSize="80" FontFamily="Raleway" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Padding="-25"  Margin="0,0,0,0" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FF8E8E8E" Foreground="White" Height="54" HorizontalAlignment="Stretch" VerticalAlignment="Center">
+                <Button.Effect>
+                    <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+                </Button.Effect>
+                <Button.Resources>
+                    <Style TargetType="{x:Type Border}">
+                        <Setter Property="CornerRadius" Value="0,5,5,0"/>
+                    </Style>
+                </Button.Resources>
+            </Button>
+            <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Stretch" HorizontalAlignment="Stretch" Margin="-2,0,-2,0">
+                <StackPanel.Effect>
+                    <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+                </StackPanel.Effect>
+                <Label HorizontalContentAlignment="Center" BorderBrush="#FF1F1F1F" BorderThickness="2" VerticalContentAlignment="Center" FontFamily="Raleway" Foreground="White" FontSize="34" Content="CATEGORY" Background="#FFB1B1B1"/>
+            </StackPanel>
+        </Grid>
 
         <Grid x:Name="EntryPrefab" Visibility="Hidden" Height="54" Margin="364,216,405,810">
             <Grid.ColumnDefinitions>

@@ -22,6 +22,10 @@ namespace ProjectGameInteraction2DRacingGame.Pages
     public partial class LeaderbordPage : Page
     {
         MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>()?.FirstOrDefault();
+
+        List<LeaderbordEntryComponent> entries = new List<LeaderbordEntryComponent>();  
+
+        int CategorieID = 0, CircuitID = 0;
         public LeaderbordPage()
         {
             InitializeComponent();
@@ -40,16 +44,40 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 Environment.Exit(0);
             }
         }
+
+        private void Button_IncreaseCircuit_Click(object sender, RoutedEventArgs e)
+        {
+            if (CircuitID >= 2) 
+                CircuitID = 0;
+            else CircuitID++;
+
+            KlasseListBox.Items.Clear();
+            entries.Clear();
+            InitLeaderbord();
+        }
+
+        private void Button_DecreaseCircuit_Click(object sender, RoutedEventArgs e)
+        {
+            if (CircuitID <= 0)
+                CircuitID = 2; //Set to max in circuit list
+            else CircuitID--;
+
+            KlasseListBox.Items.Clear();
+            entries.Clear();
+            InitLeaderbord();
+        }
+
         void InitLeaderbord()
         {
-            //Temporary data, replace 15 with a list count
+            //Temporary data, replace 15 with a list count of some sort
             for (int i = 0; i < 15; i++)
             {
                 LeaderbordEntryComponent component = new LeaderbordEntryComponent(
                     0, 0, (i + 1), $"player {i}", 
-                    $"1:12.{100 + i}",
-                    "1:12.100");
-                //MessageBox.Show(component.GetGrid().Width.ToString());
+                    $"{CircuitID + 1}:12.{100 + i}"
+                    );
+                component.SetGapToLeader(KlasseListBox.Items.Count == 0 ? component.GetRaceTime() : entries[0].GetRaceTime());
+                entries.Add(component);
                 KlasseListBox.Items.Add(component.GetGrid());
             }
         }

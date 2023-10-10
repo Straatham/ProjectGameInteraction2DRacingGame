@@ -24,14 +24,13 @@ namespace ProjectGameInteraction2DRacingGame.Components
 
         Grid Grid = new Grid();
 
-        public LeaderbordEntryComponent(int category, int track, int positionIndex, string player, string raceTime, string leaderRaceTime)
+        public LeaderbordEntryComponent(int category, int track, int positionIndex, string player, string raceTime)
         {
             Category = category;
             Track = track;
             SetPosition(positionIndex);
             SetPlayerName(player);
             SetRaceTime(raceTime);
-            SetGapToLeader(leaderRaceTime);
             CreateItems();
         }
         public void SetPosition(int position)
@@ -54,13 +53,15 @@ namespace ProjectGameInteraction2DRacingGame.Components
         {
             RaceTime = TimeSpan.ParseExact(raceTime, @"m\:ss\.fff", System.Globalization.CultureInfo.CurrentCulture);
         }
-        public void SetGapToLeader(string leaderRaceTime)
+        public void SetGapToLeader(TimeSpan leaderRaceTime)
         {
-            GapToLeader = TimeSpan.ParseExact(leaderRaceTime, @"m\:ss\.fff", System.Globalization.CultureInfo.CurrentCulture).Subtract(RaceTime);
+            GapToLeader = leaderRaceTime.Subtract(RaceTime);
         }
         public int GetCategory() => Category;
         public int GetTrack() => Track;
         public Grid GetGrid() => Grid;
+        public TimeSpan GetGapToLeader() => GapToLeader;
+        public TimeSpan GetRaceTime() => RaceTime;
 
         ///////////////////////////////////////////////////////////////////////////////////////////////////////
         ////
@@ -226,7 +227,7 @@ namespace ProjectGameInteraction2DRacingGame.Components
             return new TextBlock
             {
                 FontSize = 42,
-                Text = (GapToLeader == TimeSpan.Zero ? "-" : "+" + GapToLeader.ToString(@"m\:ss\.fff")),
+                Text = GapToLeader == TimeSpan.Zero ? "-" : "+" + (GapToLeader.TotalMinutes < 1 ? GapToLeader.ToString(@"ss\.fff") : GapToLeader.ToString(@"m\:ss\.fff")),
                 Foreground = new SolidColorBrush(Colors.White),
                 HorizontalAlignment = HorizontalAlignment.Stretch,
                 VerticalAlignment = VerticalAlignment.Center,
