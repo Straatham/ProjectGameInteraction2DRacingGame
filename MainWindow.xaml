@@ -7,6 +7,7 @@
         mc:Ignorable="d"
         Title="Main Menu"
         WindowStyle="None"   
+        Height="{Binding SystemParameters.PrimaryScreenHeight}" Width="1920"
         WindowState="Maximized">
 
     <Window.Resources>
@@ -119,7 +120,7 @@
                 <GradientStop Color="#FF1F1F1F" Offset="1"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Frame x:Name="MainFrameWindow" Height="1080" Navigating="Frame_Navigating" x:FieldModifier="public" NavigationUIVisibility="Hidden" Source="Pages/MainMenuPage.xaml" Foreground="{x:Null}"/>
+        <Frame x:Name="MainFrameWindow" Navigating="Frame_Navigating" x:FieldModifier="public" NavigationUIVisibility="Hidden" Source="Pages/MainMenuPage.xaml" Foreground="{x:Null}"/>
 
     </Grid>
 </Window>
