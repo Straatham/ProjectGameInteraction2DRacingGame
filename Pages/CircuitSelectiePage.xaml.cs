@@ -23,7 +23,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
     {
         MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>()?.FirstOrDefault();
 
-        const float listviewWidthDivider = 3.07f;
+        const float listviewWidthDivider = 3.08f;
 
         public CircuitSelectiePage()
         {
@@ -33,8 +33,6 @@ namespace ProjectGameInteraction2DRacingGame.Pages
 
             this.Height = mainWindow.Height;
             this.Width = mainWindow.Width;
-
-            Loaded += delegate { MessageBox.Show(this.Height + " - " + this.Width); };
         }
         private void Button_Terug_Click(object sender, RoutedEventArgs e)
         {
@@ -60,7 +58,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 try
                 {
                     LargeButtonSelectionComponentTest track = new LargeButtonSelectionComponentTest($"Test Track {i}", i, @"MainScreen.jpg");
-                    track.GetButton().Width = CircuitListBox.Width / listviewWidthDivider;
+                    track.GetButton().Width = (mainWindow.Width - (CircuitListBox.Margin.Left + CircuitListBox.Margin.Right)) / listviewWidthDivider;
                     track.GetButton().Click += (object sender2, RoutedEventArgs e2) =>
                     {
                         MessageBox.Show($"CLICKED TRACK {track.GetID()}");
