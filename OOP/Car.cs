@@ -38,47 +38,19 @@ namespace ProjectGameInteraction2DRacingGame.OOP
             SetImage(Image);
         }
 
-        // Methods
-        public void SetCarID(int carID)
-        {
-            CarID = carID;
-        }
-        public void SetClassID(int classID)
-        {
-            ClassID = classID;
-        }
-        public void SetMass(int mass)
-        {
-            Mass = mass;
-        }
-        public void SetTopSpeed(float setTopSpeed)
-        {
-            TopSpeed = setTopSpeed;
-        }
-        public void SetAcceleration(float setAcceleration)
-        {
-            Acceleration = setAcceleration;
-        }
-        public void SetBraking(float braking)
-        {
-            Braking = braking;
-        }
-        public void SetGrip(float grip)
-        {
-            Grip = grip;
-        }
-        public void SetDrag(float drag)
-        {
-            Drag = drag;
-        }
-        public void SetColor(Color color)
-        {
-            Color = color;
-        }
-        public void SetImage(Image image)
-        {
-            Image = image;
-        }
+        // Set Methods
+        public void SetCarID(int carID) { CarID = carID; }
+        public void SetClassID(int classID) { ClassID = classID; }
+        public void SetMass(int mass) { Mass = mass; }
+        public void SetTopSpeed(float setTopSpeed) { TopSpeed = setTopSpeed; }
+        public void SetAcceleration(float setAcceleration) { Acceleration = setAcceleration; }
+        public void SetBraking(float braking) { Braking = braking; }
+        public void SetGrip(float grip) { Grip = grip; }
+        public void SetDrag(float drag) { Drag = drag; }
+        public void SetColor(Color color) { Color = color; }
+        public void SetImage(Image image) { Image = image; }
+
+        // Get Methods
         public int GetCarID() => CarID;
         public int GetClassID() => ClassID;
         public int GetMass() => Mass;
