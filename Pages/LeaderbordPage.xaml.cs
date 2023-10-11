@@ -23,7 +23,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
     {
         MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>()?.FirstOrDefault();
 
-        List<LeaderbordEntryComponent> entries = new List<LeaderbordEntryComponent>();  
+        List<LeaderbordPrefabComponent> entries = new List<LeaderbordPrefabComponent>();  
 
         int CategorieID = 0, CircuitID = 0;
         public LeaderbordPage()
@@ -94,14 +94,17 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             //Temporary data, replace 15 with a list count of some sort
             for (int i = 0; i < 15; i++)
             {
-                LeaderbordEntryComponent component = new LeaderbordEntryComponent(
-                    0, 0, (i + 1), $"player {i}", 
-                    $"{(CircuitID + 1) * (CategorieID + 1)}:12.{100 + i}"                    
-                    );
+                Frame frame = new();
+                frame.Width = mainWindow.Width - KlasseListBox.Margin.Left - KlasseListBox.Margin.Right - 50;
+                LeaderbordPrefabComponent component = new LeaderbordPrefabComponent(
+                    0, 0, (i + 1), $"player {i}",
+                    $"{(CircuitID + 1) * (CategorieID + 1)}:12.{100 + i}", frame.Width
+                );
                 component.SetGapToLeader(KlasseListBox.Items.Count == 0 ? component.GetRaceTime() : entries[0].GetRaceTime());
-                component.CreateItems();
+                frame.Content = component;
+
                 entries.Add(component);
-                KlasseListBox.Items.Add(component.GetGrid());
+                KlasseListBox.Items.Add(frame);
             }
         }
     }
