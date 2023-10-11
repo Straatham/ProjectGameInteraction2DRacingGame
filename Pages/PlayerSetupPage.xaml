@@ -10,36 +10,15 @@
 
     <Grid>
         <Image Margin="0,0,0,0" Source="/Speler Opzet.jpg" Stretch="Fill"/>
-        <Button x:Name="Button_Terug" Content="TERUG" Margin="0,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Terug_Click" FontSize="24" HorizontalAlignment="Center" Width="218">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
-        <Button x:Name="Button_StartGame" Content="START" Margin="0,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FF68BC40" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Visibility="Hidden" Click="StartGameButtonClick" FontSize="24" HorizontalAlignment="Center" Width="218">
-            <Button.Effect>
-                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
-            </Button.Effect>
-            <Button.Resources>
-                <Style TargetType="{x:Type Border}">
-                    <Setter Property="CornerRadius" Value="5"/>
-                </Style>
-            </Button.Resources>
-        </Button>
 
-
-        <Label Content="SPELERS AANMAKEN" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
+        <Label Content="SPELERS AANMAKEN" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,30,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
 
         <ListView x:Name="PlayerListBox" 
           d:ItemsSource="{d:SampleData ItemCount=8}" 
           ScrollViewer.HorizontalScrollBarVisibility="Auto" 
           ScrollViewer.VerticalScrollBarVisibility="Disabled" 
           ScrollViewer.CanContentScroll="False"
-          Margin="40,80,40,120"
+          Margin="40,80,40,20"
           BorderThickness="2"
           VerticalContentAlignment="Stretch" Background="{x:Null}" BorderBrush="{x:Null}">
 
@@ -84,6 +63,27 @@
                 </Style>
             </Button.Resources>
         </Button>
+        <Button x:Name="Button_Terug" Content="TERUG" Margin="0,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Terug_Click" FontSize="24" HorizontalAlignment="Center" Width="218">
+            <Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+        <Button x:Name="Button_StartGame" Content="START" Margin="0,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FF68BC40" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Visibility="Hidden" Click="StartGameButtonClick" FontSize="24" HorizontalAlignment="Center" Width="218">
+            <Button.Effect>
+                <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
+            </Button.Effect>
+            <Button.Resources>
+                <Style TargetType="{x:Type Border}">
+                    <Setter Property="CornerRadius" Value="5"/>
+                </Style>
+            </Button.Resources>
+        </Button>
+
 
     </Grid>
 </Page>
