@@ -7,8 +7,8 @@
       mc:Ignorable="d" 
       Title="PlayerSetupComponent">
 
-    <Grid x:Name="Grid" >
-        <StackPanel HorizontalAlignment="Center" Margin="0,0,0,0">
+    <Grid x:Name="Grid"  >
+        <StackPanel HorizontalAlignment="Center" VerticalAlignment="Stretch" Margin="0,0,0,0">
             <TextBox x:Name="PlayerNameInput" Text="Fill In Name" FontFamily="Raleway" VerticalContentAlignment="Center" FontSize="26" Foreground="White" Margin="50,10,50,0" Height="50" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FFB1B1B1">
                 <TextBox.Style>
                     <Style TargetType="{x:Type TextBox}">

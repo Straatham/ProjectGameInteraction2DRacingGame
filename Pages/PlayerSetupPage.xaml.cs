@@ -56,7 +56,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         /// <param name="i"></param>
         void AddPlayerSetup(int i)
         {
-            PlayerSetupComponent playerSetupComponent = new(i, (float)mainWindow.Width);
+            PlayerSetupComponent playerSetupComponent = new(i);
             playerSetupComponent.AddColors(mainWindow.GameColors);
             playerSetupComponent.OnPlayerReadyChange += CheckAllPlayersReady;
 
@@ -100,6 +100,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             Frame frame = new()
             {
                 Width = (mainWindow.Width - (PlayerListBox.Margin.Left + PlayerListBox.Margin.Right)) / 2 - 20,
+                
                 Content = playerSetupComponent
             };
             PlayerListBox.Items.Add(frame);

@@ -55,7 +55,7 @@ namespace ProjectGameInteraction2DRacingGame.Components
         //Non player related things
         string templateText = "Fill in Name";
 
-        public PlayerSetupComponent(int i, float windowWidth)
+        public PlayerSetupComponent(int i)
         {
             ID = i;
             InitializeComponent();
@@ -63,11 +63,6 @@ namespace ProjectGameInteraction2DRacingGame.Components
             ResetButtonText();
             PlayerNameInput.GotFocus += OnPlayerNameInputSelect;
             PlayerNameInput.LostFocus += OnlayerNameInputSelectionChanged;
-        }
-
-        public void SetCorrectWidth(float windowWidth)
-        {
-            Grid.Width = windowWidth / 2;
         }
 
         void FixCorrectTextButtons()
