@@ -73,7 +73,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 {
                     playerSetupComponent.SetAllObjectsToInActive();
                     playerSetupComponent.SetIsReady();
-                    Player player = new Player(0, 0, 0, 0, playerSetupComponent.GetPlayerName(), null, Brushes.Cornsilk);
+                    Player player = new Player(0, 0, 0, 0, playerSetupComponent.GetPlayerName(), null, new SolidColorBrush());
                     mainWindow.gameInfo.players.Add(player);
                 }
             };            

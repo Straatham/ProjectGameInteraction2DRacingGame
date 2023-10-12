@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +16,9 @@ namespace ProjectGameInteraction2DRacingGame.OOP
         private int PlayersControlID;
         private string PlayerName;
         //private Enum PlayerStatus;
-        private Brushes Color;
+        private SolidColorBrush Color;
         // Constructors
-        public Player(int PlayerID, int CarID, int ClassID, int PlayersControlID, string PlayerName, Enum PlayerStatus, Brushes Color) 
+        public Player(int PlayerID, int CarID, int ClassID, int PlayersControlID, string PlayerName, Enum PlayerStatus, SolidColorBrush color) 
             {
             SetPlayerID(PlayerID);
             SetCarID(CarID);
@@ -27,7 +26,7 @@ namespace ProjectGameInteraction2DRacingGame.OOP
             SetPlayersControlID(PlayersControlID);
             SetPlayerName(PlayerName);
             //SetPlayerStatus(PlayerStatus);
-            SetColor(Color);
+            SetColor(color);
             }
         // Set Methods
         public void SetPlayerID(int playerID) { PlayerID = playerID; }
@@ -36,14 +35,14 @@ namespace ProjectGameInteraction2DRacingGame.OOP
         public void SetPlayersControlID(int playersControlID) { PlayersControlID = playersControlID; }
         public void SetPlayerName(string playerName) { PlayerName = playerName; }
         //public void SetPlayerStatus(Enum playerStatus) { PlayerStatus = playerStatus; } 
-        public void SetColor(Brushes color) {  Color = color; }
+        public void SetColor(SolidColorBrush color) {  Color = color; }
 
         // Get Methods
         public int GetPlayerID() => PlayerID;
         public int GetCarID() => CarID;
         public int GetClassID() => ClassID;
-        public int SetPlayersControlID() => PlayersControlID;
-        public string SetPlayerName() => PlayerName;
-        public Brushes SetColor() => Color;
+        public int GetPlayersControlID() => PlayersControlID;
+        public string GetPlayerName() => PlayerName;
+        public SolidColorBrush GetColor() => Color;
     }
 }
