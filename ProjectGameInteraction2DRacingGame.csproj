@@ -5,6 +5,75 @@
     <TargetFramework>net6.0-windows</TargetFramework>
     <Nullable>enable</Nullable>
     <UseWPF>true</UseWPF>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Images\circle-leaf.png" />
+    <None Remove="Images\Classes\GroupGT3.jpg" />
+    <None Remove="Images\Classes\Motorcross.jpg" />
+    <None Remove="Images\Classes\TractorPulling.jpg" />
+    <None Remove="Images\FirstPlaceTrophy.png" />
+    <None Remove="Images\MainScreen.jpg" />
+    <None Remove="Images\SecondPlaceTrophy.png" />
+    <None Remove="Images\ThirdPlaceTrophy.png" />
+    <None Remove="Images\Tracks\inje.jpg" />
+    <None Remove="Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Classes\" />
+    <Folder Include="Extensions\" />
+    <Folder Include="Images\Tracks\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Resource Include="Images\circle-leaf.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Classes\Motorcross.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Classes\GroupGT3.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Classes\TractorPulling.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\FirstPlaceTrophy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\SecondPlaceTrophy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\ThirdPlaceTrophy.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Classes\inje.jpg">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="Audio\Music\MainMenu.wav">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Update="Selecteer Circuit.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+    <None Update="Speler Opzet.jpg">
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+  <ItemGroup>
+    <Page Update="MainWindow.xaml">
+      <Generator></Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+  </ItemGroup>
 
 </Project>
