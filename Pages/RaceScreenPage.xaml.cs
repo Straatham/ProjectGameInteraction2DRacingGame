@@ -66,7 +66,15 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         //TEMP METHOD (FOR GOING TO PODIUM
         private void Canvas_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
-            MessageBox.Show("TRIGGERD TO PODIUM PAGE");
+            try
+            {
+                mainWindow.MainFrameWindow.Content = new ResultPodiumPage();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show($"{ex} Exiting....");
+                Environment.Exit(0);
+            }
         }
     }
 }

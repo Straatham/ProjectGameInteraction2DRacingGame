@@ -16,21 +16,18 @@ using System.Windows.Shapes;
 namespace ProjectGameInteraction2DRacingGame.Pages
 {
     /// <summary>
-    /// Interaction logic for PausedDialogComponent.xaml
+    /// Interaction logic for ResultPodiumPage.xaml
     /// </summary>
-    public partial class PausedDialogComponent : Page
+    public partial class ResultPodiumPage : Page
     {
         MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>()?.FirstOrDefault();
 
-        Frame frame;
-
-        public PausedDialogComponent(Frame frame)
+        public ResultPodiumPage()
         {
             InitializeComponent();
-            this.frame = frame;
         }
 
-        private void Button_Leave_Click(object sender, RoutedEventArgs e)
+        private void Button_Terug_Click(object sender, RoutedEventArgs e)
         {
             try
             {
@@ -44,23 +41,9 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             }
         }
 
-        private void Button_Resume_Click(object sender, RoutedEventArgs e)
+        private void Button_Herstarten_Click(object sender, RoutedEventArgs e)
         {
-            frame.Visibility = Visibility.Hidden;
-        }
-
-        private void Button_Restart_Click(object sender, RoutedEventArgs e)
-        {
-            try
-            {
-                mainWindow.gameInfo.players.Clear();
-                mainWindow.MainFrameWindow.Content = new RaceScreenPage();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show($"{ex} Exiting....");
-                Environment.Exit(0);
-            }
+            mainWindow.MainFrameWindow.Content = new RaceScreenPage();
         }
     }
 }
