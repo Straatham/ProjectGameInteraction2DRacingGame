@@ -5,13 +5,22 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:ProjectGameInteraction2DRacingGame"
         mc:Ignorable="d"
-        Title="Circuit" Height="616" Width="1070">
-    <Canvas x:Name="gameCanvas"
-            Height="auto"
-            Width="auto"
-            >
-        <Grid>
-            <Image Name="myImage" Stretch="Fill" />
-        </Grid>
-    </Canvas>
+        Title="Circuit"    
+        WindowState="Maximized" 
+        WindowStyle="None"  >
+    <!--        
+    WindowState="Maximized" 
+    WindowStyle="None"  
+    -->
+
+    <Grid HorizontalAlignment="Stretch" x:Name="GameGrid" VerticalAlignment="Stretch" Margin="0" Height="Auto" Width="Auto">
+        <Image Source="/Images/circuit 3.png" x:Name="TrackImage" Stretch="UniformToFill" />
+        <Canvas x:Name="gameCanvas" Background="Transparent" Height="auto" Width="auto">
+            <Rectangle Fill="AliceBlue" Height="20" Width="20" Margin="1" ></Rectangle>
+
+        </Canvas>
+    </Grid>
+
+    
+
 </Window>

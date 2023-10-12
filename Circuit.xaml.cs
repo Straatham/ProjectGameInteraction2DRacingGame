@@ -20,42 +20,90 @@ namespace ProjectGameInteraction2DRacingGame
     /// </summary>
     public partial class Circuit : Window
     {
+        int SnakeSquareSize = 50;
         public Circuit()
         {
             InitializeComponent();
-            WindowState = WindowState.Maximized;
-            Uri imageUri = new Uri("pack://application:,,,/ProjectGameInteraction2DRacinggame;component/images/circuit 3.png");
-            BitmapImage imageSource = new BitmapImage(imageUri);
-            myImage.Source = imageSource;
+            this.SizeChanged += OnWindowSizeChanged;
 
-            CreateRectangle(239, 100, 400, 40);
+            //CreateRectangle(400, 0, new Thickness(500,25,500,30));
+
 
         }
-        void CreateRectangle(int left, int top, int width, float angle)
+        protected void OnWindowSizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            GameGrid.Height = e.NewSize.Height;
+            GameGrid.Width = e.NewSize.Width;
+
+            SnakeSquareSize = (int)((float)GameGrid.Width / 200f);
+            GenerateLevel();
+        }
+        void CreateRectangle(int width, float angle, Thickness thickness)
         {
             Rectangle rec = new Rectangle
             {
                 Width = width,
-                Height = 20,
-                Fill = Brushes.Blue
-             };
+                Height = 10,
+                Fill = Brushes.Blue,
+                Margin = thickness
+            };
 
-            TranslateTransform tt = new TranslateTransform();
             RotateTransform rt = new RotateTransform();
             rt.Angle = angle;   
 
             TransformGroup tg = new TransformGroup();
-            tg.Children.Add(tt);
             tg.Children.Add(rt);
 
             rec.RenderTransform = tg;
 
-            Canvas.SetLeft(rec, left);
-            Canvas.SetTop(rec, top);
+            //Canvas.SetLeft(rec, left);
+            //Canvas.SetRight(rec, 100);
+            ////Canvas.SetTop(rec, top);
+            //Canvas.SetBottom(rec, 970);
 
             gameCanvas.Children.Add(rec);
 
 
+        }
+        void GenerateLevel()
+        {
+            bool doneDrawingBackground = false;
+            int nextX = 0, nextY = 0;
+            int rowCounter = 0;
+            bool nextIsOdd = false;
+
+            int i = 0;
+
+            while (doneDrawingBackground == false)
+            {
+                Rectangle rect = new Rectangle
+                {
+                    Width = SnakeSquareSize,
+                    Height = SnakeSquareSize,
+                    Fill = nextIsOdd ? Brushes.White : Brushes.Black
+                };
+                gameCanvas.Children.Add(rect);
+                Canvas.SetTop(rect, nextY);
+                Canvas.SetLeft(rect, nextX);
+
+                nextIsOdd = !nextIsOdd;
+                nextX += SnakeSquareSize;
+                i++;
+
+                if (i > 10 & i < 300)
+                    rect.Fill = Brushes.Green;
+
+                if (nextX >= GameGrid.Width)
+                {
+                    nextX = 0;
+                    nextY += SnakeSquareSize;
+                    rowCounter++;
+                    nextIsOdd = (rowCounter % 2 != 0);
+                }
+
+                if (nextY >= GameGrid.Height)
+                    doneDrawingBackground = true;
+            }
         }
     }
 }
