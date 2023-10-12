@@ -9,6 +9,7 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <None Remove="Circuits\Circuit01.txt" />
     <None Remove="Images\circle-leaf.png" />
     <None Remove="Images\Classes\GroupGT3.jpg" />
     <None Remove="Images\Classes\Motorcross.jpg" />
@@ -19,6 +20,12 @@
     <None Remove="Images\ThirdPlaceTrophy.png" />
     <None Remove="Images\Tracks\inje.jpg" />
     <None Remove="Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Circuits\Circuit01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>

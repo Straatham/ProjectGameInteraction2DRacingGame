@@ -26,11 +26,13 @@ namespace ProjectGameInteraction2DRacingGame.Pages
 
         List<PlayerRaceTickerComponent> players = new List<PlayerRaceTickerComponent>();
         List<Frame> positionFrames = new List<Frame>();
+        List<List<Rectangle>> recs = new List<List<Rectangle>>();
+        int squareSize;
 
         public RaceScreenPage()
         {
             InitializeComponent();
-
+            SizeChanged += RaceScreenPage_SizeChanged;
             PausedFrame.Content = new PausedDialogComponent(PausedFrame);
 
             //Add this seperately as FindVisualChildren doesn't work properly
@@ -39,6 +41,16 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             positionFrames.Add(Position_3);
             positionFrames.Add(Position_4);
             DisplayPlayersInTower();
+        }
+
+        private void RaceScreenPage_SizeChanged(object sender, SizeChangedEventArgs e)
+        {
+            GameCanvas.Height = e.NewSize.Height;
+            GameCanvas.Width = e.NewSize.Width;
+
+            squareSize = (int)((float)GameCanvas.Width / 200f);
+            GenerateLevel();
+            LoadCircuitData();
         }
 
         /// <summary>
@@ -53,7 +65,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 PlayerRaceTickerComponent tickerItem = new PlayerRaceTickerComponent(Brushes.White.Color, (i + 1), $"{mainWindow.gameInfo.players[i]}");
 
                 //Stupid calculation :|
-                tickerItem.Width = mainWindow.Width / mainWindow.gameInfo.players.Count - ( mainWindow.gameInfo.players.Count == 2 ? 46 : (mainWindow.gameInfo.players.Count == 3 ? 34.5f : 23));
+                tickerItem.Width = mainWindow.Width / mainWindow.gameInfo.players.Count - (mainWindow.gameInfo.players.Count == 2 ? 46 : (mainWindow.gameInfo.players.Count == 3 ? 34.5f : 23));
                 positionFrames[i].Content = tickerItem;
                 players.Add(tickerItem);
             }
@@ -75,6 +87,73 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 MessageBox.Show($"{ex} Exiting....");
                 Environment.Exit(0);
             }
+        }
+
+
+        void GenerateLevel()
+        {
+            bool doneDrawingBackground = false;
+            int nextX = 0, nextY = 0;
+            int rowCounter = 0;
+            bool nextIsOdd = false;
+
+            recs.Add(new List<Rectangle>());
+            while (doneDrawingBackground == false)
+            {
+                Rectangle rect = new Rectangle
+                {
+                    Width = squareSize,
+                    Height = squareSize,
+                    Fill = nextIsOdd ? Brushes.White : Brushes.Black
+                };
+                GameCanvas.Children.Add(rect);
+                Canvas.SetTop(rect, nextY);
+                Canvas.SetLeft(rect, nextX);
+
+                nextIsOdd = !nextIsOdd;
+                nextX += squareSize;
+                if (nextX >= GameCanvas.Width)
+                {
+                    nextX = 0;
+                    nextY += squareSize;
+                    rowCounter++;
+                    nextIsOdd = (rowCounter % 2 != 0);
+                    recs.Add(new List<Rectangle>());
+                }
+
+                if (nextY >= GameCanvas.Height)
+                    doneDrawingBackground = true;
+                recs.Last().Add(rect);
+            }
+        }
+        void LoadCircuitData()
+        {
+            int index = 0;
+            for(int j = 0; j < recs.Count; j++)
+            {
+                for (int i = 0; i < recs[j].Count; i++)
+                {
+                    if (index !>= mainWindow.circuitImporter.CircuitList.Count - 1)
+                        recs[j][i].Fill = GetBrushColor(mainWindow.circuitImporter.CircuitList[index].surfaceType);
+                    else
+                    {
+                        if (mainWindow.circuitImporter.CircuitList[index + 1].column == i && j == mainWindow.circuitImporter.CircuitList[index + 1].row)
+                            index++;
+                        recs[j][i].Fill = GetBrushColor(mainWindow.circuitImporter.CircuitList[index].surfaceType);
+                    }
+                }
+            }            
+        }
+
+        Brush GetBrushColor(CircuitSurfaces type)
+        {
+            return type switch {
+                CircuitSurfaces.Tarmac => Brushes.Gray,
+                CircuitSurfaces.Grass => Brushes.Green,
+                CircuitSurfaces.Sand => Brushes.Yellow,
+                CircuitSurfaces.Wall => Brushes.Red,
+                _ => Brushes.Black
+            };
         }
     }
 }
