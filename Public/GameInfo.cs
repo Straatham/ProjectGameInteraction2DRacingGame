@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectGameInteraction2DRacingGame.OOP;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -12,7 +13,7 @@ namespace ProjectGameInteraction2DRacingGame.Public
         int raceLaps = 3;
 
         //TO DO (THOMAS) - Change string list to {Player} class list
-        public List<string> players = new List<string>();
+        public List<Player> players = new List<Player>();
 
         public void SetCategory(int cat)
         {

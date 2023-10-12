@@ -4,6 +4,7 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Media;
 
 namespace ProjectGameInteraction2DRacingGame.OOP
 {
@@ -16,9 +17,9 @@ namespace ProjectGameInteraction2DRacingGame.OOP
         private int PlayersControlID;
         private string PlayerName;
         //private Enum PlayerStatus;
-        private Color Color;
+        private Brushes Color;
         // Constructors
-        public Player(int PlayerID, int CarID, int ClassID, int PlayersControlID, string PlayerName, Enum PlayerStatus, Color Color) 
+        public Player(int PlayerID, int CarID, int ClassID, int PlayersControlID, string PlayerName, Enum PlayerStatus, Brushes Color) 
             {
             SetPlayerID(PlayerID);
             SetCarID(CarID);
@@ -35,7 +36,7 @@ namespace ProjectGameInteraction2DRacingGame.OOP
         public void SetPlayersControlID(int playersControlID) { PlayersControlID = playersControlID; }
         public void SetPlayerName(string playerName) { PlayerName = playerName; }
         //public void SetPlayerStatus(Enum playerStatus) { PlayerStatus = playerStatus; } 
-        public void SetColor(Color color) {  Color = color; }
+        public void SetColor(Brushes color) {  Color = color; }
 
         // Get Methods
         public int GetPlayerID() => PlayerID;
@@ -43,6 +44,6 @@ namespace ProjectGameInteraction2DRacingGame.OOP
         public int GetClassID() => ClassID;
         public int SetPlayersControlID() => PlayersControlID;
         public string SetPlayerName() => PlayerName;
-        public Color SetColor() => Color;
+        public Brushes SetColor() => Color;
     }
 }
