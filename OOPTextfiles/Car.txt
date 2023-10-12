@@ -1,0 +1,3 @@
+﻿CarID,ClassID,Mass,TopSpeed,Acceleration,Braking,Grip,Drag,Image,
+1,1,1000,300,20,30,40,50,1_Image,
+2,1,1001,301,21,31,41,51,2_Image,
