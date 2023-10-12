@@ -30,6 +30,7 @@ namespace ProjectGameInteraction2DRacingGame
 
 
         }
+        
         protected void OnWindowSizeChanged(object sender, SizeChangedEventArgs e)
         {
             GameGrid.Height = e.NewSize.Height;
@@ -38,6 +39,7 @@ namespace ProjectGameInteraction2DRacingGame
             SnakeSquareSize = (int)((float)GameGrid.Width / 200f);
             GenerateLevel();
         }
+        
         void CreateRectangle(int width, float angle, Thickness thickness)
         {
             Rectangle rec = new Rectangle
@@ -62,7 +64,7 @@ namespace ProjectGameInteraction2DRacingGame
             //Canvas.SetBottom(rec, 970);
 
             gameCanvas.Children.Add(rec);
-
+            
 
         }
         void GenerateLevel()
@@ -105,9 +107,14 @@ namespace ProjectGameInteraction2DRacingGame
                         rect.Fill = Brushes.Black;
                         break;
                 }
-                if (i > 10 & i < 300)
+                if (i > 0 & i < 860)
                     rect.Fill = Brushes.Green;
-
+                if (i > 870&i < 1069)
+                    rect.Fill = Brushes.Gray;
+                if (i >1086& i <1282)
+                    rect.Fill = Brushes.White;
+                if (i >1397& i <1403)
+                        rect.Fill = Brushes.Black;
 
                 if (nextX >= GameGrid.Width)
                 {
