@@ -90,8 +90,24 @@ namespace ProjectGameInteraction2DRacingGame
                 nextX += SnakeSquareSize;
                 i++;
 
+
+
+                int type = 1;
+                switch (type)
+                {
+                    case 0:
+                        rect.Fill = Brushes.Green;
+                        break;
+                    case 1:
+                        rect.Fill = Brushes.Blue;
+                        break;
+                    case 2:
+                        rect.Fill = Brushes.Black;
+                        break;
+                }
                 if (i > 10 & i < 300)
                     rect.Fill = Brushes.Green;
+
 
                 if (nextX >= GameGrid.Width)
                 {
