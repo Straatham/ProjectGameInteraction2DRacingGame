@@ -10,7 +10,7 @@
 
     <Grid Height="Auto" Width="Auto">
         <Image Margin="0,0,-0,-0" Source="/RACE PODIUM.png" Stretch="Fill"/>
-        <Label Content="INSTELLINGEN" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
+        <Label Content="RACE RESULTATEN" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Stretch"/>
 
 
         <Label Content="FASTEST LAP: INPUT HERE" FontSize="24" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,0,0,90" VerticalAlignment="Bottom" HorizontalAlignment="Stretch"/>
