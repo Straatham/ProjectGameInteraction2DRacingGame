@@ -48,6 +48,8 @@ namespace ProjectGameInteraction2DRacingGame.Public
         Tarmac = 0,
         Grass = 1,
         Sand = 2,
-        Wall = 3,    
+        Wall = 3,
+        finishline = 4,
+        checkpoint = 5,
     }
 }

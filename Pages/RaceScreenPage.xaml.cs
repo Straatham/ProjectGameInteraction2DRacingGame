@@ -166,6 +166,8 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 CircuitSurfaces.Grass => Brushes.Green,
                 CircuitSurfaces.Sand => Brushes.Yellow,
                 CircuitSurfaces.Wall => Brushes.Red,
+                CircuitSurfaces.checkpoint => Brushes.White,
+                CircuitSurfaces.finishline => Brushes.White,
                 _ => Brushes.Black
             };
         }

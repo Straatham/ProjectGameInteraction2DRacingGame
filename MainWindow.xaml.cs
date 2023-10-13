@@ -172,7 +172,6 @@ namespace ProjectGameInteraction2DRacingGame
             else
                 player.Volume = volume;
         }
-
         /// <summary>
         /// Update the translation
         /// </summary>
