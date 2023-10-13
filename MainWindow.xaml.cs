@@ -1,4 +1,5 @@
-﻿using ProjectGameInteraction2DRacingGame.Public;
+﻿using ProjectGameInteraction2DRacingGame.OOP;
+using ProjectGameInteraction2DRacingGame.Public;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
@@ -36,9 +37,13 @@ namespace ProjectGameInteraction2DRacingGame
         public List<Color> GameColors = new List<Color>();
         public Public.Colors Colors = new Public.Colors();
 
+        //Important class lists
+        public List<CarClass> CarClasses = new List<CarClass>();
+
         public MainWindow()
         {
             InitializeComponent();
+            CarClasses = new List<CarClass>(OOPClassesImporter.ImportTracks());
             GameSettingsImporter.ReadFromFile();
             GameSettings.OnMusicVariableChange += UpdateMusicVolume;
             GameSettings.OnTranslationVariableChange += UpdateTranslation;
