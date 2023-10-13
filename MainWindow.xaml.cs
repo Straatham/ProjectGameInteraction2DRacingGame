@@ -149,12 +149,6 @@ namespace ProjectGameInteraction2DRacingGame
                 player.Volume = volume;
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            Circuit gw = new Circuit();
-            gw.Show();
-
-
-        }
+        
     }
 }
