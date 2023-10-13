@@ -1,6 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
+using System.Net.NetworkInformation;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -11,7 +13,6 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace ProjectGameInteraction2DRacingGame.Components
 {
@@ -132,7 +133,10 @@ namespace ProjectGameInteraction2DRacingGame.Components
             //Carviewer_Image.Fill = new BitmapImage(new Uri(@"/Images/foo.png", UriKind.Relative));
 
             //TEMP
-            Carviewer_Image.Content = $"Car {CarId}";
+            var imageSource = $"SportsCar1_{CarId}.png";
+            var path = Path.Combine("/Images/Autos", imageSource);
+            Carviewer_Image_Source.Source = new BitmapImage(new Uri(path, UriKind.Relative));
+
         }
         public void SetCarColor(Color col)
         {
