@@ -42,7 +42,7 @@
     <None Remove="OOPTextfiles\Car.txt" />
     <None Remove="OOPTextfiles\CarClasses.txt" />
     <None Remove="OOPTextfiles\Controls.txt" />
-    <None Remove="OOPTextfiles\Track.txt" />
+    <None Remove="OOPTextfiles\Tracks.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -154,7 +154,7 @@
     <Resource Include="OOPTextfiles\Controls.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="OOPTextfiles\Track.txt">
+    <Resource Include="OOPTextfiles\Tracks.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

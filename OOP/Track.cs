@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectGameInteraction2DRacingGame.Public;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -14,21 +15,18 @@ namespace ProjectGameInteraction2DRacingGame.OOP
         private int Length;
         private int Difficulty;
         private string Name;
-        private Object Walls;
-        private Image Image;
-        private Image Model;
+        private string ImageReference;
+        private List<Circuit> _Track = new List<Circuit>();
         private TimeSpan PredictedLaptime;
 
         // Constructors
-        public Track(int TrackID, int Length, int Difficulty, string Name, Object Walls, Image Image, Image Model, TimeSpan PredictedLaptime)
+        public Track(int TrackID, int Length, int Difficulty, string Name, string ImageRef, TimeSpan PredictedLaptime)
         {
             SetTrackID(TrackID);
             SetLength(Length);
             SetDifficulty(Difficulty);
             SetName(Name);
-            SetWalls(Walls);
-            SetImage(Image);
-            SetModel(Model);
+            SetImageReference(ImageRef);
             SetTimeSpan(PredictedLaptime);
         }
 
@@ -37,18 +35,22 @@ namespace ProjectGameInteraction2DRacingGame.OOP
         public void SetLength(int length) { Length = length; }
         public void SetDifficulty(int difficulty) { Difficulty = difficulty; }
         public void SetName(string name) { Name = name; }
-        public void SetWalls(Object walls) { Walls = walls; }
-        public void SetImage(Image image) { Image = image; }
-        public void SetModel(Image model) { Model = model; }
+        public void SetImageReference(string image) 
+        { 
+            ImageReference = image; 
+        }
+        public void SetModel(List<Circuit> track) 
+        {
+            _Track = track; 
+        }
         public void SetTimeSpan(TimeSpan predictedLaptime) { PredictedLaptime = predictedLaptime; }
         // Get Methods
         public int GetTrackID() => TrackID;
         public int GetLength() => Length;
         public int GetDifficulty() => Difficulty;
         public string GetName() => Name;
-        public Object GetWalls() => Walls;
-        public Image GetImage() => Image;
-        public Image GetModel() => Model;
+        public string GetImageReference() => ImageReference;
+        public List<Circuit> GetCircuit() => _Track;
         public TimeSpan GetPredictedLaptime() => PredictedLaptime;
 
     }

@@ -34,7 +34,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             try
             {
-                mainWindow.gameInfo.players.Clear();
+                mainWindow.gameInfo.ClearPlayerList();
                 mainWindow.MainFrameWindow.Content = new CategorySelectionPage();
             }
             catch (Exception ex)
@@ -74,7 +74,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                     playerSetupComponent.SetAllObjectsToInActive();
                     playerSetupComponent.SetIsReady();
                     Player player = new Player(0, 0, 0, 0, playerSetupComponent.GetPlayerName(), null, new SolidColorBrush());
-                    mainWindow.gameInfo.players.Add(player);
+                    mainWindow.gameInfo.AddPlayer(player);
                 }
             };            
             

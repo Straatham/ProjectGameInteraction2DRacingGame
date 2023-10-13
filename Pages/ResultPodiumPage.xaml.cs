@@ -30,8 +30,8 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         private void Button_Terug_Click(object sender, RoutedEventArgs e)
         {
             try
-            {
-                mainWindow.gameInfo.players.Clear();
+            {                
+                mainWindow.gameInfo = new OOP.Session();
                 mainWindow.MainFrameWindow.Content = new MainMenuPage();
             }
             catch (Exception ex)
