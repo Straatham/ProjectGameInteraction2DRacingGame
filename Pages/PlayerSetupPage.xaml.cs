@@ -1,4 +1,5 @@
 ﻿using ProjectGameInteraction2DRacingGame.Components;
+using ProjectGameInteraction2DRacingGame.OOP;
 using System;
 using System.Collections.Generic;
 using System.Data.SqlTypes;
@@ -72,7 +73,8 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 {
                     playerSetupComponent.SetAllObjectsToInActive();
                     playerSetupComponent.SetIsReady();
-                    mainWindow.gameInfo.players.Add(playerSetupComponent.GetPlayerName());
+                    Player player = new Player(0, 0, 0, 0, playerSetupComponent.GetPlayerName(), null, new SolidColorBrush());
+                    mainWindow.gameInfo.players.Add(player);
                 }
             };            
             
