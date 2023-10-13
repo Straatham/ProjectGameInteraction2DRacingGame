@@ -55,6 +55,11 @@
   </ItemGroup>
 
   <ItemGroup>
+    <PackageReference Include="MySql.Data" Version="8.1.0" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Resource Include="Images\Autos\SportsCar1_0.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>

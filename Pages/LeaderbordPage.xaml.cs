@@ -1,4 +1,5 @@
-﻿using ProjectGameInteraction2DRacingGame.Components;
+﻿using MySql.Data.MySqlClient;
+using ProjectGameInteraction2DRacingGame.Components;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -92,6 +93,27 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         void InitLeaderbord()
         {
             //Temporary data, replace 15 with a list count of some sort
+
+            string server = "localhost";
+            string database = "projectgameinteraction2dracinggame";
+            string username = "root";
+            string password = "";
+            string constring = "SERVER="+server+";"+"DATABASE="+database+";"+"UID="+username+";"+"PASSWORD="+password+";";
+            MySqlConnection conn = new MySqlConnection(constring);
+            conn.Open();
+            string query = "select * from scores";
+            MySqlCommand cmd = new MySqlCommand(query, conn);
+            MySqlDataReader reader = cmd.ExecuteReader();
+
+            while (reader.Read())
+            {
+                MessageBox.Show(reader["ID"].ToString());
+                MessageBox.Show(reader["Name"].ToString());
+                MessageBox.Show(reader["TrackID"].ToString());
+                MessageBox.Show(reader["VehicleID"].ToString());
+                MessageBox.Show(reader["Time"].ToString());
+            }
+
             for (int i = 0; i < 15; i++)
             {
                 Frame frame = new();
