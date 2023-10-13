@@ -7,12 +7,99 @@
     </ApplicationDefinition>
   </ItemGroup>
   <ItemGroup>
-    <Compile Update="Circuit.xaml.cs">
+    <Compile Update="Components\AudioOptionsComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\LanguageSelecterComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\LeaderbordPrefabComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\PlayerRaceTickerComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\PlayerSetupComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\CategorySelectionPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\CircuitSelectiePage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\InstellingenPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\LeaderbordPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\MainMenuPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Components\PausedDialogComponent.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\PlayerSetupPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\RaceScreenPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\ResultPodiumPage.xaml.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Update="Pages\SpelInstructiesPage.xaml.cs">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Page Update="Circuit.xaml">
+    <Page Update="Components\AudioOptionsComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\LanguageSelecterComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\LeaderbordPrefabComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\PlayerRaceTickerComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\PlayerSetupComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="MainWindow.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\CategorySelectionPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\CircuitSelectiePage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\InstellingenPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\LeaderbordPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\MainMenuPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Components\PausedDialogComponent.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\PlayerSetupPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\RaceScreenPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\ResultPodiumPage.xaml">
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Update="Pages\SpelInstructiesPage.xaml">
       <SubType>Designer</SubType>
     </Page>
   </ItemGroup>

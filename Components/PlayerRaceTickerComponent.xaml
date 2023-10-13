@@ -1,0 +1,25 @@
+﻿<Page x:Class="ProjectGameInteraction2DRacingGame.Components.PlayerRaceTickerComponent"
+      xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+      xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+      xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+      xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+      xmlns:local="clr-namespace:ProjectGameInteraction2DRacingGame.Components"
+      mc:Ignorable="d" 
+      d:DesignHeight="60" d:DesignWidth="800"
+      Title="PlayerRaceTickerComponent">
+
+    <Grid Height="60">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="40"/>
+            <ColumnDefinition Width="8"/>
+            <ColumnDefinition Width="1*"/>
+            <ColumnDefinition Width="60"/>
+            <ColumnDefinition Width="2"/>
+        </Grid.ColumnDefinitions>
+        <Label x:Name="PositionDisplayer" Grid.Column="0" Content="1" FontFamily="Raleway" Foreground="#1f1f1f" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <Border x:Name="PlayerColorDisplayer" Grid.Column="1" Margin="0,0,0,0" Background="Red"/>
+        <Label x:Name="PlayerNameDisplayer" Grid.Column="2" Margin="15,0,0,0" HorizontalAlignment="Left" Content="PLAYER NAME" FontFamily="Raleway" Foreground="#1f1f1f" FontSize="28" VerticalAlignment="Center" HorizontalContentAlignment="Center"/>
+        <Label x:Name="PlayerLapTotalDisplayer" Grid.Column="3" Content="3L" FontFamily="Raleway" Foreground="#1f1f1f" FontSize="28" VerticalAlignment="Center" HorizontalAlignment="Center" />
+        <Border x:Name="Devider" Grid.Column="4" Margin="0,1,0,1" Background="#1f1f1f"/>
+    </Grid>
+</Page>
