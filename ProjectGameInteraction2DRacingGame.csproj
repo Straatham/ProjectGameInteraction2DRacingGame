@@ -9,26 +9,6 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <None Remove="Images\Autos\SportsCar1_01.png" />
-    <None Remove="Images\Autos\SportsCar1_02.png" />
-    <None Remove="Images\Autos\SportsCar1_03.png" />
-    <None Remove="Images\Autos\SportsCar1_04.png" />
-    <None Remove="Images\Autos\SportsCar1_05.png" />
-    <None Remove="Images\Autos\SportsCar1_06.png" />
-    <None Remove="Images\Autos\SportsCar1_07.png" />
-    <None Remove="Images\Autos\SportsCar1_08.png" />
-    <None Remove="Images\Autos\SportsCar1_09.png" />
-    <None Remove="Images\Autos\SportsCar1_10.png" />
-    <None Remove="Images\Autos\SportsCar1_11.png" />
-    <None Remove="Images\Autos\SportsCar1_12.png" />
-    <None Remove="Images\Autos\SportsCar1_13.png" />
-    <None Remove="Images\Autos\SportsCar1_14.png" />
-    <None Remove="Images\Autos\SportsCar1_15.png" />
-    <None Remove="Images\Autos\SportsCar1_16.png" />
-    <None Remove="Images\Autos\SportsCar1_17.png" />
-    <None Remove="Images\Autos\SportsCar1_18.png" />
-    <None Remove="Images\Autos\SportsCar1_19.png" />
-    <None Remove="Images\Autos\SportsCar1_20.png" />
     <None Remove="Images\circle-leaf.png" />
     <None Remove="Images\Classes\GroupGT3.jpg" />
     <None Remove="Images\Classes\Motorcross.jpg" />
@@ -39,6 +19,12 @@
     <None Remove="Images\ThirdPlaceTrophy.png" />
     <None Remove="Images\Tracks\inje.jpg" />
     <None Remove="Logo.png" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="Circuits\Circuit01.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
 
   <ItemGroup>
