@@ -1,4 +1,5 @@
 ﻿using ProjectGameInteraction2DRacingGame.OOP;
+using ProjectGameInteraction2DRacingGame.Public;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -86,6 +87,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
 
         private void Button_VerlaatHetSpel_Click(object sender, RoutedEventArgs e)
         {
+            GameSettingsImporter.WriteToFile();
             Environment.Exit(0);
         }
     }
