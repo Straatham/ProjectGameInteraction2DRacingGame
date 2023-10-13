@@ -9,6 +9,17 @@
   </PropertyGroup>
 
   <ItemGroup>
+	<None Remove="Images\Autos\SportsCar1_0.png" />
+	<None Remove="Images\Autos\SportsCar1_01.png" />
+	<None Remove="Images\Autos\SportsCar1_1.png" />
+	<None Remove="Images\Autos\SportsCar1_2.png" />
+	<None Remove="Images\Autos\SportsCar1_3.png" />
+	<None Remove="Images\Autos\SportsCar1_4.png" />
+	<None Remove="Images\Autos\SportsCar1_5.png" />
+	<None Remove="Images\Autos\SportsCar1_6.png" />
+	<None Remove="Images\Autos\SportsCar1_7.png" />
+	<None Remove="Images\Autos\SportsCar1_8.png" />
+	<None Remove="Images\Autos\SportsCar1_9.png" />
     <None Remove="Images\circle-leaf.png" />
     <None Remove="Images\Classes\GroupGT3.jpg" />
     <None Remove="Images\Classes\Motorcross.jpg" />
@@ -34,31 +45,10 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Resource Include="Images\Autos\SportsCar1_01.png">
+    <Resource Include="Images\Autos\SportsCar1_0.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\Autos\SportsCar1_02.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\Autos\SportsCar1_03.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\Autos\SportsCar1_04.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\Autos\SportsCar1_05.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\Autos\SportsCar1_06.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\Autos\SportsCar1_07.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\Autos\SportsCar1_08.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Resource>
-    <Resource Include="Images\Autos\SportsCar1_09.png">
+    <Resource Include="Images\Autos\SportsCar1_1.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\Autos\SportsCar1_10.png">
@@ -91,7 +81,28 @@
     <Resource Include="Images\Autos\SportsCar1_19.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
-    <Resource Include="Images\Autos\SportsCar1_20.png">
+    <Resource Include="Images\Autos\SportsCar1_2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Autos\SportsCar1_3.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Autos\SportsCar1_4.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Autos\SportsCar1_5.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Autos\SportsCar1_6.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Autos\SportsCar1_7.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Autos\SportsCar1_8.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="Images\Autos\SportsCar1_9.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Images\circle-leaf.png">
