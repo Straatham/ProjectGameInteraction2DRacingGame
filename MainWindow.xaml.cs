@@ -39,11 +39,17 @@ namespace ProjectGameInteraction2DRacingGame
         public MainWindow()
         {
             InitializeComponent();
+            GameSettingsImporter.ReadFromFile();
             GameSettings.OnMusicVariableChange += UpdateMusicVolume;
+            GameSettings.OnTranslationVariableChange += UpdateTranslation;
             PlayMusic();
             GameColors = new List<Color>(Colors.GetAllColors());
             circuitImporter.ImportTracks();
         }
+
+        /// <summary>
+        /// Necessary code for frame navigation
+        /// </summary>
         private bool _allowDirectNavigation = false;
         private NavigatingCancelEventArgs _navArgs = null;
         private Duration _duration = new Duration(TimeSpan.FromMilliseconds(100));
@@ -147,6 +153,14 @@ namespace ProjectGameInteraction2DRacingGame
             }
             else
                 player.Volume = volume;
+        }
+
+        /// <summary>
+        /// Update the translation
+        /// </summary>
+        void UpdateTranslation(int value)
+        {
+
         }
     }
 }

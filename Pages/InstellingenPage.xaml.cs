@@ -48,7 +48,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 if ((VisualTreeHelper.GetParent(button) as StackPanel).Name == "AudioPanel")
                     audioSliders.Add(button);
             }
-            SetTranslationRadioButton();
+            SetTranslationRadioButton(GameSettings.GetTranslation());
             SetAudioLevels();
         }
 
@@ -87,10 +87,11 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         /// <param name="e"></param>
         private void Button_Opslaan_Click(object sender, RoutedEventArgs e)
         {
-            int translation = CheckRadioButtons();
+            GameSettings.SetTranslation(CheckRadioButtons());
             GameSettings.SetCarVolume((float)audioSliders[0].Value);
             GameSettings.SetMusicVolume((float)audioSliders[1].Value);
             GameSettings.SetEffectsVolume((float)audioSliders[2].Value);
+            GameSettingsImporter.WriteToFile();
         }
 
         /// <summary>
