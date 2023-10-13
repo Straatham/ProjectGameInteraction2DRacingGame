@@ -107,27 +107,39 @@ namespace ProjectGameInteraction2DRacingGame.Pages
 
             while (reader.Read())
             {
-                MessageBox.Show(reader["ID"].ToString());
-                MessageBox.Show(reader["Name"].ToString());
-                MessageBox.Show(reader["TrackID"].ToString());
-                MessageBox.Show(reader["VehicleID"].ToString());
-                MessageBox.Show(reader["Time"].ToString());
-            }
-
-            for (int i = 0; i < 15; i++)
-            {
                 Frame frame = new();
                 frame.Width = mainWindow.Width - KlasseListBox.Margin.Left - KlasseListBox.Margin.Right - 50;
                 LeaderbordPrefabComponent component = new LeaderbordPrefabComponent(
-                    0, 0, (i + 1), $"player {i}",
-                    $"{(CircuitID + 1) * (CategorieID + 1)}:12.{100 + i}", frame.Width
+                    0, 0, (Convert.ToInt32(reader["ID"])), $"{reader["Name"]}",
+                    $"{(Convert.ToInt32(reader["TrackID"]) + 1) * (Convert.ToInt32(reader["VehicleID"]) + 1)}:12.{100 + Convert.ToInt32(reader["ID"])}", frame.Width
                 );
                 component.SetGapToLeader(KlasseListBox.Items.Count == 0 ? component.GetRaceTime() : entries[0].GetRaceTime());
                 frame.Content = component;
 
                 entries.Add(component);
                 KlasseListBox.Items.Add(frame);
+
+                //MessageBox.Show(reader["ID"].ToString());
+                //MessageBox.Show(reader["Name"].ToString());
+                //MessageBox.Show(reader["TrackID"].ToString());
+                //MessageBox.Show(reader["VehicleID"].ToString());
+                //MessageBox.Show(reader["Time"].ToString());
             }
+
+            //for (int i = 0; i < 15; i++)
+            //{
+            //    Frame frame = new();
+            //    frame.Width = mainWindow.Width - KlasseListBox.Margin.Left - KlasseListBox.Margin.Right - 50;
+            //    LeaderbordPrefabComponent component = new LeaderbordPrefabComponent(
+            //        0, 0, (i + 1), $"player {i}",
+            //        $"{(CircuitID + 1) * (CategorieID + 1)}:12.{100 + i}", frame.Width
+            //    );
+            //    component.SetGapToLeader(KlasseListBox.Items.Count == 0 ? component.GetRaceTime() : entries[0].GetRaceTime());
+            //    frame.Content = component;
+
+            //    entries.Add(component);
+            //    KlasseListBox.Items.Add(frame);
+            //}
         }
     }
 }
