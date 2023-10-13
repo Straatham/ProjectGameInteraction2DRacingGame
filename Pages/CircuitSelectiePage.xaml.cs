@@ -53,14 +53,15 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         /// </summary>
         void InitTracks()
         {
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < mainWindow.Tracks.Count; i++)
             {
                 try
                 {
-                    LargeButtonSelectionComponentTest track = new LargeButtonSelectionComponentTest($"Test Track {i}", i, @"Inje.jpg");
+                    LargeButtonSelectionComponentTest track = new LargeButtonSelectionComponentTest(mainWindow.Tracks[i].GetName(), mainWindow.Tracks[i].GetTrackID(), @"Inje.jpg");
                     track.GetButton().Width = (mainWindow.Width - (CircuitListBox.Margin.Left + CircuitListBox.Margin.Right)) / listviewWidthDivider;
                     track.GetButton().Click += (object sender2, RoutedEventArgs e2) =>
                     {
+                        mainWindow.gameInfo.SetTrackID(track.GetID());
                         CategorySelectionPage setPage = new CategorySelectionPage();
                         NavigationService.Navigate(setPage);
                     };

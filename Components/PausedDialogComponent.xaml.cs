@@ -34,7 +34,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             try
             {
-                mainWindow.gameInfo.players.Clear();
+                mainWindow.gameInfo = new OOP.Session();
                 mainWindow.MainFrameWindow.Content = new MainMenuPage();
             }
             catch (Exception ex)
@@ -53,7 +53,6 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             try
             {
-                mainWindow.gameInfo.players.Clear();
                 mainWindow.MainFrameWindow.Content = new RaceScreenPage();
             }
             catch (Exception ex)

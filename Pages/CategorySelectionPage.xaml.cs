@@ -50,11 +50,9 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             List<string> FotoList = new List<string>
             { "GroupGT3.jpg", "Motorcross.jpg", "TractorPulling.jpg"};
-            List<string> NameList = new List<string>
-            { "Auto Racing", "Motor Racing", "Tractor Racing"};
-            for (int i = 0; i < 3; i++)
+            for (int i = 0; i < mainWindow.CarClasses.Count; i++)
             {
-                LargeButtonSelectionComponentTest track = new LargeButtonSelectionComponentTest(NameList[i], i, FotoList[i]);
+                LargeButtonSelectionComponentTest track = new LargeButtonSelectionComponentTest(mainWindow.CarClasses[i].GetName(), mainWindow.CarClasses[i].GetClassID(), FotoList[i]);
                 track.GetButton().Width = (mainWindow.Width - ( KlasseListBox.Margin.Left + KlasseListBox.Margin.Right)) / listviewWidthDivider;
                 track.GetButton().Click += (object sender2, RoutedEventArgs e2) =>
                 {

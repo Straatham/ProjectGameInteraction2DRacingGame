@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectGameInteraction2DRacingGame.OOP;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Numerics;
@@ -32,6 +33,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             try
             {
+                mainWindow.gameInfo = new Session();
                 CircuitSelectiePage setPage = new CircuitSelectiePage();
                 NavigationService.Navigate(setPage);
             }

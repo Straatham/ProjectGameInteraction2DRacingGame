@@ -39,6 +39,10 @@
     <None Remove="Images\ThirdPlaceTrophy.png" />
     <None Remove="Images\Tracks\inje.jpg" />
     <None Remove="Logo.png" />
+    <None Remove="OOPTextfiles\Car.txt" />
+    <None Remove="OOPTextfiles\CarClasses.txt" />
+    <None Remove="OOPTextfiles\Controls.txt" />
+    <None Remove="OOPTextfiles\Tracks.txt" />
   </ItemGroup>
 
   <ItemGroup>
@@ -139,6 +143,18 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
     <Resource Include="Logo.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="OOPTextfiles\Car.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="OOPTextfiles\CarClasses.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="OOPTextfiles\Controls.txt">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+    <Resource Include="OOPTextfiles\Tracks.txt">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>

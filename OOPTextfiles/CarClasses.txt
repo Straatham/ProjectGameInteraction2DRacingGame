@@ -1,4 +1,4 @@
 ﻿ClassID,Name,
-1,SportAuto,
-2,Motor,
-3,Trekker,
+0,Sport Auto,
+1,Motor,
+2,Trekker,

@@ -1,4 +1,5 @@
-﻿using ProjectGameInteraction2DRacingGame.Public;
+﻿using ProjectGameInteraction2DRacingGame.OOP;
+using ProjectGameInteraction2DRacingGame.Public;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
@@ -30,20 +31,43 @@ namespace ProjectGameInteraction2DRacingGame
     public partial class MainWindow : Window
     {
         public MediaPlayer player = new MediaPlayer();
-        public GameInfo gameInfo = new GameInfo();
+        public Session gameInfo = new Session();
         public CircuitImporter circuitImporter = new CircuitImporter();
 
         public List<Color> GameColors = new List<Color>();
         public Public.Colors Colors = new Public.Colors();
 
+        //Important class lists
+        public List<CarClass> CarClasses = new List<CarClass>();
+        public List<Track> Tracks = new List<Track>();
+
         public MainWindow()
         {
             InitializeComponent();
             GameSettings.OnMusicVariableChange += UpdateMusicVolume;
+            GameSettings.OnTranslationVariableChange += UpdateTranslation;
+
+            CarClasses = new List<CarClass>(OOPClassesImporter.ImportClasses());
+            Tracks = new List<Track>(OOPClassesImporter.ImportTracks());
+
+            GameSettingsImporter.ReadFromFile();
             PlayMusic();
             GameColors = new List<Color>(Colors.GetAllColors());
             circuitImporter.ImportTracks();
+
+            for (int i = 0; i < Tracks.Count; i++)
+            {
+                for (int j = 0; j < circuitImporter.CircuitList.Count; j++)
+                {
+                    if (circuitImporter.CircuitList[j].Any(x => x.reference == Tracks[i].GetName()))
+                        Tracks[i].SetModel(circuitImporter.CircuitList[j]);
+                }
+            }
         }
+
+        /// <summary>
+        /// Necessary code for frame navigation
+        /// </summary>
         private bool _allowDirectNavigation = false;
         private NavigatingCancelEventArgs _navArgs = null;
         private Duration _duration = new Duration(TimeSpan.FromMilliseconds(100));
@@ -148,7 +172,12 @@ namespace ProjectGameInteraction2DRacingGame
             else
                 player.Volume = volume;
         }
+        /// <summary>
+        /// Update the translation
+        /// </summary>
+        void UpdateTranslation(int value)
+        {
 
-        
+        }
     }
 }

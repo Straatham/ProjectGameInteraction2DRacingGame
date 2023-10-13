@@ -1,4 +1,5 @@
 ﻿using ProjectGameInteraction2DRacingGame.Components;
+using ProjectGameInteraction2DRacingGame.OOP;
 using ProjectGameInteraction2DRacingGame.Public;
 using System;
 using System.Collections.Generic;
@@ -58,14 +59,14 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         /// </summary>
         void DisplayPlayersInTower()
         {
-            mainWindow.gameInfo.players.ShuffleMe();
+            mainWindow.gameInfo.GetAllPlayers().ShuffleMe();
 
-            for (int i = 0; i < mainWindow.gameInfo.players.Count; i++)
+            for (int i = 0; i < mainWindow.gameInfo.GetAllPlayers().Count; i++)
             {
-                PlayerRaceTickerComponent tickerItem = new PlayerRaceTickerComponent(mainWindow.gameInfo.players[i].GetColor().Color, (i + 1), $"{mainWindow.gameInfo.players[i].GetPlayerName()}");
+                PlayerRaceTickerComponent tickerItem = new PlayerRaceTickerComponent(mainWindow.gameInfo.GetAllPlayers()[i].GetColor().Color, (i + 1), $"{mainWindow.gameInfo.GetAllPlayers()[i].GetPlayerName()}");
 
                 //Stupid calculation :|
-                tickerItem.Width = mainWindow.Width / mainWindow.gameInfo.players.Count - (mainWindow.gameInfo.players.Count == 2 ? 46 : (mainWindow.gameInfo.players.Count == 3 ? 34.5f : 23));
+                tickerItem.Width = mainWindow.Width / mainWindow.gameInfo.GetAllPlayers().Count - (mainWindow.gameInfo.GetAllPlayers().Count == 2 ? 46 : (mainWindow.gameInfo.GetAllPlayers().Count == 3 ? 34.5f : 23));
                 positionFrames[i].Content = tickerItem;
                 players.Add(tickerItem);
             }
@@ -134,21 +135,28 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         /// </summary>
         void LoadCircuitData()
         {
-            int index = 0;
-            for(int j = 0; j < recs.Count; j++)
+            Track track = mainWindow.Tracks.Find(x => x.GetTrackID() == mainWindow.gameInfo.GetTrackID());
+            if (track.GetCircuit() == null)
+                MessageBox.Show("TRACK IS NULL");
+
+            else
             {
-                for (int i = 0; i < recs[j].Count; i++)
+                int index = 0;
+                for (int j = 0; j < recs.Count; j++)
                 {
-                    if (index !>= mainWindow.circuitImporter.CircuitList.Count - 1)
-                        recs[j][i].Fill = GetBrushColor(mainWindow.circuitImporter.CircuitList[index].surfaceType);
-                    else
+                    for (int i = 0; i < recs[j].Count; i++)
                     {
-                        if (mainWindow.circuitImporter.CircuitList[index + 1].column == i && j == mainWindow.circuitImporter.CircuitList[index + 1].row)
-                            index++;
-                        recs[j][i].Fill = GetBrushColor(mainWindow.circuitImporter.CircuitList[index].surfaceType);
+                        if (index! >= track.GetCircuit().Count - 1)
+                            recs[j][i].Fill = GetBrushColor(track.GetCircuit()[index].surfaceType);
+                        else
+                        {
+                            if (track.GetCircuit()[index + 1].column == i && j == track.GetCircuit()[index + 1].row)
+                                index++;
+                            recs[j][i].Fill = GetBrushColor(track.GetCircuit()[index].surfaceType);
+                        }
                     }
                 }
-            }            
+            }          
         }
 
         Brush GetBrushColor(CircuitSurfaces type)

@@ -9,7 +9,6 @@ namespace ProjectGameInteraction2DRacingGame.Public
     public class GameSettings
     {
         static float musicVolume = 0.1f;
-
         static float _musicVolume
         {
             set
@@ -25,7 +24,22 @@ namespace ProjectGameInteraction2DRacingGame.Public
 
         static float carVolume = 0.5f;
         static float effectsVolume = 0.5f;
-      
+
+
+        static int Translation = 0; //0 = Dutch, 1 = Frysk, 2 = English
+
+        static int _Translation
+        {
+            set
+            {
+                Translation = value;
+                if (OnTranslationVariableChange != null)
+                    OnTranslationVariableChange(Translation);
+            }
+            get { return Translation; }
+        }
+        public delegate void OnTranslationChangeDelegate(int value);
+        public static event OnTranslationChangeDelegate OnTranslationVariableChange;
 
         public static float GetMusicVolume() => _musicVolume * 10;
         public static void SetMusicVolume(float volume = 5)
@@ -42,5 +56,11 @@ namespace ProjectGameInteraction2DRacingGame.Public
         {
             effectsVolume = volume / 10;
         }
+
+        public static void SetTranslation(int translation = 0)
+        {
+            _Translation = translation;
+        }
+        public static int GetTranslation() => _Translation;
     }
 }
