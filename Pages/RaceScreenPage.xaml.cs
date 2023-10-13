@@ -89,7 +89,9 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             }
         }
 
-
+        /// <summary>
+        /// Generate the rectangle grid
+        /// </summary>
         void GenerateLevel()
         {
             bool doneDrawingBackground = false;
@@ -126,6 +128,10 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 recs.Last().Add(rect);
             }
         }
+
+        /// <summary>
+        /// Load all data from the circuitList into the grid
+        /// </summary>
         void LoadCircuitData()
         {
             int index = 0;
