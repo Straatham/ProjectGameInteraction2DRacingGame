@@ -31,6 +31,8 @@ namespace ProjectGameInteraction2DRacingGame
     {
         public MediaPlayer player = new MediaPlayer();
         public GameInfo gameInfo = new GameInfo();
+        public CircuitImporter circuitImporter = new CircuitImporter();
+
         public List<Color> GameColors = new List<Color>();
         public Public.Colors Colors = new Public.Colors();
 
@@ -40,6 +42,7 @@ namespace ProjectGameInteraction2DRacingGame
             GameSettings.OnMusicVariableChange += UpdateMusicVolume;
             PlayMusic();
             GameColors = new List<Color>(Colors.GetAllColors());
+            circuitImporter.ImportTracks();
         }
         private bool _allowDirectNavigation = false;
         private NavigatingCancelEventArgs _navArgs = null;

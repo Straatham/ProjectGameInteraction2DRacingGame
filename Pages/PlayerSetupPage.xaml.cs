@@ -80,7 +80,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             playerSetupComponent.GetIncreaseCarButton().Click += (object sender2, RoutedEventArgs e2) =>
             {
                 //TO DO : Change int to category total cars
-                if (playerSetupComponent.GetCarID() > 4)
+                if (playerSetupComponent.GetCarID() >= 19)
                     playerSetupComponent.SetCarID(0);
                 else
                     playerSetupComponent.SetCarID(playerSetupComponent.GetCarID() + 1);
@@ -90,8 +90,8 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             playerSetupComponent.GetDecreaseCarButton().Click += (object sender2, RoutedEventArgs e2) =>
             {
                 //TO DO : Change int to category total cars
-                if (playerSetupComponent.GetCarID() < 0)
-                    playerSetupComponent.SetCarID(5);
+                if (playerSetupComponent.GetCarID() < 1)
+                    playerSetupComponent.SetCarID(19);
                 else
                     playerSetupComponent.SetCarID(playerSetupComponent.GetCarID() - 1);
             };
