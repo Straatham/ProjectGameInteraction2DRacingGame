@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectGameInteraction2DRacingGame.Public;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -135,7 +136,12 @@ namespace ProjectGameInteraction2DRacingGame.Components
             //TEMP
             var imageSource = $"SportsCar1_{CarId}.png";
             var path = Path.Combine("/Images/Autos", imageSource);
-            Carviewer_Image_Source.Source = new BitmapImage(new Uri(path, UriKind.Relative));
+            Uri uri = new Uri(path, UriKind.Relative);
+
+            Carviewer_Image_Source.Source = ImageColorConverter.ConvertColorToSource(uri);
+
+
+            //Carviewer_Image_Source.Source = new BitmapImage(new Uri(path, UriKind.Relative));
 
         }
         public void SetCarColor(Color col)
