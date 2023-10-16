@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -28,6 +29,8 @@ namespace ProjectGameInteraction2DRacingGame.Components
         bool CanReady = false, isReady = false;
 
         int CarId = 0;
+
+        Color CurrentColor;
 
         int _CarID
         {
@@ -93,7 +96,7 @@ namespace ProjectGameInteraction2DRacingGame.Components
                     Content = "",
                     BorderThickness = new Thickness(0)
                 };
-                btn.Click += delegate { SetCarColor(((SolidColorBrush)btn.Background).Color); };
+                btn.Click += delegate { SetCarImage(((SolidColorBrush)btn.Background).Color); };
                 ColorListView.Items.Add(btn);
             }
         }
@@ -128,7 +131,7 @@ namespace ProjectGameInteraction2DRacingGame.Components
         //TO DO - REGEX CHECK
         public bool GetCanReady() => !string.IsNullOrEmpty(PlayerNameInput.Text) && PlayerNameInput.Text != templateText;
 
-        public void SetCarImage()
+        public void SetCarImage(Color color)
         {
             //TO DO - Change code to the following example once images are working
             //Carviewer_Image.Fill = new BitmapImage(new Uri(@"/Images/foo.png", UriKind.Relative));
@@ -138,19 +141,9 @@ namespace ProjectGameInteraction2DRacingGame.Components
             var path = Path.Combine("/Images/Autos", imageSource);
             Uri uri = new Uri(path, UriKind.Relative);
 
-            Carviewer_Image_Source.Source = ImageColorConverter.ConvertColorToSource(uri);
-
-
-            //Carviewer_Image_Source.Source = new BitmapImage(new Uri(path, UriKind.Relative));
-
+            CurrentColor = color;
+            Carviewer_Image_Source.Source = ImageColorConverter.ConvertColorToSource(uri, color);
         }
-        public void SetCarColor(Color col)
-        {
-            //TO DO - Change code to the following example once images are working
-            //Carviewer_Image.Fill = new SolidColorBrush(System.Windows.Media.Colors.AliceBlue); 
-
-            //TEMP
-            Carviewer_Image.Background = new SolidColorBrush(col);
-        }
+        public Color GetCarColor() => CurrentColor;
     }
 }

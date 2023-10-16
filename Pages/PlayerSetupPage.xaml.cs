@@ -63,7 +63,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
 
             //Delegate method to update car picture once CarID has changed
             playerSetupComponent.OnCarIDChange += delegate { 
-                playerSetupComponent.SetCarImage(); 
+                playerSetupComponent.SetCarImage(playerSetupComponent.GetCarColor()); 
             };
 
             //Event when player is ready to play
