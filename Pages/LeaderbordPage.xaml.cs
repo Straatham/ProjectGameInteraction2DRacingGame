@@ -93,7 +93,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         void InitLeaderbord()
         {
             //Temporary data, replace 15 with a list count of some sort
-
+            
             string server = "localhost";
             string database = "projectgameinteraction2dracinggame";
             string username = "root";
@@ -101,17 +101,19 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             string constring = "SERVER="+server+";"+"DATABASE="+database+";"+"UID="+username+";"+"PASSWORD="+password+";";
             MySqlConnection conn = new MySqlConnection(constring);
             conn.Open();
-            string query = "select * from scores";
+            string query = $"SELECT * FROM scores WHERE TrackID = {CircuitID + 1} AND VehicleID = {CategorieID + 1} ORDER BY scores.FastestLapTime ASC LIMIT 25;";
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
 
+            int i = 0 ;
             while (reader.Read())
             {
+                i++;
                 Frame frame = new();
                 frame.Width = mainWindow.Width - KlasseListBox.Margin.Left - KlasseListBox.Margin.Right - 50;
                 LeaderbordPrefabComponent component = new LeaderbordPrefabComponent(
-                    0, 0, (Convert.ToInt32(reader["ID"])), $"{reader["Name"]}",
-                    $"{(Convert.ToInt32(reader["TrackID"]) + 1) * (Convert.ToInt32(reader["VehicleID"]) + 1)}:12.{100 + Convert.ToInt32(reader["ID"])}", frame.Width
+                    0, 0, (i), $"{reader["Name"]}",
+                $"{reader["FastestLapTime"]}", frame.Width
                 );
                 component.SetGapToLeader(KlasseListBox.Items.Count == 0 ? component.GetRaceTime() : entries[0].GetRaceTime());
                 frame.Content = component;
@@ -123,7 +125,9 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 //MessageBox.Show(reader["Name"].ToString());
                 //MessageBox.Show(reader["TrackID"].ToString());
                 //MessageBox.Show(reader["VehicleID"].ToString());
-                //MessageBox.Show(reader["Time"].ToString());
+                //MessageBox.Show(reader["TotalTime"].ToString());
+                //MessageBox.Show(reader["Laps"].ToString());
+                //MessageBox.Show(reader["FastestLapTime"].ToString());
             }
 
             //for (int i = 0; i < 15; i++)
