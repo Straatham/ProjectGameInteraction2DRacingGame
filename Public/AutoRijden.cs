@@ -24,18 +24,6 @@ namespace ProjectGameInteraction2DRacingGame.Public
         }
        
 
-        public void AutoMovementChecken(object sender, EventArgs e)
-        {
-            if (moveUp)
-                Canvas.SetTop(car, Canvas.GetTop(car) - 10);
-            if (moveDown)
-                Canvas.SetTop(car, Canvas.GetTop(car) + 10);
-            if (moveLeft)
-                Canvas.SetLeft(car, Canvas.GetLeft(car) - 10);
-            if (moveRight)
-                Canvas.SetLeft(car, Canvas.GetLeft(car) + 10);
-        }
-
         public Rectangle CreateNewCar()
         {
             return new Rectangle

@@ -54,15 +54,31 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             if (e.Key == Key.D)
                 autoRijden.moveRight = false;
         }
+        public void AutoMovementChecken(object sender, EventArgs e)
+        {
+            if (autoRijden.moveUp)
+                Canvas.SetTop(autoRijden.car, Canvas.GetTop(autoRijden.car) - 10);
+            if (autoRijden.moveDown)
+                Canvas.SetTop(autoRijden.car, Canvas.GetTop(autoRijden.car) + 10);
+            if (autoRijden.moveLeft)
+                Canvas.SetLeft(autoRijden.car, Canvas.GetLeft(autoRijden.car) - 10);
+            if (autoRijden.moveRight)
+                Canvas.SetLeft(autoRijden.car, Canvas.GetLeft(autoRijden.car) + 10);
+        }
+
         public RaceScreenPage()
         {
             InitializeComponent();
             /// Game Timer;
-            
-            timer.Tick += autoRijden.AutoMovementChecken;
+
             timer.Interval = TimeSpan.FromMilliseconds(50);
+            timer.Tick += AutoMovementChecken;
             timer.Start();
 
+            mainWindow.KeyDown += KnopIngedrukt;
+            mainWindow.KeyUp += KnopLos;
+
+            GameCanvas.Focus();
 
             /// 
             SizeChanged += RaceScreenPage_SizeChanged;
@@ -74,6 +90,9 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             positionFrames.Add(Position_3);
             positionFrames.Add(Position_4);
             DisplayPlayersInTower();
+
+
+
         }
 
         private void RaceScreenPage_SizeChanged(object sender, SizeChangedEventArgs e)
@@ -81,15 +100,16 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             GameCanvas.Height = e.NewSize.Height;
             GameCanvas.Width = e.NewSize.Width;
 
+
             squareSize = (int)((float)GameCanvas.Width / 200f);
             GenerateLevel();
             LoadCircuitData();
-
+            
             Canvas.SetLeft(autoRijden.car, 200);
             Canvas.SetTop(autoRijden.car, 200);
             GameCanvas.Children.Add(autoRijden.car);
         }
-        Public.AutoRijden autoRijden = new Public.AutoRijden();
+        AutoRijden autoRijden = new AutoRijden();
         public DispatcherTimer timer = new DispatcherTimer();
         /// <summary>
         /// Display players in random position order
