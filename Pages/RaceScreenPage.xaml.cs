@@ -57,13 +57,13 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         public void AutoMovementChecken(object sender, EventArgs e)
         {
             if (autoRijden.moveUp)
-                Canvas.SetTop(autoRijden.car, Canvas.GetTop(autoRijden.car) - 10);
+                Canvas.SetTop(autoRijden.car, Canvas.GetTop(autoRijden.car) - 5);
             if (autoRijden.moveDown)
-                Canvas.SetTop(autoRijden.car, Canvas.GetTop(autoRijden.car) + 10);
+                Canvas.SetTop(autoRijden.car, Canvas.GetTop(autoRijden.car) + 5);
             if (autoRijden.moveLeft)
-                Canvas.SetLeft(autoRijden.car, Canvas.GetLeft(autoRijden.car) - 10);
+                Canvas.SetLeft(autoRijden.car, Canvas.GetLeft(autoRijden.car) - 5);
             if (autoRijden.moveRight)
-                Canvas.SetLeft(autoRijden.car, Canvas.GetLeft(autoRijden.car) + 10);
+                Canvas.SetLeft(autoRijden.car, Canvas.GetLeft(autoRijden.car) + 5);
         }
 
         public RaceScreenPage()
@@ -71,7 +71,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             InitializeComponent();
             /// Game Timer;
 
-            timer.Interval = TimeSpan.FromMilliseconds(50);
+            timer.Interval = TimeSpan.FromMilliseconds(5);
             timer.Tick += AutoMovementChecken;
             timer.Start();
 
