@@ -9,8 +9,13 @@
       Title="RaceScreenPage">
 
     <Grid Height="Auto" Width="Auto">
-        <Canvas Height="Auto" x:Name="GameCanvas" Width="Auto" MouseLeftButtonUp="Canvas_MouseLeftButtonUp">
-
+        <Canvas Height="Auto"
+                x:Name="GameCanvas"
+                Width="Auto"
+                MouseLeftButtonUp="Canvas_MouseLeftButtonUp"
+                KeyDown="KnopIngedrukt"
+                KeyUp="KnopLos">
+            
         </Canvas>
         <Grid Margin="5,0,5,0" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>

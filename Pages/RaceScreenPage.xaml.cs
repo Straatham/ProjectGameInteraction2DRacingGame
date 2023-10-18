@@ -4,6 +4,7 @@ using ProjectGameInteraction2DRacingGame.Public;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.ConstrainedExecution;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -15,6 +16,7 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using System.Windows.Threading;
 
 namespace ProjectGameInteraction2DRacingGame.Pages
 {
@@ -29,10 +31,40 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         List<Frame> positionFrames = new List<Frame>();
         List<List<Rectangle>> recs = new List<List<Rectangle>>();
         int squareSize;
+        public void KnopIngedrukt(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.W)
+                autoRijden.moveUp = true;
+            if (e.Key == Key.S)
+                autoRijden.moveDown = true;
+            if (e.Key == Key.A)
+                autoRijden.moveLeft = true;
+            if (e.Key == Key.D)
+                autoRijden.moveRight = true;
+        }
 
+        public void KnopLos(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.W)
+                autoRijden.moveUp = false;
+            if (e.Key == Key.S)
+                autoRijden.moveDown = false;
+            if (e.Key == Key.A)
+                autoRijden.moveLeft = false;
+            if (e.Key == Key.D)
+                autoRijden.moveRight = false;
+        }
         public RaceScreenPage()
         {
             InitializeComponent();
+            /// Game Timer;
+            
+            timer.Tick += autoRijden.AutoMovementChecken;
+            timer.Interval = TimeSpan.FromMilliseconds(50);
+            timer.Start();
+
+
+            /// 
             SizeChanged += RaceScreenPage_SizeChanged;
             PausedFrame.Content = new PausedDialogComponent(PausedFrame);
 
@@ -52,8 +84,13 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             squareSize = (int)((float)GameCanvas.Width / 200f);
             GenerateLevel();
             LoadCircuitData();
-        }
 
+            Canvas.SetLeft(autoRijden.car, 200);
+            Canvas.SetTop(autoRijden.car, 200);
+            GameCanvas.Children.Add(autoRijden.car);
+        }
+        Public.AutoRijden autoRijden = new Public.AutoRijden();
+        public DispatcherTimer timer = new DispatcherTimer();
         /// <summary>
         /// Display players in random position order
         /// </summary>
