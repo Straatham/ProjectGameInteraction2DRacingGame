@@ -3,6 +3,7 @@ using ProjectGameInteraction2DRacingGame.OOP;
 using ProjectGameInteraction2DRacingGame.Public;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
 using System.Text;
@@ -15,7 +16,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
-using System.Windows.Shapes;
+ using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace ProjectGameInteraction2DRacingGame.Pages
@@ -31,40 +32,8 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         List<Frame> positionFrames = new List<Frame>();
         List<List<Rectangle>> recs = new List<List<Rectangle>>();
         int squareSize;
-        public void KnopIngedrukt(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.W)
-                autoRijden.moveUp = true;
-            if (e.Key == Key.S)
-                autoRijden.moveDown = true;
-            if (e.Key == Key.A)
-                autoRijden.moveLeft = true;
-            if (e.Key == Key.D)
-                autoRijden.moveRight = true;
-        }
 
-        public void KnopLos(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.W)
-                autoRijden.moveUp = false;
-            if (e.Key == Key.S)
-                autoRijden.moveDown = false;
-            if (e.Key == Key.A)
-                autoRijden.moveLeft = false;
-            if (e.Key == Key.D)
-                autoRijden.moveRight = false;
-        }
-        public void AutoMovementChecken(object sender, EventArgs e)
-        {
-            if (autoRijden.moveUp)
-                Canvas.SetTop(autoRijden.car, Canvas.GetTop(autoRijden.car) - 5);
-            if (autoRijden.moveDown)
-                Canvas.SetTop(autoRijden.car, Canvas.GetTop(autoRijden.car) + 5);
-            if (autoRijden.moveLeft)
-                Canvas.SetLeft(autoRijden.car, Canvas.GetLeft(autoRijden.car) - 5);
-            if (autoRijden.moveRight)
-                Canvas.SetLeft(autoRijden.car, Canvas.GetLeft(autoRijden.car) + 5);
-        }
+       
 
         public RaceScreenPage()
         {
@@ -94,7 +63,108 @@ namespace ProjectGameInteraction2DRacingGame.Pages
 
 
         }
+        // Create a car for each player
+        private Dictionary<int, Rectangle> playerCars = new Dictionary<int, Rectangle>();
+        private void SetUpPlayersList()
+        {
+            for (int i = 0; i < mainWindow.gameInfo.GetAllPlayers().Count; i++)
+            {
+                var imageSource = $"SportsCar1_{mainWindow.gameInfo.GetAllPlayers()[i].GetCarID()}.png";
+                var path = System.IO.Path.Combine("/Images/Autos", imageSource);
+                Rectangle newCar = new Rectangle();
+                newCar.Name = mainWindow.gameInfo.GetAllPlayers()[i].GetPlayerName();
+                newCar.Width = 50;
+                newCar.Height = 50;
+                newCar.Fill = new ImageBrush(new BitmapImage(new Uri(imageSource, UriKind.Relative)));
+                Canvas.SetLeft(newCar, 400+i*60);
+                Canvas.SetTop(newCar, 400);
+                GameCanvas.Children.Add(newCar);
 
+                playerCars[i] = newCar;
+            }
+        }
+        public bool moveUp1, moveDown1, moveLeft1, moveRight1; // Player 1
+        public bool moveUp2, moveDown2, moveLeft2, moveRight2; // Player 2
+        public bool moveUp3, moveDown3, moveLeft3, moveRight3; // Player 3
+        public bool moveUp4, moveDown4, moveLeft4, moveRight4; // Player 4
+        public void KnopIngedrukt(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.W) moveUp1 = true; // Player 1
+            if (e.Key == Key.S) moveDown1 = true;
+            if (e.Key == Key.A) moveLeft1 = true;
+            if (e.Key == Key.D) moveRight1 = true;
+            if (e.Key == Key.Up) moveUp2 = true; // Player 2
+            if (e.Key == Key.Down) moveDown2 = true;
+            if (e.Key == Key.Left) moveLeft2 = true;
+            if (e.Key == Key.Right) moveRight2 = true;
+            if (e.Key == Key.I) moveUp3 = true; // Player 3
+            if (e.Key == Key.K) moveDown3 = true;
+            if (e.Key == Key.J) moveLeft3 = true;
+            if (e.Key == Key.L) moveRight3 = true;
+            if (e.Key == Key.NumPad8) moveUp4 = true; // Player 4
+            if (e.Key == Key.NumPad5) moveDown4 = true;
+            if (e.Key == Key.NumPad4) moveLeft4 = true;
+            if (e.Key == Key.NumPad6) moveRight4 = true;
+        }
+
+        public void KnopLos(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.W) moveUp1 = false; // Player 1
+            if (e.Key == Key.S) moveDown1 = false;
+            if (e.Key == Key.A) moveLeft1 = false;
+            if (e.Key == Key.D) moveRight1 = false;
+            if (e.Key == Key.Up) moveUp2 = false; // Player 2
+            if (e.Key == Key.Down) moveDown2 = false;
+            if (e.Key == Key.Left) moveLeft2 = false;
+            if (e.Key == Key.Right) moveRight2 = false;
+            if (e.Key == Key.I) moveUp3 = false; // Player 3
+            if (e.Key == Key.K) moveDown3 = false;
+            if (e.Key == Key.J) moveLeft3 = false;
+            if (e.Key == Key.L) moveRight3 = false;
+            if (e.Key == Key.NumPad8) moveUp4 = false; // Player 4
+            if (e.Key == Key.NumPad5) moveDown4 = false;
+            if (e.Key == Key.NumPad4) moveLeft4 = false;
+            if (e.Key == Key.NumPad6) moveRight4 = false;
+        }
+        public void AutoMovementChecken(object sender, EventArgs e)
+        {
+            // Player 1
+            if (moveUp1 && playerCars.ContainsKey(1))
+                Canvas.SetTop(playerCars[1], Canvas.GetTop(playerCars[1]) - 5);
+            if (moveDown1 && playerCars.ContainsKey(1))
+                Canvas.SetTop(playerCars[1], Canvas.GetTop(playerCars[1]) + 5);
+            if (moveLeft1 && playerCars.ContainsKey(1))
+                Canvas.SetLeft(playerCars[1], Canvas.GetLeft(playerCars[1]) - 5);
+            if (moveRight1 && playerCars.ContainsKey(1))
+                Canvas.SetLeft(playerCars[1], Canvas.GetLeft(playerCars[1]) + 5);
+            // Player 2
+            if (moveUp2 && playerCars.ContainsKey(2))
+                Canvas.SetTop(playerCars[2] , Canvas.GetTop(playerCars[2]) - 5);
+            if (moveDown2 && playerCars.ContainsKey(2))
+                Canvas.SetTop(playerCars[2], Canvas.GetTop(playerCars[2]) + 5);
+            if (moveLeft2 && playerCars.ContainsKey(2))
+                Canvas.SetLeft(playerCars[2], Canvas.GetLeft(playerCars[2]) - 5);
+            if (moveRight2 && playerCars.ContainsKey(2))
+                Canvas.SetLeft(playerCars[2], Canvas.GetLeft(playerCars[2]) + 5);
+            // Player 3
+            if (moveUp3 && playerCars.ContainsKey(3))
+                Canvas.SetTop(playerCars[3], Canvas.GetTop(playerCars[3]) - 5);
+            if (moveDown3 && playerCars.ContainsKey(3))
+                Canvas.SetTop(playerCars[3], Canvas.GetTop(playerCars[3]) + 5);
+            if (moveLeft3 && playerCars.ContainsKey(3))
+                Canvas.SetLeft(playerCars[3], Canvas.GetLeft(playerCars[3]) - 5);
+            if (moveRight3 && playerCars.ContainsKey(3))
+                Canvas.SetLeft(playerCars[3], Canvas.GetLeft(playerCars[3]) + 5);
+            // Player 4
+            if (moveUp4 && playerCars.ContainsKey(4))
+                Canvas.SetTop(playerCars[4], Canvas.GetTop(playerCars[4]) - 5);
+            if (moveDown4 && playerCars.ContainsKey(4))
+                Canvas.SetTop(playerCars[4], Canvas.GetTop(playerCars[4]) + 5);
+            if (moveLeft4 && playerCars.ContainsKey(4))
+                Canvas.SetLeft(playerCars[4], Canvas.GetLeft(playerCars[4]) - 5);
+            if (moveRight4 && playerCars.ContainsKey(4))
+                Canvas.SetLeft(playerCars[4], Canvas.GetLeft(playerCars[4]) + 5);
+        }
         private void RaceScreenPage_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             GameCanvas.Height = e.NewSize.Height;
@@ -104,12 +174,8 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             squareSize = (int)((float)GameCanvas.Width / 200f);
             GenerateLevel();
             LoadCircuitData();
-            
-            Canvas.SetLeft(autoRijden.car, 200);
-            Canvas.SetTop(autoRijden.car, 200);
-            GameCanvas.Children.Add(autoRijden.car);
+            SetUpPlayersList();
         }
-        AutoRijden autoRijden = new AutoRijden();
         public DispatcherTimer timer = new DispatcherTimer();
         /// <summary>
         /// Display players in random position order
