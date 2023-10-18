@@ -68,6 +68,7 @@ namespace ProjectGameInteraction2DRacingGame.Components
             ResetButtonText();
             PlayerNameInput.GotFocus += OnPlayerNameInputSelect;
             PlayerNameInput.LostFocus += OnlayerNameInputSelectionChanged;
+            SetCarImage(Brushes.Black.Color);
         }
 
         void FixCorrectTextButtons()
@@ -125,6 +126,7 @@ namespace ProjectGameInteraction2DRacingGame.Components
         public void SetCarID(int ID)
         {
             _CarID = ID;
+            SetCarImage(Brushes.Black.Color);
         }
         public int GetCarID() => _CarID;
 
