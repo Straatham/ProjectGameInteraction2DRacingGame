@@ -63,7 +63,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
 
             //Delegate method to update car picture once CarID has changed
             playerSetupComponent.OnCarIDChange += delegate { 
-                playerSetupComponent.SetCarImage(); 
+                playerSetupComponent.SetCarImage(playerSetupComponent.GetCarColor()); 
             };
 
             //Event when player is ready to play
@@ -73,7 +73,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 {
                     playerSetupComponent.SetAllObjectsToInActive();
                     playerSetupComponent.SetIsReady();
-                    Player player = new Player(0, 0, 0, 0, playerSetupComponent.GetPlayerName(), null, new SolidColorBrush());
+                    Player player = new Player(0, 0, 0, 0, playerSetupComponent.GetPlayerName(), null, new SolidColorBrush(playerSetupComponent.GetCarColor()));
                     mainWindow.gameInfo.AddPlayer(player);
                 }
             };            
@@ -82,7 +82,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             playerSetupComponent.GetIncreaseCarButton().Click += (object sender2, RoutedEventArgs e2) =>
             {
                 //TO DO : Change int to category total cars
-                if (playerSetupComponent.GetCarID() >= 19)
+                if (playerSetupComponent.GetCarID() >= 0)
                     playerSetupComponent.SetCarID(0);
                 else
                     playerSetupComponent.SetCarID(playerSetupComponent.GetCarID() + 1);
@@ -92,8 +92,8 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             playerSetupComponent.GetDecreaseCarButton().Click += (object sender2, RoutedEventArgs e2) =>
             {
                 //TO DO : Change int to category total cars
-                if (playerSetupComponent.GetCarID() < 1)
-                    playerSetupComponent.SetCarID(19);
+                if (playerSetupComponent.GetCarID() <= 0)
+                    playerSetupComponent.SetCarID(0);
                 else
                     playerSetupComponent.SetCarID(playerSetupComponent.GetCarID() - 1);
             };

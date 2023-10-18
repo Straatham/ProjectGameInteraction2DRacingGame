@@ -1,8 +1,10 @@
-﻿using System;
+﻿using ProjectGameInteraction2DRacingGame.Public;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Net.NetworkInformation;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -27,6 +29,8 @@ namespace ProjectGameInteraction2DRacingGame.Components
         bool CanReady = false, isReady = false;
 
         int CarId = 0;
+
+        Color CurrentColor;
 
         int _CarID
         {
@@ -64,6 +68,7 @@ namespace ProjectGameInteraction2DRacingGame.Components
             ResetButtonText();
             PlayerNameInput.GotFocus += OnPlayerNameInputSelect;
             PlayerNameInput.LostFocus += OnlayerNameInputSelectionChanged;
+            SetCarImage(Brushes.Black.Color);
         }
 
         void FixCorrectTextButtons()
@@ -92,7 +97,7 @@ namespace ProjectGameInteraction2DRacingGame.Components
                     Content = "",
                     BorderThickness = new Thickness(0)
                 };
-                btn.Click += delegate { SetCarColor(((SolidColorBrush)btn.Background).Color); };
+                btn.Click += delegate { SetCarImage(((SolidColorBrush)btn.Background).Color); };
                 ColorListView.Items.Add(btn);
             }
         }
@@ -121,13 +126,14 @@ namespace ProjectGameInteraction2DRacingGame.Components
         public void SetCarID(int ID)
         {
             _CarID = ID;
+            SetCarImage(Brushes.Black.Color);
         }
         public int GetCarID() => _CarID;
 
         //TO DO - REGEX CHECK
         public bool GetCanReady() => !string.IsNullOrEmpty(PlayerNameInput.Text) && PlayerNameInput.Text != templateText;
 
-        public void SetCarImage()
+        public void SetCarImage(Color color)
         {
             //TO DO - Change code to the following example once images are working
             //Carviewer_Image.Fill = new BitmapImage(new Uri(@"/Images/foo.png", UriKind.Relative));
@@ -135,16 +141,11 @@ namespace ProjectGameInteraction2DRacingGame.Components
             //TEMP
             var imageSource = $"SportsCar1_{CarId}.png";
             var path = Path.Combine("/Images/Autos", imageSource);
-            Carviewer_Image_Source.Source = new BitmapImage(new Uri(path, UriKind.Relative));
+            Uri uri = new Uri(path, UriKind.Relative);
 
+            CurrentColor = color;
+            Carviewer_Image_Source.Source = ImageColorConverter.ConvertColorToSource(uri, color);
         }
-        public void SetCarColor(Color col)
-        {
-            //TO DO - Change code to the following example once images are working
-            //Carviewer_Image.Fill = new SolidColorBrush(System.Windows.Media.Colors.AliceBlue); 
-
-            //TEMP
-            Carviewer_Image.Background = new SolidColorBrush(col);
-        }
+        public Color GetCarColor() => CurrentColor;
     }
 }
