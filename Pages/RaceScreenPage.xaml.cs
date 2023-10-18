@@ -156,22 +156,24 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                         }
                     }
                 }
-            }          
+            }
         }
 
         Brush GetBrushColor(CircuitSurfaces type)
         {
-            return type switch {
-                CircuitSurfaces.Tarmac => Brushes.Gray,
-                CircuitSurfaces.Grass => Brushes.Green,
-                CircuitSurfaces.Sand => Brushes.Goldenrod,
-                CircuitSurfaces.Wall => Brushes.Red,
-                CircuitSurfaces.checkpoint => Brushes.White,
-                CircuitSurfaces.finishline => Brushes.White,
-                CircuitSurfaces.asphalt2 => Brushes.DimGray,
-                CircuitSurfaces.dirt => Brushes.SandyBrown,
-                _ => Brushes.Black
+            return type switch
+            {
+                CircuitSurfaces.Tarmac => new SolidColorBrush(mainWindow.Colors.GetColorGray()),
+                CircuitSurfaces.Grass => new SolidColorBrush(mainWindow.Colors.GetColorGreen()),
+                CircuitSurfaces.Sand => new SolidColorBrush(mainWindow.Colors.GetColorLightBrown()),
+                CircuitSurfaces.Wall => new SolidColorBrush(mainWindow.Colors.GetColorRed()),
+                CircuitSurfaces.checkpoint => new SolidColorBrush(mainWindow.Colors.GetColorWhite()),
+                CircuitSurfaces.finishline => new SolidColorBrush(mainWindow.Colors.GetColorWhite()),
+                CircuitSurfaces.asphalt2 => new SolidColorBrush(mainWindow.Colors.GetColorDarkGray()),
+                CircuitSurfaces.dirt => new SolidColorBrush(mainWindow.Colors.GetColorLightYellow()),
+                _ => new SolidColorBrush(mainWindow.Colors.GetColorBlack()),
+
             };
         }
     }
-}
+} 
