@@ -6,6 +6,7 @@ using System.Collections.Generic;
 using System.IO;
 using System.Linq;
 using System.Runtime.ConstrainedExecution;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -16,7 +17,7 @@ using System.Windows.Input;
 using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
- using System.Windows.Shapes;
+using System.Windows.Shapes;
 using System.Windows.Threading;
 
 namespace ProjectGameInteraction2DRacingGame.Pages
@@ -59,10 +60,8 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             positionFrames.Add(Position_3);
             positionFrames.Add(Position_4);
             DisplayPlayersInTower();
-
-
-
         }
+
         // Create a car for each player
         private Dictionary<int, Rectangle> playerCars = new Dictionary<int, Rectangle>();
         private void SetUpPlayersList()
@@ -71,11 +70,12 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             {
                 var imageSource = $"SportsCar1_{mainWindow.gameInfo.GetAllPlayers()[i].GetCarID()}.png";
                 var path = System.IO.Path.Combine("/Images/Autos", imageSource);
+                Uri uri = new Uri(path, UriKind.Relative);
                 Rectangle newCar = new Rectangle();
                 newCar.Name = mainWindow.gameInfo.GetAllPlayers()[i].GetPlayerName();
                 newCar.Width = 50;
                 newCar.Height = 50;
-                newCar.Fill = new ImageBrush(new BitmapImage(new Uri(imageSource, UriKind.Relative)));
+                newCar.Fill = new ImageBrush( ImageColorConverter.ConvertColorToSource(uri, mainWindow.gameInfo.GetAllPlayers()[i].GetColor().Color));
                 Canvas.SetLeft(newCar, 400+i*60);
                 Canvas.SetTop(newCar, 400);
                 GameCanvas.Children.Add(newCar);
