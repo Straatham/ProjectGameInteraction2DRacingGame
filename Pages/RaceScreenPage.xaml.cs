@@ -164,10 +164,12 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             return type switch {
                 CircuitSurfaces.Tarmac => Brushes.Gray,
                 CircuitSurfaces.Grass => Brushes.Green,
-                CircuitSurfaces.Sand => Brushes.Yellow,
+                CircuitSurfaces.Sand => Brushes.Goldenrod,
                 CircuitSurfaces.Wall => Brushes.Red,
                 CircuitSurfaces.checkpoint => Brushes.White,
                 CircuitSurfaces.finishline => Brushes.White,
+                CircuitSurfaces.asphalt2 => Brushes.DimGray,
+                CircuitSurfaces.dirt => Brushes.SandyBrown,
                 _ => Brushes.Black
             };
         }

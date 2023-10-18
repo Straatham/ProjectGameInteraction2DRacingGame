@@ -1,4 +1,4 @@
 ﻿TrackID,Length,Difficulty,Name,ImageReference,PredictedLaptime,
 0,0,0,Circuit01,Track01,0,
 1,0,1,Circuit02,Track02,0,
-2,0,1,Edua,Track03Image,0,
+2,0,1,Circuit03,Track03,0,
