@@ -66,16 +66,16 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         private Dictionary<int, Rectangle> playerCars = new Dictionary<int, Rectangle>();
         private void SetUpPlayersList()
         {
-            for (int i = 0; i < mainWindow.gameInfo.GetAllPlayers().Count; i++)
+            for (int i = 1; i <= mainWindow.gameInfo.GetAllPlayers().Count; i++)
             {
-                var imageSource = $"SportsCar1_{mainWindow.gameInfo.GetAllPlayers()[i].GetCarID()}.png";
+                var imageSource = $"SportsCar1_{mainWindow.gameInfo.GetAllPlayers()[i-1].GetCarID()}.png";
                 var path = System.IO.Path.Combine("/Images/Autos", imageSource);
                 Uri uri = new Uri(path, UriKind.Relative);
                 Rectangle newCar = new Rectangle();
-                newCar.Name = mainWindow.gameInfo.GetAllPlayers()[i].GetPlayerName();
+                newCar.Name = mainWindow.gameInfo.GetAllPlayers()[i-1].GetPlayerName();
                 newCar.Width = 50;
                 newCar.Height = 50;
-                newCar.Fill = new ImageBrush( ImageColorConverter.ConvertColorToSource(uri, mainWindow.gameInfo.GetAllPlayers()[i].GetColor().Color));
+                newCar.Fill = new ImageBrush( ImageColorConverter.ConvertColorToSource(uri, mainWindow.gameInfo.GetAllPlayers()[i - 1].GetColor().Color));
                 Canvas.SetLeft(newCar, 400+i*60);
                 Canvas.SetTop(newCar, 400);
                 GameCanvas.Children.Add(newCar);
@@ -93,7 +93,8 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             if (e.Key == Key.S) moveDown1 = true;
             if (e.Key == Key.A) moveLeft1 = true;
             if (e.Key == Key.D) moveRight1 = true;
-            if (e.Key == Key.Up) moveUp2 = true; // Player 2
+            if (e.Key == Key.Up)
+                moveUp2 = true; // Player 2
             if (e.Key == Key.Down) moveDown2 = true;
             if (e.Key == Key.Left) moveLeft2 = true;
             if (e.Key == Key.Right) moveRight2 = true;
@@ -139,7 +140,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 Canvas.SetLeft(playerCars[1], Canvas.GetLeft(playerCars[1]) + 5);
             // Player 2
             if (moveUp2 && playerCars.ContainsKey(2))
-                Canvas.SetTop(playerCars[2] , Canvas.GetTop(playerCars[2]) - 5);
+                Canvas.SetTop(playerCars[2], Canvas.GetTop(playerCars[2]) - 5);
             if (moveDown2 && playerCars.ContainsKey(2))
                 Canvas.SetTop(playerCars[2], Canvas.GetTop(playerCars[2]) + 5);
             if (moveLeft2 && playerCars.ContainsKey(2))
