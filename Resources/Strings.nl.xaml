@@ -1,0 +1,7 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <system:String x:Key="exit">Verlaat het spel</system:String>
+    <system:String x:Key="back">TERUG</system:String>
+    <system:String x:Key="play">SPEEL</system:String>
+</ResourceDictionary>

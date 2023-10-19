@@ -102,5 +102,8 @@
     <Page Update="Pages\SpelInstructiesPage.xaml">
       <SubType>Designer</SubType>
     </Page>
+    <Page Update="Resources\Strings.en.xaml">
+      <SubType>Designer</SubType>
+    </Page>
   </ItemGroup>
 </Project>

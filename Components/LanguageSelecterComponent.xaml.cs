@@ -30,5 +30,40 @@ namespace ProjectGameInteraction2DRacingGame.Components
         {
             //LanguageTitle.Content = "dic["Language"]"
         }
+
+        public void SwitchLanguage(string languageCode)
+        {
+            ResourceDictionary dict = new()
+            {
+                Source = languageCode switch
+                {
+                    "en" => new Uri("..\\Resources\\Strings.en.xaml",
+                                                      UriKind.Relative),
+                    "frl" => new Uri("..\\Resources\\Strings.frl.xaml",
+                                                           UriKind.Relative),
+                    //idk, I'll find out eventually how to pass default case
+                    "nl" => new Uri("..\\Resources\\Strings.nl.xaml",
+                                                          UriKind.Relative),
+                    _ => new Uri("..\\Resources\\Strings.nl.xaml",
+                                            UriKind.Relative),
+                }
+            };
+            this.Resources.MergedDictionaries.Add(dict);
+        }
+
+        private void Radio_English_Checked(object sender, RoutedEventArgs e)
+        {
+            SwitchLanguage("en");
+        }
+
+        private void Radio_Frysk_Checked(object sender, RoutedEventArgs e)
+        {
+            SwitchLanguage("frl");
+        }
+
+        private void Radio_Nederlands_Checked(object sender, RoutedEventArgs e)
+        {
+            SwitchLanguage("nl");
+        }
     }
 }

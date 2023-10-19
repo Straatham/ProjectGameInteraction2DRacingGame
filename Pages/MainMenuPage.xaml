@@ -9,7 +9,7 @@
 
     <Grid Height="Auto" Width="Auto">
         <Image Source="../Logo.png" HorizontalAlignment="Stretch" VerticalAlignment="Center" Margin="0,0,300,0" Height="1000" Stretch="Uniform"/>
-        <Button x:Name="Button_VerlaatHetSpel" Content="VERLAAT HET SPEL" Margin="0,0,40,20" HorizontalAlignment="Right" Width="334" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_VerlaatHetSpel_Click" FontSize="24" Height="54" VerticalAlignment="Bottom">
+        <Button x:Name="Button_VerlaatHetSpel" Content="{DynamicResource exit}" Margin="0,0,40,20" HorizontalAlignment="Right" Width="334" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_VerlaatHetSpel_Click" FontSize="24" Height="54" VerticalAlignment="Bottom">
             <Button.Effect>
                 <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
             </Button.Effect>
