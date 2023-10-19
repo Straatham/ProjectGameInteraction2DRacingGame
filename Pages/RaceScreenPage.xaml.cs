@@ -72,9 +72,10 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 var path = System.IO.Path.Combine("/Images/Autos", imageSource);
                 Uri uri = new Uri(path, UriKind.Relative);
                 Rectangle newCar = new Rectangle();
+
                 newCar.Name = mainWindow.gameInfo.GetAllPlayers()[i-1].GetPlayerName();
                 newCar.Width = 50;
-                newCar.Height = 50;
+                newCar.Height = 80;
                 newCar.Fill = new ImageBrush( ImageColorConverter.ConvertColorToSource(uri, mainWindow.gameInfo.GetAllPlayers()[i - 1].GetColor().Color));
                 Canvas.SetLeft(newCar, 400+i*60);
                 Canvas.SetTop(newCar, 400);
@@ -83,6 +84,14 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 playerCars[i] = newCar;
             }
         }
+        void ChangeAngle(Rectangle newCar, int angle)
+        {
+            RotateTransform rotateTransform = new RotateTransform();
+            rotateTransform.Angle = -angle;
+            newCar.RenderTransform = rotateTransform;
+            newCar.RenderTransformOrigin = new Point(.5, .5);
+        }
+
         public bool moveUp1, moveDown1, moveLeft1, moveRight1; // Player 1
         public bool moveUp2, moveDown2, moveLeft2, moveRight2; // Player 2
         public bool moveUp3, moveDown3, moveLeft3, moveRight3; // Player 3
@@ -93,8 +102,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             if (e.Key == Key.S) moveDown1 = true;
             if (e.Key == Key.A) moveLeft1 = true;
             if (e.Key == Key.D) moveRight1 = true;
-            if (e.Key == Key.Up)
-                moveUp2 = true; // Player 2
+            if (e.Key == Key.Up) moveUp2 = true; // Player 2
             if (e.Key == Key.Down) moveDown2 = true;
             if (e.Key == Key.Left) moveLeft2 = true;
             if (e.Key == Key.Right) moveRight2 = true;
@@ -131,40 +139,92 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             // Player 1
             if (moveUp1 && playerCars.ContainsKey(1))
+            {
                 Canvas.SetTop(playerCars[1], Canvas.GetTop(playerCars[1]) - 5);
+                ChangeAngle(playerCars[1], 0);
+            }
+            
             if (moveDown1 && playerCars.ContainsKey(1))
+            { 
                 Canvas.SetTop(playerCars[1], Canvas.GetTop(playerCars[1]) + 5);
+                ChangeAngle(playerCars[1], 180);
+            }
             if (moveLeft1 && playerCars.ContainsKey(1))
+            { 
                 Canvas.SetLeft(playerCars[1], Canvas.GetLeft(playerCars[1]) - 5);
+                ChangeAngle(playerCars[1], 90);
+            }
             if (moveRight1 && playerCars.ContainsKey(1))
+            {
                 Canvas.SetLeft(playerCars[1], Canvas.GetLeft(playerCars[1]) + 5);
+                ChangeAngle(playerCars[1], -90);
+            }
             // Player 2
             if (moveUp2 && playerCars.ContainsKey(2))
+            {
                 Canvas.SetTop(playerCars[2], Canvas.GetTop(playerCars[2]) - 5);
+                ChangeAngle(playerCars[2], 0);
+            }
+
             if (moveDown2 && playerCars.ContainsKey(2))
+            {
                 Canvas.SetTop(playerCars[2], Canvas.GetTop(playerCars[2]) + 5);
+                ChangeAngle(playerCars[2], 180);
+            }
             if (moveLeft2 && playerCars.ContainsKey(2))
+            {
                 Canvas.SetLeft(playerCars[2], Canvas.GetLeft(playerCars[2]) - 5);
+                ChangeAngle(playerCars[2], 90);
+            }
             if (moveRight2 && playerCars.ContainsKey(2))
+            {
                 Canvas.SetLeft(playerCars[2], Canvas.GetLeft(playerCars[2]) + 5);
+                ChangeAngle(playerCars[2], -90);
+            }
             // Player 3
             if (moveUp3 && playerCars.ContainsKey(3))
+            {
                 Canvas.SetTop(playerCars[3], Canvas.GetTop(playerCars[3]) - 5);
-            if (moveDown3 && playerCars.ContainsKey(3))
+                ChangeAngle(playerCars[3], 0);
+            }
+
+            if (moveDown3&& playerCars.ContainsKey(3))
+            {
                 Canvas.SetTop(playerCars[3], Canvas.GetTop(playerCars[3]) + 5);
-            if (moveLeft3 && playerCars.ContainsKey(3))
+                ChangeAngle(playerCars[3], 180);
+            }
+            if (moveUp3 && playerCars.ContainsKey(3))
+            {
                 Canvas.SetLeft(playerCars[3], Canvas.GetLeft(playerCars[3]) - 5);
+                ChangeAngle(playerCars[3], 90);
+            }
             if (moveRight3 && playerCars.ContainsKey(3))
+            {
                 Canvas.SetLeft(playerCars[3], Canvas.GetLeft(playerCars[3]) + 5);
+                ChangeAngle(playerCars[3], -90);
+            }
             // Player 4
             if (moveUp4 && playerCars.ContainsKey(4))
+            {
                 Canvas.SetTop(playerCars[4], Canvas.GetTop(playerCars[4]) - 5);
+                ChangeAngle(playerCars[4], 0);
+            }
+
             if (moveDown4 && playerCars.ContainsKey(4))
+            {
                 Canvas.SetTop(playerCars[4], Canvas.GetTop(playerCars[4]) + 5);
+                ChangeAngle(playerCars[4], 180);
+            }
             if (moveLeft4 && playerCars.ContainsKey(4))
+            {
                 Canvas.SetLeft(playerCars[4], Canvas.GetLeft(playerCars[4]) - 5);
+                ChangeAngle(playerCars[4], 90);
+            }
             if (moveRight4 && playerCars.ContainsKey(4))
+            {
                 Canvas.SetLeft(playerCars[4], Canvas.GetLeft(playerCars[4]) + 5);
+                ChangeAngle(playerCars[4], -90);
+            }
         }
         private void RaceScreenPage_SizeChanged(object sender, SizeChangedEventArgs e)
         {
