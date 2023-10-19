@@ -101,7 +101,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             string constring = "SERVER="+server+";"+"DATABASE="+database+";"+"UID="+username+";"+"PASSWORD="+password+";";
             MySqlConnection conn = new MySqlConnection(constring);
             conn.Open();
-            string query = $"SELECT * FROM scores WHERE TrackID = {CircuitID + 1} AND VehicleID = {CategorieID + 1} ORDER BY scores.FastestLapTime ASC LIMIT 25;";
+            string query = $"SELECT * FROM scores2 WHERE TrackID = {CircuitID + 1} AND VehicleID = {CategorieID + 1} ORDER BY FastestLapTime ASC LIMIT 25;";
             MySqlCommand cmd = new MySqlCommand(query, conn);
             MySqlDataReader reader = cmd.ExecuteReader();
 
