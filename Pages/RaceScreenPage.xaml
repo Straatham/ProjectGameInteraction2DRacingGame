@@ -12,10 +12,8 @@
         <Canvas Height="Auto"
                 x:Name="GameCanvas"
                 Width="Auto"
-                MouseLeftButtonUp="Canvas_MouseLeftButtonUp"
-                KeyDown="KnopIngedrukt"
-                KeyUp="KnopLos">
-            
+                MouseLeftButtonUp="Canvas_MouseLeftButtonUp">
+
         </Canvas>
         <Grid Margin="5,0,5,0" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>

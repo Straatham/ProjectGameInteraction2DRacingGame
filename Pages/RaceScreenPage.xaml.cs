@@ -29,6 +29,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
     {
         MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>()?.FirstOrDefault();
 
+        AutoRijden autoRijden = new AutoRijden();
         List<PlayerRaceTickerComponent> players = new List<PlayerRaceTickerComponent>();
         List<Frame> positionFrames = new List<Frame>();
         List<List<Rectangle>> recs = new List<List<Rectangle>>();
@@ -45,8 +46,8 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             timer.Tick += AutoMovementChecken;
             timer.Start();
 
-            mainWindow.KeyDown += KnopIngedrukt;
-            mainWindow.KeyUp += KnopLos;
+            mainWindow.KeyDown += autoRijden.KnopIngedrukt;
+            mainWindow.KeyUp += autoRijden.KnopLos;
 
             GameCanvas.Focus();
 
@@ -92,69 +93,16 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             newCar.RenderTransformOrigin = new Point(.5, .5);
         }
 
-        bool moveUp1, moveDown1, moveLeft1, moveRight1; // Player 1
-        bool moveUp2, moveDown2, moveLeft2, moveRight2; // Player 2
-        bool moveUp3, moveDown3, moveLeft3, moveRight3; // Player 3
-        bool moveUp4, moveDown4, moveLeft4, moveRight4; // Player 4
-
 
         double currentSpeed1 = 0;
         double versnelling = 0.05;
         int topSpeed = 5;
         double bottomSpeed = -2.5;
 
-        public void KnopIngedrukt(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.W) moveUp1 = true; // Player 1
-            if (e.Key == Key.S) moveDown1 = true;
-            if (e.Key == Key.A) moveLeft1 = true;
-            if (e.Key == Key.D) moveRight1 = true;
-            if (e.Key == Key.Up) moveUp2 = true; // Player 2
-            if (e.Key == Key.Down) moveDown2 = true;
-            if (e.Key == Key.Left) moveLeft2 = true;
-            if (e.Key == Key.Right) moveRight2 = true;
-            if (e.Key == Key.I) moveUp3 = true; // Player 3
-            if (e.Key == Key.K) moveDown3 = true;
-            if (e.Key == Key.J) moveLeft3 = true;
-            if (e.Key == Key.L) moveRight3 = true;
-            if (e.Key == Key.NumPad8) moveUp4 = true; // Player 4
-            if (e.Key == Key.NumPad5) moveDown4 = true;
-            if (e.Key == Key.NumPad4) moveLeft4 = true;
-            if (e.Key == Key.NumPad6) moveRight4 = true;
-        }
-
-        public void KnopLos(object sender, KeyEventArgs e)
-        {
-            if (e.Key == Key.W) moveUp1 = false; // Player 1
-            if (e.Key == Key.S) moveDown1 = false;
-            if (e.Key == Key.A) moveLeft1 = false;
-            if (e.Key == Key.D) moveRight1 = false;
-            if (e.Key == Key.Up) moveUp2 = false; // Player 2
-            if (e.Key == Key.Down) moveDown2 = false;
-            if (e.Key == Key.Left) moveLeft2 = false;
-            if (e.Key == Key.Right) moveRight2 = false;
-            if (e.Key == Key.I) moveUp3 = false; // Player 3
-            if (e.Key == Key.K) moveDown3 = false;
-            if (e.Key == Key.J) moveLeft3 = false;
-            if (e.Key == Key.L) moveRight3 = false;
-            if (e.Key == Key.NumPad8) moveUp4 = false; // Player 4
-            if (e.Key == Key.NumPad5) moveDown4 = false;
-            if (e.Key == Key.NumPad4) moveLeft4 = false;
-            if (e.Key == Key.NumPad6) moveRight4 = false;
-        }
         public void AutoMovementChecken(object sender, EventArgs e)
         {
-            //for (int i = 1; i <= mainWindow.gameInfo.GetAllPlayers().Count; i++)
-           // {
-            //    if (moveUp[i] && playerCars.ContainsKey(i) && currentSpeed1 == 0)
-            //    {
-            //        Canvas.SetTop(playerCars[i], Canvas.GetTop(playerCars[i]) - 5);
-            //        ChangeAngle(playerCars[i], 0);
-            //    }
-           // }
-
             // Player 1
-            if (moveUp1 && playerCars.ContainsKey(1))
+            if (autoRijden.moveUp1 && playerCars.ContainsKey(1))
             {
                 if (currentSpeed1 < topSpeed)
                 {
@@ -164,7 +112,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 //ChangeAngle(playerCars[1], 0);
             }
             
-            if (moveDown1 && playerCars.ContainsKey(1))
+            if (autoRijden.moveDown1 && playerCars.ContainsKey(1))
             {
                 if (currentSpeed1 > bottomSpeed)
                 {
@@ -173,7 +121,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 }
                 Canvas.SetTop(playerCars[1], Canvas.GetTop(playerCars[1]) - currentSpeed1);
             }
-            if (moveUp1 == false && moveDown1 == false && currentSpeed1 >= bottomSpeed && currentSpeed1 <= topSpeed && currentSpeed1 != 0) 
+            if (autoRijden.moveUp1 == false && autoRijden.moveDown1 == false && currentSpeed1 >= bottomSpeed && currentSpeed1 <= topSpeed && currentSpeed1 != 0) 
             {
                 
                 if (currentSpeed1 < 0)
@@ -194,67 +142,67 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                  ChangeAngle(playerCars[1], -90);
              }*/
             // Player 2
-            if (moveUp2 && playerCars.ContainsKey(2))
+            if (autoRijden.moveUp2 && playerCars.ContainsKey(2))
             {
                 Canvas.SetTop(playerCars[2], Canvas.GetTop(playerCars[2]) - 5);
                 ChangeAngle(playerCars[2], 0);
             }
 
-            if (moveDown2 && playerCars.ContainsKey(2))
+            if (autoRijden.moveDown2 && playerCars.ContainsKey(2))
             {
                 Canvas.SetTop(playerCars[2], Canvas.GetTop(playerCars[2]) + 5);
                 ChangeAngle(playerCars[2], 180);
             }
-            if (moveLeft2 && playerCars.ContainsKey(2))
+            if (autoRijden.moveLeft2 && playerCars.ContainsKey(2))
             {
                 Canvas.SetLeft(playerCars[2], Canvas.GetLeft(playerCars[2]) - 5);
                 ChangeAngle(playerCars[2], 90);
             }
-            if (moveRight2 && playerCars.ContainsKey(2))
+            if (autoRijden.moveRight2 && playerCars.ContainsKey(2))
             {
                 Canvas.SetLeft(playerCars[2], Canvas.GetLeft(playerCars[2]) + 5);
                 ChangeAngle(playerCars[2], -90);
             }
             // Player 3
-            if (moveUp3 && playerCars.ContainsKey(3))
+            if (autoRijden.moveUp3 && playerCars.ContainsKey(3))
             {
                 Canvas.SetTop(playerCars[3], Canvas.GetTop(playerCars[3]) - 5);
                 ChangeAngle(playerCars[3], 0);
             }
 
-            if (moveDown3&& playerCars.ContainsKey(3))
+            if (autoRijden.moveDown3 && playerCars.ContainsKey(3))
             {
                 Canvas.SetTop(playerCars[3], Canvas.GetTop(playerCars[3]) + 5);
                 ChangeAngle(playerCars[3], 180);
             }
-            if (moveUp3 && playerCars.ContainsKey(3))
+            if (autoRijden.moveUp3 && playerCars.ContainsKey(3))
             {
                 Canvas.SetLeft(playerCars[3], Canvas.GetLeft(playerCars[3]) - 5);
                 ChangeAngle(playerCars[3], 90);
             }
-            if (moveRight3 && playerCars.ContainsKey(3))
+            if (autoRijden.moveRight3 && playerCars.ContainsKey(3))
             {
                 Canvas.SetLeft(playerCars[3], Canvas.GetLeft(playerCars[3]) + 5);
                 ChangeAngle(playerCars[3], -90);
             }
             // Player 4
-            if (moveUp4 && playerCars.ContainsKey(4))
+            if (autoRijden.moveUp4 && playerCars.ContainsKey(4))
             {
                 Canvas.SetTop(playerCars[4], Canvas.GetTop(playerCars[4]) - 5);
                 ChangeAngle(playerCars[4], 0);
             }
 
-            if (moveDown4 && playerCars.ContainsKey(4))
+            if (autoRijden.moveDown4 && playerCars.ContainsKey(4))
             {
                 Canvas.SetTop(playerCars[4], Canvas.GetTop(playerCars[4]) + 5);
                 ChangeAngle(playerCars[4], 180);
             }
-            if (moveLeft4 && playerCars.ContainsKey(4))
+            if (autoRijden.moveLeft4 && playerCars.ContainsKey(4))
             {
                 Canvas.SetLeft(playerCars[4], Canvas.GetLeft(playerCars[4]) - 5);
                 ChangeAngle(playerCars[4], 90);
             }
-            if (moveRight4 && playerCars.ContainsKey(4))
+            if (autoRijden.moveRight4 && playerCars.ContainsKey(4))
             {
                 Canvas.SetLeft(playerCars[4], Canvas.GetLeft(playerCars[4]) + 5);
                 ChangeAngle(playerCars[4], -90);
