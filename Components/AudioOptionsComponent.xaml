@@ -264,11 +264,11 @@
         <StackPanel>
             <Label x:Name="AudioTitle" Content="AUDIO" FontFamily="Raleway" FontSize="28" HorizontalContentAlignment="Center" Foreground="White" />
             <StackPanel x:Name="AudioPanel">
-                <Label x:Name="Audio_Motor" Content="VOLUME MOTOR GELUID" FontFamily="Raleway" Margin="0,20,0,0" FontSize="25" HorizontalContentAlignment="Center" Foreground="White" />
+                <Label x:Name="Audio_Motor" Content="{DynamicResource sound_engine}" FontFamily="Raleway" Margin="0,20,0,0" FontSize="25" HorizontalContentAlignment="Center" Foreground="White" />
                 <Slider x:Name="Audio_Motor_Slider" Value="5" Margin="50,10,50,0" Foreground="White"></Slider>
-                <Label x:Name="Audio_Muziek" Content="VOLUME MUZIEK" FontFamily="Raleway" Margin="0,20,0,0" FontSize="25" HorizontalContentAlignment="Center" Foreground="White" />
+                <Label x:Name="Audio_Muziek" Content="{DynamicResource sound_music}" FontFamily="Raleway" Margin="0,20,0,0" FontSize="25" HorizontalContentAlignment="Center" Foreground="White" />
                 <Slider x:Name="Audio_Muziek_Slider" Value="5" Margin="50,10,50,0" Foreground="White"></Slider>
-                <Label x:Name="Audio_Effecten" Content="VOLUME EFFECTEN" FontFamily="Raleway" Margin="0,20,0,0" FontSize="25" HorizontalContentAlignment="Center" Foreground="White" />
+                <Label x:Name="Audio_Effecten" Content="{DynamicResource sound_effects}" FontFamily="Raleway" Margin="0,20,0,0" FontSize="25" HorizontalContentAlignment="Center" Foreground="White" />
                 <Slider x:Name="Audio_Effecten_Slider" Value="5" Margin="50,10,50,0" Foreground="White"></Slider>
             </StackPanel>
         </StackPanel>

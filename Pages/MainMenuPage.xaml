@@ -19,7 +19,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="Button_Speel" Content="SPEEL" Margin="0,0,40,629" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FF1AD200" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="ButtonSpeel_Click" FontSize="24">
+        <Button x:Name="Button_Speel" Content="{DynamicResource play}" Margin="0,0,40,629" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FF1AD200" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="ButtonSpeel_Click" FontSize="24">
             <Button.Effect>
                 <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
             </Button.Effect>
@@ -45,7 +45,7 @@
                 </EventTrigger>
             </Button.Triggers>
         </Button>
-        <Button x:Name="Button_Instellingen" Content="INSTELLINGEN" Margin="0,0,40,555" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FF909090" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Instellingen_Click" FontSize="24">
+        <Button x:Name="Button_Instellingen" Content="{DynamicResource settings}" Margin="0,0,40,555" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FF909090" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Instellingen_Click" FontSize="24">
             <Button.Effect>
                 <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
             </Button.Effect>
@@ -55,7 +55,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Button x:Name="Button_Leaderbord" Content="LEADERBORD" Margin="0,0,40,481" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FF909090" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Leaderbord_Click" FontSize="24">
+        <Button x:Name="Button_Leaderbord" Content="{DynamicResource leaderboard}" Margin="0,0,40,481" Height="54" VerticalAlignment="Bottom" HorizontalAlignment="Right" Width="334" Background="#FF909090" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Leaderbord_Click" FontSize="24">
             <Button.Effect>
                 <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
             </Button.Effect>

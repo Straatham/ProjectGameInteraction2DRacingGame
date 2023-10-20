@@ -4,4 +4,11 @@
     <system:String x:Key="exit">Verlaat het spel</system:String>
     <system:String x:Key="back">TERUG</system:String>
     <system:String x:Key="play">SPEEL</system:String>
+    <system:String x:Key="save">OPSLAAN</system:String>
+    <system:String x:Key="settings">INSTELLINGEN</system:String>
+    <system:String x:Key="language">TAAL</system:String>
+    <system:String x:Key="leaderboard">RANGLIJST</system:String>
+    <system:String x:Key="sound_engine">VOLUME MOTOR GELUID</system:String>
+    <system:String x:Key="sound_music">VOLUME MUZIEK</system:String>
+    <system:String x:Key="sound_effects">VOLUME EFFECTEN</system:String>
 </ResourceDictionary>

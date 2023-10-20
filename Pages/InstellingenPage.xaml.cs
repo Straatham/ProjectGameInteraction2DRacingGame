@@ -1,4 +1,5 @@
-﻿using ProjectGameInteraction2DRacingGame.Public;
+﻿using ProjectGameInteraction2DRacingGame.Components;
+using ProjectGameInteraction2DRacingGame.Public;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -29,6 +30,18 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             InitializeComponent();
             Loaded += LoadedPage;
+            LanguageManager.Instance.LanguageSwitchRequested += OnLanguageSwitchRequested;
+        }
+
+        public void OnLanguageSwitchRequested(string languageCode)
+        {
+            ResourceDictionary dict = new ResourceDictionary()
+            {
+                Source = new Uri($"../Resources/Strings.{languageCode}.xaml", UriKind.Relative)
+            };
+
+            this.Resources.MergedDictionaries.Clear();
+            this.Resources.MergedDictionaries.Add(dict);
         }
 
         /// <summary>

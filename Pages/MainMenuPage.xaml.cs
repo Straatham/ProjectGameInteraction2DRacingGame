@@ -1,4 +1,5 @@
-﻿using ProjectGameInteraction2DRacingGame.OOP;
+﻿using ProjectGameInteraction2DRacingGame.Components;
+using ProjectGameInteraction2DRacingGame.OOP;
 using ProjectGameInteraction2DRacingGame.Public;
 using System;
 using System.Collections.Generic;
@@ -29,7 +30,19 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             InitializeComponent();
             mainWindow.player.Play();
+            LanguageManager.Instance.LanguageSwitchRequested += OnLanguageSwitchRequested;
         }
+        public void OnLanguageSwitchRequested(string languageCode)
+        {
+            ResourceDictionary dict = new ResourceDictionary()
+            {
+                Source = new Uri($"../Resources/Strings.{languageCode}.xaml", UriKind.Relative)
+            };
+
+            this.Resources.MergedDictionaries.Clear();
+            this.Resources.MergedDictionaries.Add(dict);
+        }
+
         private void ButtonSpeel_Click(object sender, RoutedEventArgs e)
         {
             try

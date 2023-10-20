@@ -204,9 +204,9 @@
             </LinearGradientBrush>
 
                 <ResourceDictionary.MergedDictionaries>
-                    <ResourceDictionary Source="pack://application:,,,/Resources/Strings.nl.xaml"/>
                     <ResourceDictionary Source="pack://application:,,,/Resources/Strings.en.xaml"/>
                     <ResourceDictionary Source="pack://application:,,,/Resources/Strings.frl.xaml"/>
+                    <ResourceDictionary Source="pack://application:,,,/Resources/Strings.nl.xaml"/>
                 </ResourceDictionary.MergedDictionaries>
         </ResourceDictionary>
 
