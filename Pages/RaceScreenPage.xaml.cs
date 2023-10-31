@@ -108,6 +108,15 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 {
                     currentSpeed1 += versnelling;
                 }
+                double newTop = Canvas.GetTop(playerCars[1]) - currentSpeed1;
+                if (!IsCollisionWithRedBarrier(playerCars[1], newTop))
+                {
+                    Canvas.SetTop(playerCars[1], newTop);
+                }
+                else
+                {
+                    StopCar(1);
+                }
                 Canvas.SetTop(playerCars[1], Canvas.GetTop(playerCars[1]) - currentSpeed1);
                 //ChangeAngle(playerCars[1], 0);
             }
@@ -119,7 +128,17 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                     currentSpeed1 -= versnelling;
 
                 }
-                Canvas.SetTop(playerCars[1], Canvas.GetTop(playerCars[1]) - currentSpeed1);
+                double newTop = Canvas.GetTop(playerCars[1]) - currentSpeed1;
+                if (!IsCollisionWithRedBarrier(playerCars[1], newTop))
+                {
+                    Canvas.SetTop(playerCars[1], newTop);
+                }
+                else
+                {
+                    StopCar(1);
+                }
+
+                
             }
             if (autoRijden.moveUp1 == false && autoRijden.moveDown1 == false && currentSpeed1 >= bottomSpeed && currentSpeed1 <= topSpeed && currentSpeed1 != 0) 
             {
@@ -295,7 +314,25 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 recs.Last().Add(rect);
             }
         }
+        private bool IsCollisionWithRedBarrier(Rectangle car, double newTop)
+        {
+            if (newTop < 0 || newTop + car.Height > GameCanvas.Height) return true;
+            Rect carRect = new Rect(Canvas.GetLeft(car), newTop, car.Width, car.Height);
 
+            foreach (var rect in recs.SelectMany(row => row))
+            {
+                if (GetBrushColor(CircuitSurfaces.Wall) == rect.Fill)
+                {
+                    Rect barrierRect = new Rect(Canvas.GetLeft(rect), Canvas.GetTop(rect), rect.Width, rect.Height);
+                    if (carRect.IntersectsWith(barrierRect)) return true;
+                }
+            }
+            return false;
+        }
+        private void StopCar(int playerNumber)
+        {
+            currentSpeed1 = 0;
+        }
         /// <summary>
         /// Load all data from the circuitList into the grid
         /// </summary>
