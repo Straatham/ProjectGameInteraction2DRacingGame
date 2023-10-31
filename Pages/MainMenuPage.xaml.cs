@@ -30,19 +30,37 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             InitializeComponent();
             mainWindow.player.Play();
-            LanguageManager.Instance.LanguageSwitchRequested += OnLanguageSwitchRequested;
+            Loaded += YourPage_Loaded;
+        }
+        private void YourPage_Loaded(object sender, RoutedEventArgs e)
+        {
+            // Registreer voor de Navigated-event
+            NavigationService.Navigated += OnLanguageSwitchRequestedtwo;
+            MessageBox.Show("YourPage_Loaded");
         }
         public void OnLanguageSwitchRequested(string languageCode)
         {
-            ResourceDictionary dict = new ResourceDictionary()
+            ResourceDictionary dict = new()
             {
                 Source = new Uri($"../Resources/Strings.{languageCode}.xaml", UriKind.Relative)
             };
 
-            this.Resources.MergedDictionaries.Clear();
-            this.Resources.MergedDictionaries.Add(dict);
+            Resources.MergedDictionaries.Clear();
+            Resources.MergedDictionaries.Add(dict);
+            MessageBox.Show($"OnLanguageSwitchRequested: {languageCode}");
         }
+        public void OnLanguageSwitchRequestedtwo(object sender, NavigationEventArgs e)
+        {
+            string languageCode = LanguageManager.Instance.GetSelectedLanguage();
+            ResourceDictionary dict = new()
+            {
+                Source = new Uri($"../Resources/Strings.{languageCode}.xaml", UriKind.Relative)
+            };
 
+            Resources.MergedDictionaries.Clear();
+            Resources.MergedDictionaries.Add(dict);
+            MessageBox.Show($"OnLanguageSwitchRequestedtwo: {languageCode}");
+        }
         private void ButtonSpeel_Click(object sender, RoutedEventArgs e)
         {
             try
