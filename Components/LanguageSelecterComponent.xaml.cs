@@ -15,6 +15,7 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using Newtonsoft.Json;
 using System.IO;
+using ProjectGameInteraction2DRacingGame.Public;
 
 namespace ProjectGameInteraction2DRacingGame.Components
 {
@@ -26,18 +27,12 @@ namespace ProjectGameInteraction2DRacingGame.Components
         public LanguageSelecterComponent()
         {
             InitializeComponent();
-            SetTitleTranslation();
+            // SetTitleTranslation();
             LanguageManager.Instance.LanguageSwitchRequested += OnLanguageSwitchRequested;
         }
-        //To DO
-        void SetTitleTranslation()
-        {
-            //LanguageTitle.Content = "dic["Language"]"
-        }
-
         public void OnLanguageSwitchRequested(string languageCode)
         {
-            ResourceDictionary dict = new ResourceDictionary()
+            ResourceDictionary dict = new()
             {
                 Source = new Uri($"../Resources/Strings.{languageCode}.xaml", UriKind.Relative)
             };
@@ -48,20 +43,14 @@ namespace ProjectGameInteraction2DRacingGame.Components
 
         private void Radio_English_Checked(object sender, RoutedEventArgs e)
         {
-            var languageManager = LanguageManager.Instance;
-            languageManager.SwitchLanguage("en");
         }
 
         private void Radio_Frysk_Checked(object sender, RoutedEventArgs e)
         {
-            var languageManager = LanguageManager.Instance;
-            languageManager.SwitchLanguage("frl");
         }
 
         private void Radio_Nederlands_Checked(object sender, RoutedEventArgs e)
         {
-            var languageManager = LanguageManager.Instance;
-            languageManager.SwitchLanguage("nl");
         }
     }
 
@@ -85,6 +74,26 @@ namespace ProjectGameInteraction2DRacingGame.Components
                     instance = new LanguageManager();
                 }
                 return instance;
+            }
+        }
+
+        public void SetTitleTranslation()
+        {
+            int languageIndex = GameSettings.GetTranslation();
+            switch (languageIndex)
+            {
+                case 0:
+                    SwitchLanguage("nl");
+                    break;
+                case 1:
+                    SwitchLanguage("frl");
+                    break;
+                case 2:
+                    SwitchLanguage("en");
+                    break;
+                default:
+                    SwitchLanguage("nl");
+                    break;
             }
         }
 
