@@ -51,5 +51,7 @@ namespace ProjectGameInteraction2DRacingGame.Public
         Wall = 3,
         finishline = 4,
         checkpoint = 5,
+        asphalt2 = 6,
+        dirt = 7,   
     }
 }
