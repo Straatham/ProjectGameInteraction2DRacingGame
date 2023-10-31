@@ -1,4 +1,5 @@
-﻿using ProjectGameInteraction2DRacingGame.Components;
+﻿using Newtonsoft.Json;
+using ProjectGameInteraction2DRacingGame.Components;
 using ProjectGameInteraction2DRacingGame.OOP;
 using ProjectGameInteraction2DRacingGame.Public;
 using System;
@@ -17,6 +18,9 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
+using Newtonsoft.Json;
+using System.IO;
+using static ProjectGameInteraction2DRacingGame.Components.LanguageManager;
 
 namespace ProjectGameInteraction2DRacingGame.Pages
 {
@@ -30,16 +34,30 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             InitializeComponent();
             mainWindow.player.Play();
-            Loaded += YourPage_Loaded;
+            Loaded += NavigationService_Navigated;
         }
-        private void YourPage_Loaded(object sender, RoutedEventArgs e)
+        private void NavigationService_Navigated(object sender, RoutedEventArgs e)
         {
-            // Registreer voor de Navigated-event
-            NavigationService.Navigated += OnLanguageSwitchRequestedtwo;
-            MessageBox.Show("YourPage_Loaded");
+            OnLanguageSwitchRequested();
         }
-        public void OnLanguageSwitchRequested(string languageCode)
+        public string LoadSelectedLanguage()
         {
+            if (File.Exists("cache.json"))
+            {
+                // Lees de opgeslagen JSON uit het cachebestand
+                string json = File.ReadAllText("cache.json");
+
+                // Deserialiseer het JSON naar een object
+                var languageData = JsonConvert.DeserializeObject<LanguageData>(json);
+
+                return languageData.LanguageCode;
+            }
+
+            return "nl"; // Stel een standaard taalcode in als er niets is opgeslagen
+        }
+        public void OnLanguageSwitchRequested()
+        {
+            string languageCode = LoadSelectedLanguage();
             ResourceDictionary dict = new()
             {
                 Source = new Uri($"../Resources/Strings.{languageCode}.xaml", UriKind.Relative)
@@ -47,19 +65,6 @@ namespace ProjectGameInteraction2DRacingGame.Pages
 
             Resources.MergedDictionaries.Clear();
             Resources.MergedDictionaries.Add(dict);
-            MessageBox.Show($"OnLanguageSwitchRequested: {languageCode}");
-        }
-        public void OnLanguageSwitchRequestedtwo(object sender, NavigationEventArgs e)
-        {
-            string languageCode = LanguageManager.Instance.GetSelectedLanguage();
-            ResourceDictionary dict = new()
-            {
-                Source = new Uri($"../Resources/Strings.{languageCode}.xaml", UriKind.Relative)
-            };
-
-            Resources.MergedDictionaries.Clear();
-            Resources.MergedDictionaries.Add(dict);
-            MessageBox.Show($"OnLanguageSwitchRequestedtwo: {languageCode}");
         }
         private void ButtonSpeel_Click(object sender, RoutedEventArgs e)
         {

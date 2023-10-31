@@ -143,7 +143,7 @@ namespace ProjectGameInteraction2DRacingGame.Components
 
                 // Deserialiseer het JSON naar een object
                 var languageData = JsonConvert.DeserializeObject<LanguageData>(json);
-                MessageBox.Show("LoadSelectedLanguage: File.Exists");
+                // MessageBox.Show("LoadSelectedLanguage: File.Exists");
 
                 return languageData.LanguageCode;
             }
