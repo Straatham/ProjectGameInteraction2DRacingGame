@@ -12,8 +12,8 @@
         <Image Source="/Images/circle-leaf.png" Stretch="Fill" Width="286" Height="211" HorizontalAlignment="Left" Margin="0,10,0,0" VerticalAlignment="Top"/>
         <Image Source="/Images/circle-leaf.png" Stretch="Fill" Width="286" Height="211" HorizontalAlignment="Right" Margin="0,10,0,0" VerticalAlignment="Top"/>
 
-        <Label Content="LEADERBORD" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
-        <Label x:Name="SelectedCircuitEnCategoryText" Content="CIRCUIT NAAM (CATEGORY 0)" FontSize="36" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
+        <Label Content="{DynamicResource leaderboard}" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,20,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
+        <Label x:Name="SelectedCircuitEnCategoryText" Content="{DynamicResource leader_name}" FontSize="36" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,90,0,0" VerticalAlignment="Top" HorizontalAlignment="Center">
 
         </Label>
 
@@ -118,7 +118,7 @@
                 <StackPanel.Effect>
                     <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
                 </StackPanel.Effect>
-                <Label HorizontalContentAlignment="Center" BorderBrush="#FF1F1F1F" BorderThickness="2" VerticalContentAlignment="Center" FontFamily="Raleway" Foreground="White" FontSize="34" Content="CATEGORY" Background="#FFB1B1B1"/>
+                <Label HorizontalContentAlignment="Center" BorderBrush="#FF1F1F1F" BorderThickness="2" VerticalContentAlignment="Center" FontFamily="Raleway" Foreground="White" FontSize="34" Content="{DynamicResource leader_category}" Background="#FFB1B1B1"/>
             </StackPanel>
         </Grid>
 

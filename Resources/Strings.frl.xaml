@@ -8,6 +8,8 @@
     <system:String x:Key="settings">YNSTELLINGEN</system:String>
     <system:String x:Key="language">TAAL</system:String>
     <system:String x:Key="leaderboard">RANGLIST</system:String>
+    <system:String x:Key="leader_name">CIRCUIT NAAM (CATEGORY 0)</system:String>
+    <system:String x:Key="leader_category">CATEGORY</system:String>
     <system:String x:Key="sound_engine">FOLUME FAN DE MOTER GELÛDEN</system:String>
     <system:String x:Key="sound_music">FOLUME FAN DE MUZYK</system:String>
     <system:String x:Key="sound_effects">FOLUME FAN DE EFFEKTEN</system:String>

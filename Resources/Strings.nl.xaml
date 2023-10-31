@@ -8,6 +8,8 @@
     <system:String x:Key="settings">INSTELLINGEN</system:String>
     <system:String x:Key="language">TAAL</system:String>
     <system:String x:Key="leaderboard">RANGLIJST</system:String>
+    <system:String x:Key="leader_name">CIRCUIT NAAM (CATEGORIE 0)</system:String>
+    <system:String x:Key="leader_category">CATEGORIE</system:String>
     <system:String x:Key="sound_engine">VOLUME MOTOR GELUID</system:String>
     <system:String x:Key="sound_music">VOLUME MUZIEK</system:String>
     <system:String x:Key="sound_effects">VOLUME EFFECTEN</system:String>

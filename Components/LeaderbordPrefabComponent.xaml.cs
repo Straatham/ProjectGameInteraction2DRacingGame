@@ -32,12 +32,24 @@ namespace ProjectGameInteraction2DRacingGame.Components
             SetPosition(positionIndex);
             SetPlayerName(player);
             SetRaceTime(raceTime);
+            LanguageManager.Instance.LanguageSwitchRequested += OnLanguageSwitchRequested;
             if (positionIndex < 4)
             {
                 SetBackgroundColor();
                 SetImage();
             }
         }
+        public void OnLanguageSwitchRequested(string languageCode)
+        {
+            ResourceDictionary dict = new ResourceDictionary()
+            {
+                Source = new Uri($"../Resources/Strings.{languageCode}.xaml", UriKind.Relative)
+            };
+
+            this.Resources.MergedDictionaries.Clear();
+            this.Resources.MergedDictionaries.Add(dict);
+        }
+
         public void SetPosition(int position)
         {
             Position = position;

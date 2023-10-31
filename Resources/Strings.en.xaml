@@ -8,6 +8,8 @@
     <system:String x:Key="settings">SETTINGS</system:String>
     <system:String x:Key="language">LANGUAGE</system:String>
     <system:String x:Key="leaderboard">LEADERBOARD</system:String>
+    <system:String x:Key="leader_name">CIRCUIT NAME (CATEGORY 0)</system:String>
+    <system:String x:Key="leader_category">CATEGORY</system:String>
     <system:String x:Key="sound_engine">VOLUME ENGINE SOUND</system:String>
     <system:String x:Key="sound_music">VOLUME MUSIC</system:String>
     <system:String x:Key="sound_effects">VOLUME EFFECTS</system:String>

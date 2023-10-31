@@ -30,7 +30,20 @@ namespace ProjectGameInteraction2DRacingGame.Pages
         {
             InitializeComponent();
             SetTrackAndCategoryName();
+            LanguageManager.Instance.LanguageSwitchRequested += OnLanguageSwitchRequested;
         }
+
+        public void OnLanguageSwitchRequested(string languageCode)
+        {
+            ResourceDictionary dict = new ResourceDictionary()
+            {
+                Source = new Uri($"../Resources/Strings.{languageCode}.xaml", UriKind.Relative)
+            };
+
+            this.Resources.MergedDictionaries.Clear();
+            this.Resources.MergedDictionaries.Add(dict);
+        }
+
         private void Button_Terug_Click(object sender, RoutedEventArgs e)
         {
             try
