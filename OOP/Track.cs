@@ -16,7 +16,7 @@ namespace ProjectGameInteraction2DRacingGame.OOP
         private int Difficulty;
         private string Name;
         private string ImageReference;
-        private List<Circuit> _Track = new List<Circuit>();
+        private Circuit _Track;
         private TimeSpan PredictedLaptime;
 
         // Constructors
@@ -39,7 +39,7 @@ namespace ProjectGameInteraction2DRacingGame.OOP
         { 
             ImageReference = image; 
         }
-        public void SetModel(List<Circuit> track) 
+        public void SetModel(Circuit track) 
         {
             _Track = track; 
         }
@@ -50,7 +50,7 @@ namespace ProjectGameInteraction2DRacingGame.OOP
         public int GetDifficulty() => Difficulty;
         public string GetName() => Name;
         public string GetImageReference() => ImageReference;
-        public List<Circuit> GetCircuit() => _Track;
+        public Circuit GetCircuit() => _Track;
         public TimeSpan GetPredictedLaptime() => PredictedLaptime;
 
     }

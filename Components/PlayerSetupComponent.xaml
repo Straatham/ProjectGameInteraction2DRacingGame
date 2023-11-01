@@ -42,9 +42,17 @@
                     </Button.Resources>
                 </Button>
                 <Border Margin="5" Grid.Column="1" Height="475" Background="#FFB1B1B1" BorderBrush="#FF1F1F1F" BorderThickness="2" >
-                    <Label x:Name="Carviewer_Image" Background="Gray" Foreground="White" VerticalContentAlignment="Center" HorizontalContentAlignment="Center" FontFamily="Raleway" FontSize="30"  Margin="80">
-                        <Image x:Name="Carviewer_Image_Source" Source="/Images/Autos/SportsCar1_0.png"/>
-                    </Label>
+                        <Image x:Name="Carviewer_Image_Source" Margin="80" Source="/Images/Autos/SportsCar1_0.png" RenderTransformOrigin="0.5,0.5">
+                        <Image.RenderTransform>
+                            <TransformGroup>
+                                <ScaleTransform/>
+                                <SkewTransform/>
+                                <RotateTransform Angle="-90"/>
+                                <TranslateTransform/>
+                            </TransformGroup>
+                        </Image.RenderTransform>
+                    </Image>
+
                 </Border>
                 <Button x:Name="Button_Increase" Grid.Column="2" Height="200" Margin="10,142,65,143" Foreground="White" Background="#FFB1B1B1" FontSize="70" Padding="0,-18,0,0" BorderBrush="#FF1F1F1F">+
                     <Button.Resources>
