@@ -19,7 +19,7 @@ namespace ProjectGameInteraction2DRacingGame.OOP
         private SolidColorBrush Color;
         // Constructors
         public Player(int PlayerID, int CarID, int ClassID, int PlayersControlID, string PlayerName, Enum PlayerStatus, SolidColorBrush color) 
-            {
+        {
             SetPlayerID(PlayerID);
             SetCarID(CarID);
             SetClassID(ClassID);
@@ -27,7 +27,7 @@ namespace ProjectGameInteraction2DRacingGame.OOP
             SetPlayerName(PlayerName);
             //SetPlayerStatus(PlayerStatus);
             SetColor(color);
-            }
+        }
         // Set Methods
         public void SetPlayerID(int playerID) { PlayerID = playerID; }
         public void SetCarID(int carID) { CarID = carID; }

@@ -11,9 +11,7 @@
     <Grid Height="Auto" Width="Auto">
         <Canvas Height="Auto"
                 x:Name="GameCanvas"
-                Width="Auto"
-                MouseLeftButtonUp="Canvas_MouseLeftButtonUp">
-
+                Width="Auto">
         </Canvas>
         <Grid Margin="5,0,5,0" HorizontalAlignment="Stretch">
             <Grid.ColumnDefinitions>
@@ -22,6 +20,9 @@
             </Grid.ColumnDefinitions>
             <Grid.RowDefinitions>
                 <RowDefinition Height="70"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="50"/>
+                <RowDefinition Height="700"/>
                 <RowDefinition Height="1*"/>
             </Grid.RowDefinitions>
             <Border Grid.Column="0" Height="60" Background="#FFD9D9D9" BorderBrush="#1f1f1f" BorderThickness="1" Margin="0,0,5,0" VerticalAlignment="Stretch">
@@ -40,13 +41,12 @@
                     </Grid>
                 </StackPanel>
             </Border>
-            <Button Grid.Column="1"  Height="60" Width="60" BorderBrush="#1f1f1f" BorderThickness="1" Background="LightGray" Foreground="White" HorizontalContentAlignment="Stretch" HorizontalAlignment="Stretch" FontFamily="Raleway" FontSize="70" VerticalAlignment="Stretch" VerticalContentAlignment="Stretch" Click="Button_Click">
+            <Button Grid.Column="1"  Height="60" Width="60" BorderBrush="#1f1f1f" BorderThickness="1" Background="LightGray" Foreground="White" HorizontalContentAlignment="Center" HorizontalAlignment="Center" FontFamily="Raleway" FontSize="50" VerticalAlignment="Center" VerticalContentAlignment="Center" Click="Button_Click">X
             </Button>
-            <Grid Grid.Row="1">
-                <TextBlock x:Name="TimerText" Grid.Row="1" FontFamily="Raleway" FontSize="30" Height="50" Margin="20,20,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="00:00.000" Foreground="White"></TextBlock>
-                <TextBlock x:Name="LeaderLapText" Grid.Row="2" FontFamily="Raleway" FontSize="30" Height="50" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="RONDE 0/3" Foreground="White"></TextBlock>
-                <Frame x:Name="PausedFrame" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Source="../Components/PausedDialogComponent.xaml" Visibility="Hidden" ></Frame>
-            </Grid>
+            <TextBlock x:Name="TimerText" Grid.Row="2" FontFamily="Raleway" FontSize="30" Height="50" Margin="20,0,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="00:00.000" Foreground="White"></TextBlock>
+            <TextBlock x:Name="LeaderLapText" Grid.Row="1" FontFamily="Raleway" FontSize="30" Height="50" Margin="20,10,0,0" HorizontalAlignment="Left" VerticalAlignment="Center" Text="RONDE 0/3" Foreground="White"></TextBlock>
+            <Frame x:Name="PausedFrame" HorizontalAlignment="Center" VerticalAlignment="Center" Grid.Row="3" Source="../Components/PausedDialogComponent.xaml" Visibility="Hidden" ></Frame>
+
         </Grid>
     </Grid>
     

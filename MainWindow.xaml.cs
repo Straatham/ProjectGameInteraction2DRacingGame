@@ -59,7 +59,7 @@ namespace ProjectGameInteraction2DRacingGame
             {
                 for (int j = 0; j < circuitImporter.CircuitList.Count; j++)
                 {
-                    if (circuitImporter.CircuitList[j].Any(x => x.reference == Tracks[i].GetName()))
+                    if (circuitImporter.CircuitList[j].reference == Tracks[i].GetName())
                         Tracks[i].SetModel(circuitImporter.CircuitList[j]);
                 }
             }

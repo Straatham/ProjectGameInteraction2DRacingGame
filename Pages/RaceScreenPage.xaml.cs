@@ -2,13 +2,18 @@
 using ProjectGameInteraction2DRacingGame.OOP;
 using ProjectGameInteraction2DRacingGame.Public;
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Reflection.Metadata;
 using System.Runtime.ConstrainedExecution;
+using System.Security.Cryptography;
 using System.Security.Policy;
 using System.Text;
+using System.Threading.Channels;
 using System.Threading.Tasks;
+using System.Timers;
 using System.Windows;
 using System.Windows.Controls;
 using System.Windows.Data;
@@ -29,29 +34,29 @@ namespace ProjectGameInteraction2DRacingGame.Pages
     {
         MainWindow mainWindow = Application.Current.Windows.OfType<MainWindow>()?.FirstOrDefault();
 
-        AutoRijden autoRijden = new AutoRijden();
         List<PlayerRaceTickerComponent> players = new List<PlayerRaceTickerComponent>();
         List<Frame> positionFrames = new List<Frame>();
         List<List<Rectangle>> recs = new List<List<Rectangle>>();
         int squareSize;
 
-       
+        //Player list for the models and controls
+        List<PlayerCar> cars = new List<PlayerCar>();
+
+        public DispatcherTimer timer = new DispatcherTimer();
+        DateTime start = DateTime.Now;
 
         public RaceScreenPage()
         {
             InitializeComponent();
-            /// Game Timer;
 
-            timer.Interval = TimeSpan.FromMilliseconds(5);
-            timer.Tick += AutoMovementChecken;
+            //Game Timer;
+            timer.Interval = TimeSpan.FromMilliseconds(16);
+            //timer.Tick += AutoMovementChecken;
+            timer.Tick += UpdateRaceTimer;
             timer.Start();
 
-            mainWindow.KeyDown += autoRijden.KnopIngedrukt;
-            mainWindow.KeyUp += autoRijden.KnopLos;
-
             GameCanvas.Focus();
-
-            /// 
+ 
             SizeChanged += RaceScreenPage_SizeChanged;
             PausedFrame.Content = new PausedDialogComponent(PausedFrame);
 
@@ -63,163 +68,128 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             DisplayPlayersInTower();
         }
 
-        // Create a car for each player
-        private Dictionary<int, Rectangle> playerCars = new Dictionary<int, Rectangle>();
         private void SetUpPlayersList()
         {
-            for (int i = 1; i <= mainWindow.gameInfo.GetAllPlayers().Count; i++)
+            for (int i = 0; i < mainWindow.gameInfo.GetAllPlayers().Count; i++)
             {
-                var imageSource = $"SportsCar1_{mainWindow.gameInfo.GetAllPlayers()[i-1].GetCarID()}.png";
+                //Create rectangle car
+                var imageSource = $"SportsCar1_{mainWindow.gameInfo.GetAllPlayers()[i].GetCarID()}.png";
                 var path = System.IO.Path.Combine("/Images/Autos", imageSource);
                 Uri uri = new Uri(path, UriKind.Relative);
                 Rectangle newCar = new Rectangle();
 
-                newCar.Name = mainWindow.gameInfo.GetAllPlayers()[i-1].GetPlayerName();
+                newCar.Name = mainWindow.gameInfo.GetAllPlayers()[i].GetPlayerName();
                 newCar.Width = 50;
                 newCar.Height = 80;
-                newCar.Fill = new ImageBrush( ImageColorConverter.ConvertColorToSource(uri, mainWindow.gameInfo.GetAllPlayers()[i - 1].GetColor().Color));
-                Canvas.SetLeft(newCar, 400+i*60);
-                Canvas.SetTop(newCar, 400);
+                newCar.Fill = new ImageBrush( ImageColorConverter.ConvertColorToSource(uri, mainWindow.gameInfo.GetAllPlayers()[i].GetColor().Color));
+
+                //Get current circuit
+                Circuit circuit = mainWindow.Tracks.Find(x => x.GetTrackID() == mainWindow.gameInfo.GetTrackID()).GetCircuit();
+
+                //Get canvas value from coords
+                double valueLeft = Canvas.GetLeft(recs[circuit.spawnPositions[i].Y][circuit.spawnPositions[i].X]);
+                double valueTop = Canvas.GetTop(recs[circuit.spawnPositions[i].Y][circuit.spawnPositions[i].X]);
+
+                //And set them for the car
+                Canvas.SetLeft(newCar, valueLeft);
+                Canvas.SetTop(newCar, valueTop);
+
+                //Rotate if necessary
+                if (mainWindow.Tracks.Find(x => x.GetTrackID() == mainWindow.gameInfo.GetTrackID()).GetCircuit().spawnPositions[i].Rotation != 0)
+                {
+                    RotateTransform rotateTransform = new RotateTransform();
+                    rotateTransform.Angle = mainWindow.Tracks.Find(x => x.GetTrackID() == mainWindow.gameInfo.GetTrackID()).GetCircuit().spawnPositions[i].Rotation;
+                    newCar.RenderTransform = rotateTransform;
+                    newCar.RenderTransformOrigin = new Point(.5, .5);
+
+                    newCar.RenderTransform = rotateTransform;
+                }
+                //Create the playerCar
+                PlayerCar playCar = new PlayerCar(mainWindow.gameInfo.GetAllPlayers()[i].GetPlayerID(), newCar, mainWindow.Tracks.Find(x => x.GetTrackID() == mainWindow.gameInfo.GetTrackID()).GetCircuit().spawnPositions[i].Rotation);
                 GameCanvas.Children.Add(newCar);
 
-                playerCars[i] = newCar;
+                switch (i)
+                {
+                    default:
+                        playCar.SetControls(new List<Key> { Key.W, Key.S, Key.A, Key.D });
+                        break;
+                    case 1:
+                        playCar.SetControls(new List<Key> { Key.Up, Key.Down, Key.Left, Key.Right });
+                        break;
+                    case 2:
+                        playCar.SetControls(new List<Key> { Key.I, Key.K, Key.J, Key.L });
+                        break;
+                    case 3:
+                        playCar.SetControls(new List<Key> { Key.NumPad8, Key.NumPad5, Key.NumPad4, Key.NumPad6 });
+                        break;
+                };
+
+                //Set events for each car
+                mainWindow.KeyDown += delegate (object sender, KeyEventArgs e) { playCar.PressButtonEvent(e, playCar.Forward, playCar.Backward, playCar.Left, playCar.Right); };
+                mainWindow.KeyUp += delegate (object sender, KeyEventArgs e) { playCar.ReleaseButtonEvent(e, playCar.Forward, playCar.Backward); };
+                //mainWindow.KeyDown += playCar.PressButtonEvent;
+                //mainWindow.KeyUp += playCar.ReleaseButtonEvent;
+                playCar.carTimer.Tick += delegate
+                {
+                    CheckCarMovement(playCar);
+                }; 
+                playCar.carTimer.Start();
+                cars.Add(playCar);
             }
         }
-        void ChangeAngle(Rectangle newCar, int angle)
+
+        public void UpdateRaceTimer(object sender, EventArgs e)
         {
-            RotateTransform rotateTransform = new RotateTransform();
-            rotateTransform.Angle = -angle;
-            newCar.RenderTransform = rotateTransform;
-            newCar.RenderTransformOrigin = new Point(.5, .5);
+            TimeSpan elapsed = DateTime.Now - start;
+            TimerText.Text = elapsed.ToString("mm\\:ss\\:fff");
         }
-
-
-        double currentSpeed1 = 0;
-        double versnelling = 0.05;
-        int topSpeed = 5;
-        double bottomSpeed = -2.5;
-
-        public void AutoMovementChecken(object sender, EventArgs e)
+        public void CheckCarMovement(PlayerCar car)
         {
-            // Player 1
-            if (autoRijden.moveUp1 && playerCars.ContainsKey(1))
+            if (car.isMovingForward && !car.isBlockedForwards)
             {
-                if (currentSpeed1 < topSpeed)
+                if (car.CarSpeed < car.controller.topSpeed)
                 {
-                    currentSpeed1 += versnelling;
+                    car.isBlockedBackwards = false;
+                    car.CarSpeed += car.controller.carAcceleration;
                 }
-                Canvas.SetTop(playerCars[1], Canvas.GetTop(playerCars[1]) - currentSpeed1);
-                //ChangeAngle(playerCars[1], 0);
+                CheckCarShared(car, ref car.isBlockedForwards);
             }
-            
-            if (autoRijden.moveDown1 && playerCars.ContainsKey(1))
+            else if (car.isMovingBackward && !car.isBlockedBackwards)
             {
-                if (currentSpeed1 > bottomSpeed)
+                if (car.CarSpeed > car.controller.bottomSpeed)
                 {
-                    currentSpeed1 -= versnelling;
-
+                    car.isBlockedForwards = false;
+                    car.CarSpeed -= car.controller.carAcceleration;
                 }
-                Canvas.SetTop(playerCars[1], Canvas.GetTop(playerCars[1]) - currentSpeed1);
+                CheckCarShared(car, ref car.isBlockedBackwards);
             }
-            if (autoRijden.moveUp1 == false && autoRijden.moveDown1 == false && currentSpeed1 >= bottomSpeed && currentSpeed1 <= topSpeed && currentSpeed1 != 0) 
+            else
             {
-                
-                if (currentSpeed1 < 0)
-                    currentSpeed1 = currentSpeed1 + versnelling; // als currentSpeed > 0
-                else if (currentSpeed1 > 0)
-                    currentSpeed1 = currentSpeed1 - versnelling; // als currentSeed < 0
-                Canvas.SetTop(playerCars[1], Canvas.GetTop(playerCars[1]) - currentSpeed1);
-            }
-            
-            /* if (moveLeft1 && playerCars.ContainsKey(1))
-             { 
-                 Canvas.SetLeft(playerCars[1], Canvas.GetLeft(playerCars[1]) - 5);
-                 ChangeAngle(playerCars[1], 90);
-             }
-             if (moveRight1 && playerCars.ContainsKey(1))
-             {
-                 Canvas.SetLeft(playerCars[1], Canvas.GetLeft(playerCars[1]) + 5);
-                 ChangeAngle(playerCars[1], -90);
-             }*/
-            // Player 2
-            if (autoRijden.moveUp2 && playerCars.ContainsKey(2))
-            {
-                Canvas.SetTop(playerCars[2], Canvas.GetTop(playerCars[2]) - 5);
-                ChangeAngle(playerCars[2], 0);
+                if (car.CarSpeed > 0.1f)
+                    car.CarSpeed -= car.controller.carAcceleration;
+                else if (car.CarSpeed < -0.1f)
+                    car.CarSpeed += car.controller.carAcceleration;
+                else car.CarSpeed = 0;
             }
 
-            if (autoRijden.moveDown2 && playerCars.ContainsKey(2))
-            {
-                Canvas.SetTop(playerCars[2], Canvas.GetTop(playerCars[2]) + 5);
-                ChangeAngle(playerCars[2], 180);
-            }
-            if (autoRijden.moveLeft2 && playerCars.ContainsKey(2))
-            {
-                Canvas.SetLeft(playerCars[2], Canvas.GetLeft(playerCars[2]) - 5);
-                ChangeAngle(playerCars[2], 90);
-            }
-            if (autoRijden.moveRight2 && playerCars.ContainsKey(2))
-            {
-                Canvas.SetLeft(playerCars[2], Canvas.GetLeft(playerCars[2]) + 5);
-                ChangeAngle(playerCars[2], -90);
-            }
-            // Player 3
-            if (autoRijden.moveUp3 && playerCars.ContainsKey(3))
-            {
-                Canvas.SetTop(playerCars[3], Canvas.GetTop(playerCars[3]) - 5);
-                ChangeAngle(playerCars[3], 0);
-            }
+            car.controller.carX += car.CarSpeed * Math.Cos(car.controller.carRotation);
+            car.controller.carY += car.CarSpeed * Math.Sin(car.controller.carRotation);
+            Canvas.SetLeft(car.Car, car.controller.carX);
+            Canvas.SetTop(car.Car, car.controller.carY);
 
-            if (autoRijden.moveDown3 && playerCars.ContainsKey(3))
-            {
-                Canvas.SetTop(playerCars[3], Canvas.GetTop(playerCars[3]) + 5);
-                ChangeAngle(playerCars[3], 180);
-            }
-            if (autoRijden.moveUp3 && playerCars.ContainsKey(3))
-            {
-                Canvas.SetLeft(playerCars[3], Canvas.GetLeft(playerCars[3]) - 5);
-                ChangeAngle(playerCars[3], 90);
-            }
-            if (autoRijden.moveRight3 && playerCars.ContainsKey(3))
-            {
-                Canvas.SetLeft(playerCars[3], Canvas.GetLeft(playerCars[3]) + 5);
-                ChangeAngle(playerCars[3], -90);
-            }
-            // Player 4
-            if (autoRijden.moveUp4 && playerCars.ContainsKey(4))
-            {
-                Canvas.SetTop(playerCars[4], Canvas.GetTop(playerCars[4]) - 5);
-                ChangeAngle(playerCars[4], 0);
-            }
-
-            if (autoRijden.moveDown4 && playerCars.ContainsKey(4))
-            {
-                Canvas.SetTop(playerCars[4], Canvas.GetTop(playerCars[4]) + 5);
-                ChangeAngle(playerCars[4], 180);
-            }
-            if (autoRijden.moveLeft4 && playerCars.ContainsKey(4))
-            {
-                Canvas.SetLeft(playerCars[4], Canvas.GetLeft(playerCars[4]) - 5);
-                ChangeAngle(playerCars[4], 90);
-            }
-            if (autoRijden.moveRight4 && playerCars.ContainsKey(4))
-            {
-                Canvas.SetLeft(playerCars[4], Canvas.GetLeft(playerCars[4]) + 5);
-                ChangeAngle(playerCars[4], -90);
-            }
+            var rotateTransform = new RotateTransform(car.controller.carRotation * (180 / Math.PI) - 270, car.Car.Width / 2, car.Car.Height / 2);
+            car.Car.RenderTransform = rotateTransform;
         }
         private void RaceScreenPage_SizeChanged(object sender, SizeChangedEventArgs e)
         {
             GameCanvas.Height = e.NewSize.Height;
             GameCanvas.Width = e.NewSize.Width;
 
-
             squareSize = (int)((float)GameCanvas.Width / 200f);
             GenerateLevel();
             LoadCircuitData();
             SetUpPlayersList();
         }
-        public DispatcherTimer timer = new DispatcherTimer();
         /// <summary>
         /// Display players in random position order
         /// </summary>
@@ -312,17 +282,48 @@ namespace ProjectGameInteraction2DRacingGame.Pages
                 {
                     for (int i = 0; i < recs[j].Count; i++)
                     {
-                        if (index! >= track.GetCircuit().Count - 1)
-                            recs[j][i].Fill = GetBrushColor(track.GetCircuit()[index].surfaceType);
+                        if (index! >= track.GetCircuit().Track.Count - 1)
+                            recs[j][i].Fill = GetBrushColor(track.GetCircuit().Track[index].surfaceType);
                         else
                         {
-                            if (track.GetCircuit()[index + 1].column == i && j == track.GetCircuit()[index + 1].row)
+                            if (track.GetCircuit().Track[index + 1].column == i && j == track.GetCircuit().Track[index + 1].row)
                                 index++;
-                            recs[j][i].Fill = GetBrushColor(track.GetCircuit()[index].surfaceType);
+                            recs[j][i].Fill = GetBrushColor(track.GetCircuit().Track[index].surfaceType);
                         }
                     }
                 }
             }
+        }
+        private bool IsCollisionWithRedBarrier(PlayerCar car, double newTop)
+        {
+            if (car.isBlockedForwards || car.isBlockedBackwards || newTop < 0 || newTop + car.Car.Height > GameCanvas.Height)
+                return true;
+
+            Rect carRect = new Rect(Canvas.GetLeft(car.Car), newTop, car.Car.Width, car.Car.Height);
+            foreach (var rect in recs)
+            {
+                foreach (var item in rect.Where(x => ((SolidColorBrush)x.Fill).Color == ((SolidColorBrush)GetBrushColor(CircuitSurfaces.Wall)).Color))
+                {
+                    Rect barrierRect = new Rect(Canvas.GetLeft(item), Canvas.GetTop(item), item.Width, item.Height);
+                    if (carRect.IntersectsWith(barrierRect))
+                        return true;                    
+                }
+            }
+            return false;
+        }
+
+        private void CheckCarShared(PlayerCar car, ref bool b)
+        {
+            Canvas.SetTop(car.Car, Canvas.GetTop(car.Car) - car.CarSpeed);
+
+            double newTop = Canvas.GetTop(car.Car) - car.CarSpeed;
+            if (IsCollisionWithRedBarrier(car, newTop))
+            {
+                car.CarSpeed = 0;
+                b = true;
+            }
+            else
+                Canvas.SetTop(car.Car, newTop);
         }
 
         Brush GetBrushColor(CircuitSurfaces type)
