@@ -22,8 +22,12 @@
     <system:String x:Key="circuit">CIRCUIT</system:String>
     <system:String x:Key="circuit_select">SELECTEER CIRCUIT</system:String>
     <!-- Player Setup -->
+    <system:String x:Key="player_title">SPELERS AANMAKEN</system:String>
     <system:String x:Key="player_remove">VERWIJDER SPELER</system:String>
     <system:String x:Key="player_add">VOEG SPELER TOE</system:String>
+    <!-- Player Setup - Component -->
+    <system:String x:Key="player_setup_name">Vul naam in</system:String>
+    <system:String x:Key="player_setup_ready">GEREED</system:String>
     <!-- Result Podium -->
     <system:String x:Key="podium_back">TERUG NAAR MENU</system:String>
     <system:String x:Key="podium_restart">HERSTART</system:String>
@@ -35,4 +39,6 @@
     <system:String x:Key="paused_resume">HERVATTEN</system:String>
     <system:String x:Key="paused_restart">HERSTARTEN</system:String>
     <system:String x:Key="paused_exit">RACE VERLATEN</system:String>
+    <!-- Category - Classes -->
+    <system:String x:Key="category_select">SELECTEER KLASSE</system:String>
 </ResourceDictionary>

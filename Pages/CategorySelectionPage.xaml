@@ -9,7 +9,7 @@
       Title="CategorySelectionPage">
 
     <Grid Height="Auto" Width="Auto">
-        <Label Content="SELECTEER KLASSE" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
+        <Label Content="{DynamicResource category_select}" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,25,0,0" VerticalAlignment="Top" HorizontalAlignment="Center"/>
         <ListView x:Name="KlasseListBox" 
           d:ItemsSource="{d:SampleData ItemCount=8}" 
           ScrollViewer.HorizontalScrollBarVisibility="Auto" 

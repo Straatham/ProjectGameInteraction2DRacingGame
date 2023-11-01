@@ -22,8 +22,12 @@
     <system:String x:Key="circuit">SIRKWY</system:String>
     <system:String x:Key="circuit_select">SELEKTEARJE SIRKWY</system:String>
     <!-- Player Setup -->
+    <system:String x:Key="player_title">SPELERS OANMEITSJE</system:String>
     <system:String x:Key="player_remove">FERWIDERJE SPILER</system:String>
     <system:String x:Key="player_add">FOEG SPILER TA</system:String>
+    <!-- Player Setup - Component -->
+    <system:String x:Key="player_setup_name">Folje do namme yn</system:String>
+    <system:String x:Key="player_setup_ready">KLEAR</system:String>
     <!-- Result Podium -->
     <system:String x:Key="podium_back">WEROM NEI MENU</system:String>
     <system:String x:Key="podium_restart">HARSTERT</system:String>
@@ -35,4 +39,6 @@
     <system:String x:Key="paused_resume">FERFOLGJE</system:String>
     <system:String x:Key="paused_restart">HARSTERTSJE</system:String>
     <system:String x:Key="paused_exit">RACE FERLITTE</system:String>
+    <!-- Category - Classes -->
+    <system:String x:Key="category_select">SELECTEARJE KLASSE</system:String>
 </ResourceDictionary>

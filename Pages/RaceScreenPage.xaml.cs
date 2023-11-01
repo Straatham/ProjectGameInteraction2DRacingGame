@@ -20,7 +20,6 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Windows.Threading;
 using Newtonsoft.Json;
-using System.IO;
 using static ProjectGameInteraction2DRacingGame.Components.LanguageManager;
 
 namespace ProjectGameInteraction2DRacingGame.Pages
