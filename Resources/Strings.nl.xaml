@@ -1,0 +1,44 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                     xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <!-- Uncategorized/Multiple Pages -->
+    <system:String x:Key="back">TERUG</system:String>
+    <system:String x:Key="save">OPSLAAN</system:String>
+    <!-- Main Page -->
+    <system:String x:Key="play">SPEEL</system:String>
+    <system:String x:Key="settings">INSTELLINGEN</system:String>
+    <system:String x:Key="leaderboard">RANGLIJST</system:String>
+    <system:String x:Key="exit">Verlaat het spel</system:String>
+    <!-- Settings - Language -->
+    <system:String x:Key="language">TAAL</system:String>
+    <!-- Settings - Sound -->
+    <system:String x:Key="sound_engine">VOLUME MOTOR GELUID</system:String>
+    <system:String x:Key="sound_music">VOLUME MUZIEK</system:String>
+    <system:String x:Key="sound_effects">VOLUME EFFECTEN</system:String>
+    <!-- Leaderboard -->
+    <system:String x:Key="leader_name">CIRCUIT NAAM (CATEGORIE 0)</system:String>
+    <system:String x:Key="leader_category">CATEGORIE</system:String>
+    <!-- Circuit Select -->
+    <system:String x:Key="circuit">CIRCUIT</system:String>
+    <system:String x:Key="circuit_select">SELECTEER CIRCUIT</system:String>
+    <!-- Player Setup -->
+    <system:String x:Key="player_title">SPELERS AANMAKEN</system:String>
+    <system:String x:Key="player_remove">VERWIJDER SPELER</system:String>
+    <system:String x:Key="player_add">VOEG SPELER TOE</system:String>
+    <!-- Player Setup - Component -->
+    <system:String x:Key="player_setup_name">Vul naam in</system:String>
+    <system:String x:Key="player_setup_ready">GEREED</system:String>
+    <!-- Result Podium -->
+    <system:String x:Key="podium_back">TERUG NAAR MENU</system:String>
+    <system:String x:Key="podium_restart">HERSTART</system:String>
+    <system:String x:Key="podium_result">RACE RESULTATEN</system:String>
+    <system:String x:Key="podium_fastest_lap">SNELSTE RONDE: INPUT HERE</system:String>
+    <system:String x:Key="podium_total_time">TOTALE RACE TIJD:</system:String>
+    <!-- Paused - Dialog -->
+    <system:String x:Key="paused_paused">GEPAUZEERD</system:String>
+    <system:String x:Key="paused_resume">HERVATTEN</system:String>
+    <system:String x:Key="paused_restart">HERSTARTEN</system:String>
+    <system:String x:Key="paused_exit">RACE VERLATEN</system:String>
+    <!-- Category - Classes -->
+    <system:String x:Key="category_select">SELECTEER KLASSE</system:String>
+</ResourceDictionary>

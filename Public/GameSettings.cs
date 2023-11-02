@@ -1,4 +1,5 @@
-﻿using System;
+﻿using ProjectGameInteraction2DRacingGame.Components;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -33,8 +34,7 @@ namespace ProjectGameInteraction2DRacingGame.Public
             set
             {
                 Translation = value;
-                if (OnTranslationVariableChange != null)
-                    OnTranslationVariableChange(Translation);
+                OnTranslationVariableChange?.Invoke(Translation);
             }
             get { return Translation; }
         }
@@ -60,6 +60,8 @@ namespace ProjectGameInteraction2DRacingGame.Public
         public static void SetTranslation(int translation = 0)
         {
             _Translation = translation;
+            var languageManager = LanguageManager.Instance;
+            languageManager.SetTitleTranslation();
         }
         public static int GetTranslation() => _Translation;
     }
