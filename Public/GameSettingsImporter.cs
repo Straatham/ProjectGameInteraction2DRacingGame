@@ -18,7 +18,7 @@ namespace ProjectGameInteraction2DRacingGame.Public
                 Directory.CreateDirectory(AppDomain.CurrentDomain.BaseDirectory + @"\Settings\");
                 File.Create(path);
             }
-            else
+            else //Empty file!!! Fails if exists!
             {
                 string[] bob = File.ReadAllLines(path);
                 GameSettings.SetMusicVolume(float.Parse(bob[0]));

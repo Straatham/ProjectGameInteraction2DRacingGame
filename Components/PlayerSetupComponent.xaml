@@ -15,7 +15,7 @@
                 <RowDefinition Height="100"/>
                 <RowDefinition Height="56"/>
             </Grid.RowDefinitions>
-            <TextBox x:Name="PlayerNameInput" Grid.Row="0" Text="Fill In Name" FontFamily="Raleway" VerticalContentAlignment="Center" FontSize="26" Foreground="White" Margin="50,00,50,0" Height="50" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FFB1B1B1">
+            <TextBox x:Name="PlayerNameInput" Grid.Row="0" Text="{DynamicResource player_setup_name}" FontFamily="Raleway" VerticalContentAlignment="Center" FontSize="26" Foreground="White" Margin="50,00,50,0" Height="50" BorderBrush="#FF1F1F1F" BorderThickness="2" Background="#FFB1B1B1">
                 <TextBox.Style>
                     <Style TargetType="{x:Type TextBox}">
                         <Setter Property="Visibility" Value="Visible"/>
@@ -81,7 +81,7 @@
                     </Style>
                 </ListView.ItemContainerStyle>
             </ListView>
-            <Button x:Name="Button_Ready" Grid.Row="3" Content="READY" Margin="0,0,0,0" Height="54" VerticalAlignment="Bottom" Background="#FF68BC40" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" FontSize="24" HorizontalAlignment="Center" Width="218">
+            <Button x:Name="Button_Ready" Grid.Row="3" Content="{DynamicResource player_setup_ready}" Margin="0,0,0,0" Height="54" VerticalAlignment="Bottom" Background="#FF68BC40" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" FontSize="24" HorizontalAlignment="Center" Width="218">
                 <Button.Effect>
                     <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
                 </Button.Effect>
