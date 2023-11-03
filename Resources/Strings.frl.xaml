@@ -37,7 +37,7 @@
     <!-- Paused - Dialog -->
     <system:String x:Key="paused_paused">PAUZEARRE</system:String>
     <system:String x:Key="paused_resume">FERFOLGJE</system:String>
-    <system:String x:Key="paused_restart">HARSTERTSJE</system:String>
+    <system:String x:Key="paused_restart">HERSTARTSJE</system:String>
     <system:String x:Key="paused_exit">RACE FERLITTE</system:String>
     <!-- Category - Classes -->
     <system:String x:Key="category_select">SELECTEARJE KLASSE</system:String>

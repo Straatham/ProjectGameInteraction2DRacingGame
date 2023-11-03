@@ -30,7 +30,7 @@
 
         </Grid>
 
-        <Button x:Name="Button_Terug" Content="TERUG" Margin="40,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Terug_Click" FontSize="24" HorizontalAlignment="Left" Width="218">
+        <Button x:Name="Button_Terug" Content="{DynamicResource back}" Margin="40,0,0,20" Height="54" VerticalAlignment="Bottom" Background="#FFA00000" BorderBrush="Black" Foreground="White" BorderThickness="0.5,1,1,1" FontFamily="Raleway" Click="Button_Terug_Click" FontSize="24" HorizontalAlignment="Left" Width="218">
             <Button.Effect>
                 <DropShadowEffect Direction="-90" BlurRadius="10" Color="#FF3C3C3C" RenderingBias="Performance" ShadowDepth="3"/>
             </Button.Effect>
@@ -40,7 +40,7 @@
                 </Style>
             </Button.Resources>
         </Button>
-        <Label Content="SPEL INSTRUCTIES" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
+        <Label Content="{DynamicResource instruct_title}" FontSize="42" HorizontalContentAlignment="Center" FontFamily="Raleway" Foreground="White" Margin="0,37,0,0" VerticalAlignment="Top" HorizontalAlignment="Center" Width="1920"/>
 
 
     </Grid>

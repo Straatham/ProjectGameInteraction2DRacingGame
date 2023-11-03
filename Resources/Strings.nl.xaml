@@ -41,4 +41,6 @@
     <system:String x:Key="paused_exit">RACE VERLATEN</system:String>
     <!-- Category - Classes -->
     <system:String x:Key="category_select">SELECTEER KLASSE</system:String>
+    <!-- Instructions -->
+    <system:String x:Key="instruct_title">SPEL INSTRUCTIES</system:String>
 </ResourceDictionary>

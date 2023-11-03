@@ -41,4 +41,6 @@
     <system:String x:Key="paused_exit">ABANDON RACE</system:String>
     <!-- Category - Classes -->
     <system:String x:Key="category_select">SELECT CLASS</system:String>
+    <!-- Instructions -->
+    <system:String x:Key="instruct_title">GAME INSTRUCTIONS</system:String>
 </ResourceDictionary>

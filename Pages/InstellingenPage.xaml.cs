@@ -34,6 +34,7 @@ namespace ProjectGameInteraction2DRacingGame.Pages
             InitializeComponent();
             Loaded += LoadedPage;
             Loaded += NavigationService_Navigated;
+            LanguageManager.Instance.LanguageSwitchRequested += OnLanguageSwitchRequested;
         }
 
         private void NavigationService_Navigated(object sender, RoutedEventArgs e)
@@ -55,9 +56,9 @@ namespace ProjectGameInteraction2DRacingGame.Pages
 
             return "nl"; // Stel een standaard taalcode in als er niets is opgeslagen
         }
-        public void OnLanguageSwitchRequested()
+        public void OnLanguageSwitchRequested(string? languageCode = null)
         {
-            string languageCode = LoadSelectedLanguage();
+            languageCode ??= LoadSelectedLanguage();
             ResourceDictionary dict = new()
             {
                 Source = new Uri($"../Resources/Strings.{languageCode}.xaml", UriKind.Relative)
